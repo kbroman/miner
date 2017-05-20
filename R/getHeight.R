@@ -8,11 +8,17 @@
 #'
 #' @return Integer with height of block just above the last bit of non-air.
 #'
+#' @examples
+#' \dontrun{
+#' mc <- mc_connect()
+#' getHeight(0,0)
+#' }
+#'
 #' @export
 
 getHeight <- function(con, x,z)
 {
     as.integer(
-        mc_sendreceive(paste0("world.getHeight(", as.integer(x), ",", as.integer(z), ")"), con)
+        mc_sendreceive(paste0("world.getHeight(", round(x), ",", round(z), ")"), con)
     )
 }

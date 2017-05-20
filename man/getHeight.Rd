@@ -19,3 +19,10 @@ Integer with height of block just above the last bit of non-air.
 \description{
 Get height of the world at a given position
 }
+\examples{
+\dontrun{
+mc <- mc_connect()
+getHeight(0,0)
+}
+
+}
