@@ -28,7 +28,7 @@ setBlock <- function(con, x,y,z, block_id, block_style=0)
     block_id <- round(block_id)
     block_style <- round(block_style)
 
-    if(block_style)
+    if(!is.null(block_style) && !is.na(block_style) && block_style>0)
         mc_send(merge_data("world.setBlock", x, y, z, block_id, block_style), con)
     else
         mc_send(merge_data("world.setBlock", x, y, z, block_id), con)
