@@ -23,10 +23,11 @@ mc_send <- function(text, con)
 
 mc_receive <- function(con)
 {
-    readLines(con, encoding="CP437")
+    readLines(con, n=1L, encoding="CP437")
 }
 
-mc_sendreceive <- function(text, con, delay=0.1)
+# trick seems to be waiting long enough for the response, but not too long
+mc_sendreceive <- function(text, con, delay=0.02)
 {
     mc_send(text, con)
 
