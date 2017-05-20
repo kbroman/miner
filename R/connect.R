@@ -38,6 +38,8 @@ mc_sendreceive <- function(text, con, delay=0.02)
 
 merge_data <- function(text, ...)
 {
+    dots <- list(...)
+
     paste0(text, "(",
-           paste(unlist(...), collapse=","), ")")
+           paste(unlist(dots), collapse=","), ")")
 }
