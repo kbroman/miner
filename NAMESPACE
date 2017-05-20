@@ -2,3 +2,4 @@
 
 export(getHeight)
 export(mc_connect)
+export(setBlock)
