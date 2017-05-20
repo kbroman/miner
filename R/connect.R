@@ -11,7 +11,7 @@
 
 mc_connect <- function(address="localhost", port=4711)
 {
-    socketConnection(host=address, port, open="r+b", encoding="CP437")
+    socketConnection(host=address, port, open="r+b", encoding="CP437", blocking=TRUE)
 }
 
 
@@ -26,8 +26,11 @@ mc_receive <- function(con)
     readLines(con, encoding="CP437")
 }
 
-mc_sendreceive <- function(text, con)
+mc_sendreceive <- function(text, con, delay=0.1)
 {
     mc_send(text, con)
+
+    if(delay > 0) Sys.sleep(delay)
+
     mc_receive(con)
 }
