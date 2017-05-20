@@ -19,6 +19,6 @@
 getHeight <- function(con, x,z)
 {
     as.integer(
-        mc_sendreceive(paste0("world.getHeight(", round(x), ",", round(z), ")"), con)
+        mc_sendreceive(merge_data("world.getHeight", x, z), con)
     )
 }
