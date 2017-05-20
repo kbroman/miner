@@ -1,10 +1,10 @@
 Package: miner
-Title: Control minecraft with RaspberryJuice API
+Title: Control Minecraft with RaspberryJuice API
 Version: 0.1.0
 Authors@R: person("Karl", "Broman", email = "kbroman@biostat.wisc.edu", role = c("aut", "cre"))
 Description: Following the code in py3minepi, allows one to connect to the minecraft from R.
 Depends: R (>= 3.4.0)
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/kbroman/miner
