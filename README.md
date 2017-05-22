@@ -7,4 +7,4 @@ connection to the
 [Minecraft API](http://www.stuffaboutcode.com/p/minecraft-api-reference.html)
 using [RaspberryJuice](https://dev.bukkit.org/projects/raspberryjuice)
 and either [Spigot](https://www.spigotmc.org/) or
-[Minecraft:Pi](http://wiki.vg/Minecraft_Pi_Protocol).
+[Minecraft:Pi](https://minecraft.net/en-us/edition/pi/)
