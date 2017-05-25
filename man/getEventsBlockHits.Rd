@@ -6,6 +6,9 @@
 \usage{
 getEventsBlockHits()
 }
+\value{
+\code{data.frame} of coordinates, block type and player id
+}
 \description{
 Note, that only right clicks with an Iron sword are logged.
 }
