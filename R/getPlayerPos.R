@@ -9,20 +9,20 @@
 #' mc_connect()
 #' getPlayerTilePos()
 #' 
-#' example_entity <- getPlayerIds()[1]
-#' getPlayerPos(id = example_entity)
+#' example_playerId <- getPlayerIds()[1]
+#' getPlayerPos(example_playerId)
 #' }
 #'
 #' @seealso [getPlayerPos]
 #'
 #' @export
 
-getPlayerTilePos <- function(id = NULL)
+getPlayerTilePos <- function(player_id = NULL)
 {
-  if(is.null(id)){
+  if(is.null(player_id)){
     z <- mc_sendreceive("player.getTile()")
   } else {
-    z <- mc_sendreceive(merge_data("entity.getTile", id))
+    z <- mc_sendreceive(merge_data("entity.getTile", player_id))
   }
     
     as.numeric( strsplit(z, ",")[[1]] )
@@ -34,7 +34,7 @@ getPlayerTilePos <- function(id = NULL)
 #' Get entity position. The default is to get the player position, but other
 #' positions can be gotten using the \code{id} argument.
 #'
-#' @param id  Entity id
+#' @param player_id  Entity id
 #' @return vector (x,y,z)
 #'
 #' @examples
@@ -43,7 +43,7 @@ getPlayerTilePos <- function(id = NULL)
 #' getPlayerPos()
 #'
 #' example_entity <- getPlayerIds()[1]
-#' getPlayerPos(id = example_entity)
+#' getPlayerPos(example_entity)
 #' }
 #'
 #' @seealso [getPlayerPos]
@@ -51,10 +51,10 @@ getPlayerTilePos <- function(id = NULL)
 #' @export
 getPlayerPos <- function(id = NULL)
 {
-  if(is.null(id)){
+  if(is.null(player_id)){
     z <- mc_sendreceive("player.getPos()")
   } else {
-    z <- mc_sendreceive(merge_data("entity.getPos", id))
+    z <- mc_sendreceive(merge_data("entity.getPos", player_id))
   }
     as.numeric( strsplit(z, ",")[[1]] )
 }
