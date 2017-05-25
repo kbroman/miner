@@ -52,22 +52,34 @@ getBlock <- function(x,y,z, include_style = TRUE)
 
 #' Determine block types in a cuboid
 #'
-#' Determine block types in a cuboid defined by (x0,y0,z0) to (x1,y1,z1)
+#' Determine block types in a cuboid for which one corner is at 
+#' the position (x0, y0, z0) and the opposite corner is at the position 
+#' (x1, y1, z1).
 #'
-#' @param x0 north/south position
-#' @param y0 height
-#' @param z0 east/west position
-#' @param x1 north/south position
-#' @param y1 height
-#' @param z1 east/west position
+#' @param x0 A numeric value giving the starting north / south position
+#'    of the cuboid.
+#' @param y0 A numeric value giving the starting height
+#'    of the cuboid.
+#' @param z0 A numeric value giving the starting east / west position
+#'    of the cuboid.
+#' @param x1 A numeric value giving the north / south position of 
+#'    the opposite corner of the cuboid.
+#' @param y1 A numeric value giving the ending height of 
+#'    the opposite corner of the cuboid.
+#' @param z1 A numeric value giving the ending east / west position of 
+#'    the opposite corner of the cuboid.
 #'
-#' @return An array of integers of block IDs
+#' @return An 3-D array of integers where each integer gives the ID of the 
+#'    type of a block in the cuboid. 
 #'
 #' @examples
 #' \dontrun{
 #' mc_connect()
 #' h <- getHeight(0,0)
-#' getBlocks(0,h,0, 0, h+5, 0)
+#' block_types <- getBlocks(0, h, 0, 1, h + 3, 2)
+#' block_types
+#' 
+#' find_item(id = block_types[1, 1, 1])
 #' }
 #'
 #' @export
