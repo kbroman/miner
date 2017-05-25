@@ -18,7 +18,7 @@
 #'     or whatever style was provided. If `style` is NULL, we return
 #'     all rows with that ID.
 #'
-#' @importFrom utils data
+#' @importFrom utils data globalVariables
 #' @export
 find_item <-
     function(name=NULL, id=NULL, style=0)
@@ -60,3 +60,5 @@ find_item <-
         }
     }
 }
+
+utils::globalVariables("mc_items", "miner") # avoid Note in R CMD check
