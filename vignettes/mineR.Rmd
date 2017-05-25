@@ -1,0 +1,48 @@
+---
+title: "Learning to program with mineR"
+author: "David Smith"
+date: "May 25, 2017"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Learn to program in Minecraft with mineR}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+The mineR package provides a simple interface to the Minecraft world. Use R functions to connet with a MineCraft server and control the world within.
+
+
+The purpose of this package is to teach new programmers about R. See the effect of your programs
+directly in the Mindcraft world!
+
+## About Minecraft
+
+Info on getting Minecraft and setting up a server
+
+# Your first mineR adventure
+
+Quick tutorial demonstrating basic Minecraft commands
+
+# mineR commands
+
+Overview of tools
+
+# Suggestions for writing your own programs with mineR
+
+Put your picture on a Minecraft wall!
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
