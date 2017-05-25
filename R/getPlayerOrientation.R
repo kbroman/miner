@@ -7,7 +7,6 @@
 #'
 #' Get player rotation from current position
 #'
-#' @param con Socket connection to minecraft server
 #' @return double of length 1 with rotatio
 #'
 #'
@@ -31,8 +30,6 @@ getPlayerRotation <- function()
 #'
 #' Return player pitch
 #'
-#' @param con Socket connection to minecraft server 
-#'
 #' @return a vector double of length one with pitch
 #' @export
 #'
@@ -51,8 +48,6 @@ getPitch <- function() {
 #' Get direction vector
 #'
 #' Get direction vector
-#'
-#' @param con Socket connection to minecraft server
 #'
 #' @return A vector of length 3 with coordinates of current direction 
 #' @export
