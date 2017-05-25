@@ -2,7 +2,6 @@
 #'
 #' Get height of the world at a given position
 #'
-#' @param con Socket connection to minecraft server
 #' @param x north/south position
 #' @param z east/west position
 #'
@@ -16,9 +15,9 @@
 #'
 #' @export
 
-getHeight <- function(con, x,z)
+getHeight <- function(x,z)
 {
     as.integer(
-        mc_sendreceive(merge_data("world.getHeight", x, z), con)
+        mc_sendreceive(merge_data("world.getHeight", x, z))
     )
 }
