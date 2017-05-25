@@ -1,22 +1,32 @@
 #' Find item by name or ID/style
 #'
-#' Find item by name or ID/style
+#' Find a Minecraft item by name or ID. If querying an item by ID, the search
+#' can also specify item style. 
 #'
-#' @param name Name of an item
-#' @param id ID of an item (provide either `name` or `id`, not both)
-#' @param style Style of an item (used only if `id` is provided)
+#' @param name Character string with the name of a Minecraft item (specify 
+#'    either \code{name} or \code{id}, not both)
+#' @param id A numeric or character string with the ID of a Minecraft item 
+#'    (specify either \code{name} or \code{id}, not both)
+#' @param style A numeric or character string with the style of a Minecraft 
+#'    item (use this argument only if querying by \code{id} is provided)
 #'
-#' @return Data frame with a row or set of rows from \code{\link{mc_items}}.
+#' @return Data frame with a row or set of rows from \code{\link{mc_items}} that 
+#'    match the queried name, ID, and / or style.
 #'
-#' @details If `name` is provided, we first look to see whether there
-#'     is an exact match to the `name` column in `mc_items`. If there
+#' @details If \code{name} is provided, we first look to see whether there
+#'     is an exact match to the `name` column in \code{mc_items}. If there
 #'     is, we return that row. If not, we use \code{\link[base]{grep}}
-#'     with `ignore.case=TRUE` and return matching rows.
+#'     with \code{ignore.case=TRUE} and return matching rows.
 #'
-#'     If instead `id` is provided, we return the row with that id.
-#'     The default is to return the row with that ID and `style==0`,
-#'     or whatever style was provided. If `style` is NULL, we return
+#'     If instead \code{id} is provided, we return the row with that id.
+#'     The default is to return the row with that ID and \code{style==0},
+#'     or whatever style was provided. If \code{style} is NULL, we return
 #'     all rows with that ID.
+#'     
+#' @examples 
+#' find_item(name = "Oak")
+#' find_item(id = 5)
+#' find_item(id = 5, style = 5)
 #'
 #' @importFrom utils data globalVariables
 #' @export
