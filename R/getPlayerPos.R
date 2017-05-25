@@ -2,23 +2,21 @@
 #'
 #' Get player tile position
 #'
-#' @param con Socket connection to minecraft server
-#'
 #' @return vector (x,y,z)
 #'
 #' @examples
 #' \dontrun{
 #' mc <- mc_connect()
-#' getPlayerTilePos(mc)
+#' getPlayerTilePos()
 #' }
 #'
 #' @seealso [getPlayerPos]
 #'
 #' @export
 
-getPlayerTilePos <- function(con)
+getPlayerTilePos <- function()
 {
-    z <- mc_sendreceive("player.getTile()", con)
+    z <- mc_sendreceive("player.getTile()")
     as.numeric( strsplit(z, ",")[[1]] )
 }
 
@@ -27,22 +25,20 @@ getPlayerTilePos <- function(con)
 #'
 #' Get player position
 #'
-#' @param con Socket connection to minecraft server
-#'
 #' @return vector (x,y,z)
 #'
 #' @examples
 #' \dontrun{
 #' mc <- mc_connect()
-#' getPlayerPos(mc)
+#' getPlayerPos()
 #' }
 #'
 #' @seealso [getPlayerPos]
 #'
 #' @export
 
-getPlayerPos <- function(con)
+getPlayerPos <- function()
 {
-    z <- mc_sendreceive("player.getPos()", con)
+    z <- mc_sendreceive("player.getPos()")
     as.numeric( strsplit(z, ",")[[1]] )
 }
