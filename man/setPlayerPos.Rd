@@ -4,7 +4,7 @@
 \alias{setPlayerPos}
 \title{Change player position}
 \usage{
-setPlayerPos(x, y, z, id = NULL)
+setPlayerPos(x, y, z, player_id = NULL)
 }
 \arguments{
 \item{x}{north/south position}
@@ -13,14 +13,14 @@ setPlayerPos(x, y, z, id = NULL)
 
 \item{z}{east/west position}
 
-\item{id}{Entity id}
+\item{player_id}{Entity id}
 }
 \value{
 None.
 }
 \description{
 Move player to position (x,y,z). The default is to move your player, but
-other entities can also be moved using the \code{id} argument.
+other entities can also be moved using the \code{player_id} argument.
 }
 \examples{
 \dontrun{
@@ -29,9 +29,9 @@ p <- getPlayerPos()
 setPlayerPos(mc, 0, p + 5, 0)
 
 example_entity <- getPlayerIds()[1]
-getPlayerPos(id = example_entity)
-setPlayerPos(0, p, 0, id = example_entity)
-getPlayerPos(id = example_entity)
+getPlayerPos(example_entity)
+setPlayerPos(0, p, 0, example_entity)
+getPlayerPos(example_entity)
 }
 
 }
