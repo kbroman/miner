@@ -29,6 +29,13 @@ mc_connect <- function(address = "localhost", port = 4711)
 }
 
 
+#' Close cached connection to Minecraft Server
+#' @export
+mc_close <- function() {
+    close(con)
+}
+
+
 mc_send <- function(text)
 {
     writeLines(text, con=mc_connection(), useBytes=TRUE)
