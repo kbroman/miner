@@ -7,10 +7,11 @@
 chatPost(text)
 }
 \arguments{
-\item{text}{string}
+\item{text}{A character string with the message you would like
+to post.}
 }
 \description{
-Post to chat
+Post a message to Minecraft chat.
 }
 \examples{
 \dontrun{
@@ -19,6 +20,7 @@ chatPost('foobar')
 ## Post the first few digits of pi to chat
 for (p in strsplit(as.character(round(pi, 4)), '')[[1]]) {
     chatPost(p)
+  }
 }
-}
+
 }
