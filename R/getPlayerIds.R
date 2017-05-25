@@ -9,7 +9,7 @@
 #' @examples
 #' \dontrun{
 #' mc_connect()
-#' getPlayerIds(mc)
+#' getPlayerIds()
 #' }
 #'
 #' @export
