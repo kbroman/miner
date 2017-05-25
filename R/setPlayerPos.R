@@ -50,16 +50,23 @@ setPlayerPos <- function(x,y,z, id = NULL)
 #' mc_connect()
 #' p <- getPlayerTilePos()
 #' setPlayerTilePos(0, p + 5, 0)
+#' 
+#' example_entity <- getPlayerIds()[1]
+#' setPlayerTilePos(0, p, 0, id = example_entity)
 #' }
 #'
 #' @export
 #'
-setPlayerTilePos <- function(x,y,z)
+setPlayerTilePos <- function(x,y,z, id = NULL)
 {
   x <- round(x)
   y <- round(y)
   z <- round(z)
 
-  mc_send(merge_data("player.setTile", x, y, z))
+  if(is.null(id)){
+    mc_send(merge_data("player.setTile", x, y, z))    
+  } else {
+    mc_send(merge_data("entity.setTile", x, y, z, id))        
+  }
 
 }
