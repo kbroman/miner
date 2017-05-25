@@ -4,23 +4,30 @@
 \alias{setPlayerPos}
 \title{Change player position}
 \usage{
-setPlayerPos(x, y, z, player_id = NULL)
+setPlayerPos(x, y, z, player_id = NULL, tile = FALSE)
 }
 \arguments{
-\item{x}{north/south position}
+\item{x}{A numeric string with north/south position}
 
-\item{y}{height}
+\item{y}{A numeric string with height}
 
-\item{z}{east/west position}
+\item{z}{A numeric string with east/west position}
 
-\item{player_id}{Entity id}
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+current players using \code{\link{getPlayerIds}}.}
+
+\item{tile}{Logical value specifying whether to truncate the output position to 
+an integer (i.e., the location of the tile on which the player is 
+positioned).}
 }
 \value{
 None.
 }
 \description{
 Move player to position (x,y,z). The default is to move your player, but
-other entities can also be moved using the \code{player_id} argument.
+other entities can also be moved using the \code{player_id} argument. If
+the \code{tile} argument is set to \code{TRUE}, the player will be moved to
+the position specified by truncating the specified x, y, and z to integers.
 }
 \examples{
 \dontrun{
