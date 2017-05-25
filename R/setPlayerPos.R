@@ -39,7 +39,6 @@ setPlayerPos <- function(x,y,z, id = NULL)
 #'
 #' Move player to tile position (x,y,z)
 #'
-#' @param con Socket connection to minecraft server
 #' @param x north/south position
 #' @param y height
 #' @param z east/west position
@@ -48,19 +47,19 @@ setPlayerPos <- function(x,y,z, id = NULL)
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
-#' p <- getPlayerPost(mc)
-#' setPlayerPos(mc, 0, p + 5, 0)
+#' mc_connect()
+#' p <- getPlayerTilePos()
+#' setPlayerTilePos(0, p + 5, 0)
 #' }
 #'
 #' @export
 #'
-setPlayerTilePos <- function(con, x,y,z)
+setPlayerTilePos <- function(x,y,z)
 {
   x <- round(x)
   y <- round(y)
   z <- round(z)
 
-  mc_send(merge_data("player.setTile", x, y, z), con)
+  mc_send(merge_data("player.setTile", x, y, z))
 
 }
