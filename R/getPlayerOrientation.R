@@ -66,21 +66,34 @@ getPlayerPitch <- function(player_id = NULL) {
 }
 
 
-#' Get direction vector
+#' Get player direction as unit vector
 #'
-#' Get a vector describing the current direction a player is facing. 
+#' Returns a unit vector describing the current direction a player is facing.
+#' The default is to get the direction for the current player, but the directions
+#' of other players can be gotten using the \code{player_id} argument.  
 #'
-#' @return A numeric vector of length 3 with coordinates of current direction 
-#' @export
+#' @return A numeric vector of length 3 with coordinates of the player's current 
+#'    direction as a unit vector. 
+#'    
+#' @inheritParams getPlayerPos
 #'
 #' @examples
 #' \dontrun{
-#' getDirection()
+#' getPlayerDirection()
+#' 
+#' example_playerId <- getPlayerIds()[1]
+#' getPlayerDirection(example_playerId) 
 #' }
-getPlayerDirection <- function() {
+#' 
+#' @export
+getPlayerDirection <- function(player_id = NULL) {
   
-  z <- mc_sendreceive("player.getDirection()")
+  if(is.null(player_id)){
+    z <- mc_sendreceive("player.getDirection()")
+  } else {
+    z <- mc_sendreceive(merge_data("entity.getDirection", player_id))    
+  }
+  
   as.numeric(strsplit(z, ",")[[1]])
-  
   
 }
