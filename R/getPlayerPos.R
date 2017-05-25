@@ -2,47 +2,51 @@
 #'
 #' Get player tile position
 #'
-#' @param con Socket connection to minecraft server
-#'
 #' @return vector (x,y,z)
 #'
 #' @examples
 #' \dontrun{
 #' mc <- mc_connect()
-#' getPlayerTilePos(mc)
+#' getPlayerTilePos()
 #' }
 #'
 #' @seealso [getPlayerPos]
 #'
 #' @export
 
-getPlayerTilePos <- function(con)
+getPlayerTilePos <- function()
 {
-    z <- mc_sendreceive("player.getTile()", con)
+    z <- mc_sendreceive("player.getTile()")
     as.numeric( strsplit(z, ",")[[1]] )
 }
 
 
 #' Get player position
 #'
-#' Get player position
+#' Get entity position. The default is to get the player position, but other
+#' positions can be gotten using the \code{id} argument.
 #'
-#' @param con Socket connection to minecraft server
-#'
+#' @param id  Entity id
 #' @return vector (x,y,z)
 #'
 #' @examples
 #' \dontrun{
 #' mc <- mc_connect()
-#' getPlayerPos(mc)
+#' getPlayerPos()
+#'
+#' example_entity <- getPlayerIds()[1]
+#' getPlayerPos(id = example_entity)
 #' }
 #'
 #' @seealso [getPlayerPos]
 #'
 #' @export
-
-getPlayerPos <- function(con)
+getPlayerPos <- function(id = NULL)
 {
-    z <- mc_sendreceive("player.getPos()", con)
+  if(is.null(id)){
+    z <- mc_sendreceive("player.getPos()")
+  } else {
+    z <- mc_sendreceive(merge_data("entity.getPos", id))
+  }
     as.numeric( strsplit(z, ",")[[1]] )
 }

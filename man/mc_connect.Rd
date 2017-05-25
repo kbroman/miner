@@ -12,7 +12,7 @@ mc_connect(address = "localhost", port = 4711)
 \item{port}{The port to use for the connection}
 }
 \value{
-A socket connection to the minecraft server, hopefully.
+Nothing returned, the connection is cached within the package namespace.
 }
 \description{
 Create connection to minecraft server

@@ -4,11 +4,9 @@
 \alias{setBlock}
 \title{Place a block}
 \usage{
-setBlock(con, x, y, z, block_id, block_style = 0)
+setBlock(x, y, z, block_id, block_style = 0)
 }
 \arguments{
-\item{con}{Socket connection to minecraft server}
-
 \item{x}{north/south position}
 
 \item{y}{height}
@@ -28,8 +26,8 @@ Place a block at position (x,y,z) by type id
 \examples{
 \dontrun{
 mc <- mc_connect()
-h <- getHeight(mc, 0,0)
-setBlock(mc,  0,h,0,  46)
+h <- getHeight(0, 0)
+setBlock(0, h, 0, 46)
 }
 
 }
