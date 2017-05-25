@@ -1,18 +1,24 @@
 #' Determine block type at some position
 #'
-#' Determine block type at position (x,y,z)
+#' Determine the type of the block at position x (north / south),
+#' y (height), z (east / west).
 #'
-#' @param x north/south position
-#' @param y height
-#' @param z east/west position
+#' @param x A numeric string with north/south position
+#' @param y A numeric string with height
+#' @param z A numeric string with east/west position
 #'
-#' @return None.
+#' @return A character string with the ID of the block type at the
+#'    position (x, y, z). You can use \code{\link{find_item}} to 
+#'    find the name of the block type based on this returned ID.
 #'
 #' @examples
 #' \dontrun{
 #' mc_connect()
 #' h <- getHeight(0,0)
-#' getBlock(0,h,0)
+#' b_type <- getBlock(0,h,0)
+#' b_type
+#' 
+#' find_item(id = b_type)
 #' }
 #'
 #' @export

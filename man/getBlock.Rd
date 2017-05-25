@@ -7,23 +7,29 @@
 getBlock(x, y, z)
 }
 \arguments{
-\item{x}{north/south position}
+\item{x}{A numeric string with north/south position}
 
-\item{y}{height}
+\item{y}{A numeric string with height}
 
-\item{z}{east/west position}
+\item{z}{A numeric string with east/west position}
 }
 \value{
-None.
+A character string with the ID of the block type at the
+   position (x, y, z). You can use \code{\link{find_item}} to 
+   find the name of the block type based on this returned ID.
 }
 \description{
-Determine block type at position (x,y,z)
+Determine the type of the block at position x (north / south),
+y (height), z (east / west).
 }
 \examples{
 \dontrun{
 mc_connect()
 h <- getHeight(0,0)
-getBlock(0,h,0)
+b_type <- getBlock(0,h,0)
+b_type
+
+find_item(id = b_type)
 }
 
 }
