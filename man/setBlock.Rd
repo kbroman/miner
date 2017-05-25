@@ -4,18 +4,20 @@
 \alias{setBlock}
 \title{Place a block}
 \usage{
-setBlock(x, y, z, block_id, block_style = 0)
+setBlock(x, y, z, id, style = 0)
 }
 \arguments{
-\item{x}{north/south position}
+\item{x}{A numeric string with north/south position}
 
-\item{y}{height}
+\item{y}{A numeric string with height}
 
-\item{z}{east/west position}
+\item{z}{A numeric string with east/west position}
 
-\item{block_id}{block id}
+\item{id}{A numeric or character string with the ID of a Minecraft item 
+(specify either \code{name} or \code{id}, not both)}
 
-\item{block_style}{block_style}
+\item{style}{A numeric or character string with the style of a Minecraft 
+item (use this argument only if querying by \code{id} is provided)}
 }
 \value{
 None.

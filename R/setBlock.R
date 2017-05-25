@@ -2,11 +2,8 @@
 #'
 #' Place a block at position (x,y,z) by type id
 #'
-#' @param x north/south position
-#' @param y height
-#' @param z east/west position
-#' @param block_id block id
-#' @param block_style block_style
+#' @inheritParams find_item
+#' @inheritParams getBlock
 #'
 #' @return None.
 #'
@@ -19,17 +16,17 @@
 #'
 #' @export
 
-setBlock <- function(x, y, z, block_id, block_style=0)
+setBlock <- function(x, y, z, id, style=0)
 {
     x <- round(x)
     y <- round(y)
     z <- round(z)
-    block_id <- round(block_id)
-    block_style <- round(block_style)
+    id <- round(id)
+    style <- round(style)
 
-    if(is.null(block_style) || is.na(block_style)) block_style <- 0
+    if(is.null(style) || is.na(style)) style <- 0
 
-    mc_send(merge_data("world.setBlock", x, y, z, block_id, block_style))
+    mc_send(merge_data("world.setBlock", x, y, z, id, style))
 
 }
 
