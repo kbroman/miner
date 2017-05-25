@@ -63,7 +63,6 @@ getBlockWithData <- function(x,y,z)
 #'
 #' Determine block types in a cuboid defined by (x0,y0,z0) to (x1,y1,z1)
 #'
-#' @param con Socket connection to minecraft server
 #' @param x0 north/south position
 #' @param y0 height
 #' @param z0 east/west position
@@ -75,14 +74,14 @@ getBlockWithData <- function(x,y,z)
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
-#' h <- getHeight(mc, 0,0)
-#' getBlocks(mc,  0,h,0, 0, h+5, 0)
+#' mc_connect()
+#' h <- getHeight(0,0)
+#' getBlocks(0,h,0, 0, h+5, 0)
 #' }
 #'
 #' @export
 
-getBlocks <- function(con, x0,y0,z0, x1,y1,z1)
+getBlocks <- function(x0,y0,z0, x1,y1,z1)
 {
     x0 <- round(x0)
     y0 <- round(y0)
@@ -90,7 +89,7 @@ getBlocks <- function(con, x0,y0,z0, x1,y1,z1)
     x1 <- round(x1)
     y1 <- round(y1)
     z1 <- round(z1)
-    result <- mc_sendreceive(merge_data("world.getBlocks", x0, y0, z0, x1, y1, z1), con)
+    result <- mc_sendreceive(merge_data("world.getBlocks", x0, y0, z0, x1, y1, z1))
     result <- as.numeric(strsplit(result, ",")[[1]])
     result <- array(result, dim=c(z1-z0+1, x1-x0+1, y1-y0+1))
     result <- aperm(result, c(2,3,1))
