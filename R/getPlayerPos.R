@@ -31,7 +31,7 @@ getPlayerTilePos <- function()
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
+#' mc_connect()
 #' getPlayerPos()
 #'
 #' example_entity <- getPlayerIds()[1]
