@@ -38,7 +38,6 @@ setBlock <- function(x, y, z, block_id, block_style=0)
 #'
 #' Place blocks in cuboid defined by (x0,y0,z0) and (x1,y1,z1)
 #'
-#' @param con Socket connection to minecraft server
 #' @param x0 north/south position
 #' @param y0 height
 #' @param z0 east/west position
@@ -52,14 +51,14 @@ setBlock <- function(x, y, z, block_id, block_style=0)
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
-#' h <- getHeight(mc, 0,0)
-#' setBlock(mc,  0,h,0,  46)
+#' mc_connect()
+#' h <- getHeight(0,0)
+#' setBlock(0,h,0,  46)
 #' }
 #'
 #' @export
 
-setBlocks <- function(con, x0,y0,z0, x1,y1,z1,  block_id)
+setBlocks <- function(x0,y0,z0, x1,y1,z1,  block_id)
 {
     x0 <- round(x0)
     y0 <- round(y0)
@@ -69,6 +68,6 @@ setBlocks <- function(con, x0,y0,z0, x1,y1,z1,  block_id)
     z1 <- round(z1)
     block_id <- round(block_id)
 
-    mc_send(merge_data("world.setBlocks", x0, y0, z0, x1, y1, z1, block_id), con)
+    mc_send(merge_data("world.setBlocks", x0, y0, z0, x1, y1, z1, block_id))
 
 }
