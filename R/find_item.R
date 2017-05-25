@@ -28,10 +28,14 @@
 #' find_item(id = 5)
 #' find_item(id = 5, style = 5)
 #'
+#' @importFrom utils data
 #' @export
 find_item <-
     function(name=NULL, id=NULL, style=0)
 {
+    # load the data
+    utils::data("mc_items", envir=environment())
+
     if(is.null(name) && is.null(id))
         stop("Provide either name or id")
 
