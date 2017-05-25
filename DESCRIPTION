@@ -13,10 +13,11 @@ Authors@R: c(
 Description: Following the code in py3minepi, allows one to connect to the minecraft from R.
 Depends: R (>= 3.1.0)
 Imports: stats, utils
-Suggests: testthat
+Suggests: testthat, knitr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/kbroman/miner
 BugReports: https://github.com/kbroman/miner/issues
+VignetteBuilder: knitr
 RoxygenNote: 6.0.1

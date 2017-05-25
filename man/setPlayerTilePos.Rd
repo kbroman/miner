@@ -12,6 +12,8 @@ setPlayerTilePos(x, y, z, player_id = NULL)
 \item{y}{height}
 
 \item{z}{east/west position}
+
+\item{player_id}{Entity id}
 }
 \value{
 None.
