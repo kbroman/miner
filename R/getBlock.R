@@ -44,6 +44,7 @@ getBlock <- function(x,y,z)
 #' getBlockWithData(0,h,0)
 #' }
 #'
+#' @importFrom stats setNames
 #' @export
 
 getBlockWithData <- function(x,y,z)
@@ -54,7 +55,7 @@ getBlockWithData <- function(x,y,z)
     result <- mc_sendreceive(merge_data("world.getBlockWithData", x, y, z))
 
     # convert to vector of length 2
-    setNames(as.numeric(strsplit(result, ",")[[1]]), c("typeID", "style"))
+    stats::setNames(as.numeric(strsplit(result, ",")[[1]]), c("typeID", "style"))
 
 }
 

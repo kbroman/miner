@@ -19,10 +19,11 @@ mc_connection <- function() {
 #' @param address The url for the minecraft server
 #' @param port The port to use for the connection
 #' @return Nothing returned, the connection is cached within the package namespace.
+#' @importFrom utils assignInMyNamespace
 #' @export
 mc_connect <- function(address = "localhost", port = 4711)
 {
-    assignInMyNamespace('con',
+    utils::assignInMyNamespace('con',
                         socketConnection(
                             host = address, port, open = "r+b",
                             encoding = "CP437", blocking = TRUE))
