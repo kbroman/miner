@@ -2,18 +2,19 @@
 % Please edit documentation in R/connect.R
 \name{mc_connect}
 \alias{mc_connect}
-\title{Create connection to minecraft server}
+\title{Create a connection to a Minecraft server}
 \usage{
 mc_connect(address = "localhost", port = 4711)
 }
 \arguments{
-\item{address}{The url for the minecraft server}
+\item{address}{A character string with the IP address for the 
+Minecraft server to which you want to connect.}
 
-\item{port}{The port to use for the connection}
+\item{port}{An integer giving the port to use for the connection.}
 }
 \value{
 Nothing returned, the connection is cached within the package namespace.
 }
 \description{
-Create connection to minecraft server
+Create a connection to a Minecraft server
 }
