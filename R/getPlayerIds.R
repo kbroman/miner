@@ -2,8 +2,6 @@
 #'
 #' Get player IDs
 #'
-#' @param con Socket connection to minecraft server
-#'
 #' @return set of integers
 #'
 #' @examples
@@ -14,6 +12,7 @@
 #'
 #' @export
 #'
+
 getPlayerIds <- function()
 {
 
