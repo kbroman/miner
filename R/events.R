@@ -10,8 +10,16 @@
 #' }
 #' }
 #' @seealso getEventsChatPosts
+#' @return \code{data.frame} of coordinates, block type and user id
 getEventsBlockHits <- function() {
-    mc_sendreceive('events.block.hits()')
+    res <- mc_sendreceive('events.block.hits()')
+    if (res != '') {
+        res <- strsplit(res, '|', fixed = TRUE)[[1]]
+        res <- do.call(rbind, sapply(res, strsplit, split = ',', USE.NAMES = FALSE))
+        res <- data.frame(res)
+        names(res) <- c('x', 'y', 'z', 'block', 'player')
+    }
+    res
 }
 
 
