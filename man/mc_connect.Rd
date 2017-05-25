@@ -18,3 +18,11 @@ Nothing returned, the connection is cached within the package namespace.
 \description{
 Create a connection to a Minecraft server
 }
+\examples{
+\dontrun{
+mc_connect()
+getPlayerIds()
+mc_close()
+}
+
+}

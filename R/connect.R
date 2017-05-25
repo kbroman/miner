@@ -22,6 +22,12 @@ mc_connection <- function() {
 #' 
 #' @return Nothing returned, the connection is cached within the package namespace.
 #' 
+#' @examples \dontrun{
+#' mc_connect()
+#' getPlayerIds()
+#' mc_close()
+#' }
+#' 
 #' @importFrom utils assignInMyNamespace
 #' @export
 mc_connect <- function(address = "localhost", port = 4711)
