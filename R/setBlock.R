@@ -44,8 +44,11 @@ setBlock <- function(x, y, z, id, style=0)
 #' @examples
 #' \dontrun{
 #' mc_connect()
+#' 
+#' ice <- find_item(name = "Ice")
+#' 
 #' h <- getHeight(0,0)
-#' setBlocks(0, h, 0, 1, h + 3, 2, id = 46)
+#' setBlocks(0, h, 0, 1, h + 3, 2, id = ice$id)
 #' }
 #'
 #' @export

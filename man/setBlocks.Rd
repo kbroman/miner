@@ -38,8 +38,11 @@ with opposite corners at the positions (x0, y0, z0) and (x1, y1, z1).
 \examples{
 \dontrun{
 mc_connect()
+
+ice <- find_item(name = "Ice")
+
 h <- getHeight(0,0)
-setBlocks(0, h, 0, 1, h + 3, 2, id = 46)
+setBlocks(0, h, 0, 1, h + 3, 2, id = ice$id)
 }
 
 }
