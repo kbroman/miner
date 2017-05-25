@@ -7,7 +7,8 @@
 getPlayerRotation(player_id = NULL)
 }
 \arguments{
-\item{player_id}{Entity id}
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+current players using \code{\link{getPlayerIds}}.}
 }
 \value{
 A double vector of length 1 with a value between 
