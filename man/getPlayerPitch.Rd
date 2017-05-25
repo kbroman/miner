@@ -4,16 +4,26 @@
 \alias{getPlayerPitch}
 \title{Get player pitch}
 \usage{
-getPlayerPitch()
+getPlayerPitch(player_id = NULL)
+}
+\arguments{
+\item{player_id}{Entity id}
 }
 \value{
-a vector double of length one with pitch
+A double vector of length one with a value between 
+-90 and 90 giving the pitch of the player.
 }
 \description{
-Return player pitch
+Return the player's pitch (angle in the up / down direction).
+This can be run for a different player by using the \code{player_id}
+argument.
 }
 \examples{
 \dontrun{
-getPitch()
+getPlayerPitch()
+
+example_playerId <- getPlayerIds()[1]
+getPlayerPitch(example_playerId)
 }
+
 }
