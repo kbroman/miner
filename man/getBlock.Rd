@@ -2,9 +2,9 @@
 % Please edit documentation in R/getBlock.R
 \name{getBlock}
 \alias{getBlock}
-\title{Determine block type at some position}
+\title{Determine block type and style at some position}
 \usage{
-getBlock(x, y, z)
+getBlock(x, y, z, include_style = TRUE)
 }
 \arguments{
 \item{x}{A numeric string with north/south position}
@@ -12,15 +12,21 @@ getBlock(x, y, z)
 \item{y}{A numeric string with height}
 
 \item{z}{A numeric string with east/west position}
+
+\item{include_style}{A logical value of whether the block's
+style should also be included in the output (defaults to TRUE).}
 }
 \value{
-A character string with the ID of the block type at the
-   position (x, y, z). You can use \code{\link{find_item}} to 
+A numeric vector of length one or two with the type ID 
+   and style, if \code{include_style} is \code{TRUE}, of the block 
+   at position (x, y, z). You can use \code{\link{find_item}} to 
    find the name of the block type based on this returned ID.
 }
 \description{
 Determine the type of the block at position x (north / south),
-y (height), z (east / west).
+y (height), z (east / west). By default, the block's style is 
+also given, although the style can be excluded from the output 
+using the \code{include_style} parameter.
 }
 \examples{
 \dontrun{
@@ -29,7 +35,10 @@ h <- getHeight(0,0)
 b_type <- getBlock(0,h,0)
 b_type
 
-find_item(id = b_type)
+find_item(id = b_type[1])
+find_item(id = b_type[1], style = b_type[2])
+
+getBlock(0,h,0, include_style = FALSE)
 }
 
 }

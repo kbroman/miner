@@ -7,15 +7,18 @@
 getHeight(x, z)
 }
 \arguments{
-\item{x}{north/south position}
+\item{x}{A numeric string with north/south position}
 
-\item{z}{east/west position}
+\item{z}{A numeric string with east/west position}
 }
 \value{
-Integer with height of block just above the last bit of non-air.
+Integer with height of block just above the last bit of 
+   non-air at the specified x / z position.
 }
 \description{
-Get height of the world at a given position
+Get height of the world at a given position, where the world's
+height is defined as the height of the highest non-air point at 
+that location.
 }
 \examples{
 \dontrun{

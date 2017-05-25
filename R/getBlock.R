@@ -1,14 +1,19 @@
-#' Determine block type at some position
+#' Determine block type and style at some position
 #'
 #' Determine the type of the block at position x (north / south),
-#' y (height), z (east / west).
+#' y (height), z (east / west). By default, the block's style is 
+#' also given, although the style can be excluded from the output 
+#' using the \code{include_style} parameter. 
 #'
 #' @param x A numeric string with north/south position
 #' @param y A numeric string with height
 #' @param z A numeric string with east/west position
+#' @param include_style A logical value of whether the block's
+#'    style should also be included in the output (defaults to TRUE). 
 #'
-#' @return A character string with the ID of the block type at the
-#'    position (x, y, z). You can use \code{\link{find_item}} to 
+#' @return A numeric vector of length one or two with the type ID 
+#'    and style, if \code{include_style} is \code{TRUE}, of the block 
+#'    at position (x, y, z). You can use \code{\link{find_item}} to 
 #'    find the name of the block type based on this returned ID.
 #'
 #' @examples
@@ -18,42 +23,16 @@
 #' b_type <- getBlock(0,h,0)
 #' b_type
 #' 
-#' find_item(id = b_type)
-#' }
-#'
-#' @export
-
-getBlock <- function(x,y,z)
-{
-    x <- round(x)
-    y <- round(y)
-    z <- round(z)
-    mc_sendreceive(merge_data("world.getBlock", x, y, z))
-
-}
-
-
-#' Determine block type and style at some position
-#'
-#' Determine block type and style at position (x,y,z)
-#'
-#' @param x north/south position
-#' @param y height
-#' @param z east/west position
-#'
-#' @return None.
-#'
-#' @examples
-#' \dontrun{
-#' mc_connect()
-#' h <- getHeight(0,0)
-#' getBlockWithData(0,h,0)
+#' find_item(id = b_type[1])
+#' find_item(id = b_type[1], style = b_type[2])
+#' 
+#' getBlock(0,h,0, include_style = FALSE)
 #' }
 #'
 #' @importFrom stats setNames
 #' @export
 
-getBlockWithData <- function(x,y,z)
+getBlock <- function(x,y,z, include_style = TRUE)
 {
     x <- round(x)
     y <- round(y)
@@ -61,29 +40,46 @@ getBlockWithData <- function(x,y,z)
     result <- mc_sendreceive(merge_data("world.getBlockWithData", x, y, z))
 
     # convert to vector of length 2
-    stats::setNames(as.numeric(strsplit(result, ",")[[1]]), c("typeID", "style"))
+    out <- stats::setNames(as.numeric(strsplit(result, ",")[[1]]), c("typeID", "style"))
+    if(include_style){
+      return(out)
+    } else {
+      return(out[1])
+    }
 
 }
 
 
 #' Determine block types in a cuboid
 #'
-#' Determine block types in a cuboid defined by (x0,y0,z0) to (x1,y1,z1)
+#' Determine block types in a cuboid for which one corner is at 
+#' the position (x0, y0, z0) and the opposite corner is at the position 
+#' (x1, y1, z1).
 #'
-#' @param x0 north/south position
-#' @param y0 height
-#' @param z0 east/west position
-#' @param x1 north/south position
-#' @param y1 height
-#' @param z1 east/west position
+#' @param x0 A numeric value giving the starting north / south position
+#'    of the cuboid.
+#' @param y0 A numeric value giving the starting height
+#'    of the cuboid.
+#' @param z0 A numeric value giving the starting east / west position
+#'    of the cuboid.
+#' @param x1 A numeric value giving the north / south position of 
+#'    the opposite corner of the cuboid.
+#' @param y1 A numeric value giving the ending height of 
+#'    the opposite corner of the cuboid.
+#' @param z1 A numeric value giving the ending east / west position of 
+#'    the opposite corner of the cuboid.
 #'
-#' @return An array of integers of block IDs
+#' @return An 3-D array of integers where each integer gives the ID of the 
+#'    type of a block in the cuboid. 
 #'
 #' @examples
 #' \dontrun{
 #' mc_connect()
 #' h <- getHeight(0,0)
-#' getBlocks(0,h,0, 0, h+5, 0)
+#' block_types <- getBlocks(0, h, 0, 1, h + 3, 2)
+#' block_types
+#' 
+#' find_item(id = block_types[1, 1, 1])
 #' }
 #'
 #' @export

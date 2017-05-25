@@ -4,7 +4,7 @@
 \alias{setPlayerTilePos}
 \title{Change player position to a tile}
 \usage{
-setPlayerTilePos(x, y, z, id = NULL)
+setPlayerTilePos(x, y, z, player_id = NULL)
 }
 \arguments{
 \item{x}{north/south position}
@@ -12,6 +12,8 @@ setPlayerTilePos(x, y, z, id = NULL)
 \item{y}{height}
 
 \item{z}{east/west position}
+
+\item{player_id}{Entity id}
 }
 \value{
 None.
@@ -26,7 +28,7 @@ p <- getPlayerTilePos()
 setPlayerTilePos(0, p + 5, 0)
 
 example_entity <- getPlayerIds()[1]
-setPlayerTilePos(0, p, 0, id = example_entity)
+setPlayerTilePos(0, p, 0, example_entity)
 }
 
 }

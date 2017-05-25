@@ -4,10 +4,10 @@
 \alias{getPlayerPos}
 \title{Get player position}
 \usage{
-getPlayerPos(id = NULL)
+getPlayerPos(player_id = NULL)
 }
 \arguments{
-\item{id}{Entity id}
+\item{player_id}{Entity id}
 }
 \value{
 vector (x,y,z)
@@ -22,7 +22,7 @@ mc_connect()
 getPlayerPos()
 
 example_entity <- getPlayerIds()[1]
-getPlayerPos(id = example_entity)
+getPlayerPos(example_entity)
 }
 
 }
