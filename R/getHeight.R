@@ -9,7 +9,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
+#' mc_connect()
 #' getHeight(0,0)
 #' }
 #'
