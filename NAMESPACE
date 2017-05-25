@@ -2,6 +2,7 @@
 
 export(getBlock)
 export(getBlockWithData)
+export(getBlocks)
 export(getHeight)
 export(getPlayerIds)
 export(getPlayerPos)
