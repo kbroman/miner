@@ -1,3 +1,15 @@
+#' Helper function to split string into data.frame
+#' @keywords internal
+mcsplit <- function(string) {
+    data.frame(
+        do.call(rbind,
+                sapply(
+                    X = strsplit(string, '|', fixed = TRUE)[[1]],
+                    FUN = strsplit,
+                    split = ',',
+                    USE.NAMES = FALSE)))
+}
+
 #' Read most recent block hits
 #'
 #' Note, that only right clicks with an Iron sword are logged.
@@ -10,13 +22,11 @@
 #' }
 #' }
 #' @seealso getEventsChatPosts
-#' @return \code{data.frame} of coordinates, block type and user id
+#' @return \code{data.frame} of coordinates, block type and player id
 getEventsBlockHits <- function() {
     res <- mc_sendreceive('events.block.hits()')
     if (res != '') {
-        res <- strsplit(res, '|', fixed = TRUE)[[1]]
-        res <- do.call(rbind, sapply(res, strsplit, split = ',', USE.NAMES = FALSE))
-        res <- data.frame(res)
+        res <- mcsplit(res)
         names(res) <- c('x', 'y', 'z', 'block', 'player')
     }
     res
@@ -25,7 +35,13 @@ getEventsBlockHits <- function() {
 
 #' Read most recent chat messages
 #' @export
+#' @return \code{data.frame} player id and message
 #' @seealso getEventsBlockHits
 getEventsChatPosts <- function() {
-    mc_sendreceive('events.chat.posts()')
+    res <- mc_sendreceive('events.chat.posts()')
+    if (res != '') {
+        res <- mcsplit(res)
+        names(res) <- c('player', 'message')
+    }
+    res
 }
