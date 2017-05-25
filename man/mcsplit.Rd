@@ -4,7 +4,7 @@
 \alias{mcsplit}
 \title{Helper function to split string into data.frame}
 \usage{
-mcsplit(string)
+mcsplit(string, colnames)
 }
 \description{
 Helper function to split string into data.frame

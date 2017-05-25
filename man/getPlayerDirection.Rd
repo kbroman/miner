@@ -7,7 +7,8 @@
 getPlayerDirection(player_id = NULL)
 }
 \arguments{
-\item{player_id}{Entity id}
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+current players using \code{\link{getPlayerIds}}.}
 }
 \value{
 A numeric vector of length 3 with coordinates of the player's current 

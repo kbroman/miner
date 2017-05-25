@@ -4,13 +4,19 @@
 \alias{getPlayerPos}
 \title{Get player position}
 \usage{
-getPlayerPos(player_id = NULL)
+getPlayerPos(player_id = NULL, tile = FALSE)
 }
 \arguments{
-\item{player_id}{Entity id}
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+current players using \code{\link{getPlayerIds}}.}
+
+\item{tile}{Logical value specifying whether to truncate the output position to 
+an integer (i.e., the location of the tile on which the player is 
+positioned).}
 }
 \value{
-vector (x,y,z)
+A numeric vector of length three giving the position (x, y, and z) of the 
+  requested player.
 }
 \description{
 Get entity position. The default is to get the player position, but other
@@ -20,12 +26,10 @@ positions can be gotten using the \code{id} argument.
 \dontrun{
 mc_connect()
 getPlayerPos()
+getPlayerPos(tile = TRUE)
 
 example_entity <- getPlayerIds()[1]
 getPlayerPos(example_entity)
 }
 
-}
-\seealso{
-[getPlayerPos]
 }
