@@ -49,7 +49,7 @@ getPlayerTilePos <- function(player_id = NULL)
 #' @seealso [getPlayerPos]
 #'
 #' @export
-getPlayerPos <- function(id = NULL)
+getPlayerPos <- function(player_id = NULL)
 {
   if(is.null(player_id)){
     z <- mc_sendreceive("player.getPos()")

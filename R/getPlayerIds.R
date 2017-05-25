@@ -2,7 +2,8 @@
 #'
 #' Get player IDs
 #'
-#' @return set of integers
+#' @return set of integers with one unique id per player.
+#' player ids are listed in the order they joined the game world.
 #'
 #' @examples
 #' \dontrun{
