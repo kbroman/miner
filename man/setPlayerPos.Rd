@@ -24,7 +24,7 @@ Move player to position (x,y,z)
 \examples{
 \dontrun{
 mc <- mc_connect()
-p <- getPlayerPost(mc)
+p <- getPlayerPos(mc)
 setPlayerPos(mc, 0, p + 5, 0)
 }
 
