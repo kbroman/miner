@@ -17,30 +17,32 @@ mcsplit <- function(string, colnames) {
 
 }
 
-#' Read most recent block hits
+#' Get most recent block hits
+#' 
+#' Return the most recent block hits made in the Minecraft 
+#' world by an iron sword.
 #'
-#' Note, that only right clicks with an Iron sword are logged.
-#' @export
+#' @note Only right clicks with an iron sword are logged.
+#' 
+#' @return A dataframe with columns for the coordinates, block type,
+#'     and player id of recent block hits. 
+#' 
 #' @examples \dontrun{
+#' getBlockHits()
+#' 
 #' library(futile.logger)
 #' while (TRUE) {
 #'     flog.info(getEventsBlockHits())
 #'     Sys.sleep(1)
 #' }
 #' }
-#' @seealso getEventsChatPosts
-#' @return \code{data.frame} of coordinates, block type and player id
-getEventsBlockHits <- function() {
+#' 
+#' @seealso \code{\link{getChatPosts}}
+#' 
+#' @export
+getBlockHits <- function() {
     mcsplit(mc_sendreceive('events.block.hits()'),
             c('x', 'y', 'z', 'block', 'player'))
 }
 
 
-#' Read most recent chat messages
-#' @export
-#' @return \code{data.frame} player id and message
-#' @seealso getEventsBlockHits
-getEventsChatPosts <- function() {
-    mcsplit(mc_sendreceive('events.chat.posts()'),
-            c('player', 'message'))
-}
