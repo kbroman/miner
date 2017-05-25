@@ -37,7 +37,9 @@ getPlayerTilePos <- function(con)
 #' \dontrun{
 #' mc <- mc_connect()
 #' getPlayerPos(mc)
-#' # getPlayerPos(mc, id = [what would this look like?])
+#' 
+#' example_entity <- getPlayerIds(mc)[1]
+#' getPlayerPos(mc, id = example_entity)
 #' }
 #'
 #' @seealso [getPlayerPos]
