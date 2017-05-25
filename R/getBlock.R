@@ -2,7 +2,6 @@
 #'
 #' Determine block type at position (x,y,z)
 #'
-#' @param con Socket connection to minecraft server
 #' @param x north/south position
 #' @param y height
 #' @param z east/west position
@@ -11,19 +10,19 @@
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
-#' h <- getHeight(mc, 0,0)
-#' getBlock(mc,  0,h,0)
+#' mc_connect()
+#' h <- getHeight(0,0)
+#' getBlock(0,h,0)
 #' }
 #'
 #' @export
 
-getBlock <- function(con, x,y,z)
+getBlock <- function(x,y,z)
 {
     x <- round(x)
     y <- round(y)
     z <- round(z)
-    mc_sendreceive(merge_data("world.getBlock", x, y, z), con)
+    mc_sendreceive(merge_data("world.getBlock", x, y, z))
 
 }
 
