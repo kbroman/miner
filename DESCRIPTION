@@ -2,7 +2,14 @@ Package: miner
 Title: Control Minecraft with RaspberryJuice API
 Version: 0.1.0
 Date: 2017-05-22
-Authors@R: person("Karl", "Broman", email = "kbroman@biostat.wisc.edu", role = c("aut", "cre"))
+Authors@R: c(
+    person("Karl",    "Broman",   role = c("aut", "cre"), email = "kbroman@biostat.wisc.edu"),
+    person("Brooke",  "Anderson", role="aut"),
+    person("Gergely", "Daróczi",  role="aut"),
+    person("Ali",     "Zaidi",    role="aut"),
+    person("Mario",   "Inchiosa", role="aut"),
+    person("David",   "Smith",    role="aut")
+    )
 Description: Following the code in py3minepi, allows one to connect to the minecraft from R.
 Depends: R (>= 3.1.0)
 Imports: stats, utils
