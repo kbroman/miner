@@ -1,11 +1,13 @@
 #' Get height of the world at a given position
 #'
-#' Get height of the world at a given position
+#' Get height of the world at a given position, where the world's
+#' height is defined as the height of the highest non-air point at 
+#' that location.
+#' 
+#' @inheritParams getBlock
 #'
-#' @param x north/south position
-#' @param z east/west position
-#'
-#' @return Integer with height of block just above the last bit of non-air.
+#' @return Integer with height of block just above the last bit of 
+#'    non-air at the specified x / z position.
 #'
 #' @examples
 #' \dontrun{
