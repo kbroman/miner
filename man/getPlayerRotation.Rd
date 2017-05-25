@@ -6,6 +6,9 @@
 \usage{
 getPlayerRotation(player_id = NULL)
 }
+\arguments{
+\item{player_id}{Entity id}
+}
 \value{
 A double vector of length 1 with a value between 
 -360 and 360 giving the angle of rotation of the player.

@@ -1,6 +1,8 @@
 #' Get player rotation
 #'
 #' Get the current rotation of the player.
+#' 
+#' @inheritParams getPlayerPos
 #'
 #' @return A double vector of length 1 with a value between 
 #' -360 and 360 giving the angle of rotation of the player.  
