@@ -1,5 +1,8 @@
 con <- NULL
 
+#' Return cached connection
+#' @return connection
+#' @keywords internal
 mc_connection <- function() {
 
     if (is.null(con)) {
@@ -15,7 +18,7 @@ mc_connection <- function() {
 #'
 #' @param address The url for the minecraft server
 #' @param port The port to use for the connection
-#' @return A socket connection to the minecraft server, hopefully.
+#' @return Nothing returned, the connection is cached within the package namespace.
 #' @export
 mc_connect <- function(address = "localhost", port = 4711)
 {
