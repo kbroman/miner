@@ -2,18 +2,28 @@
 % Please edit documentation in R/getPlayerOrientation.R
 \name{getPlayerDirection}
 \alias{getPlayerDirection}
-\title{Get direction vector}
+\title{Get player direction as unit vector}
 \usage{
-getPlayerDirection()
+getPlayerDirection(player_id = NULL)
+}
+\arguments{
+\item{player_id}{Entity id}
 }
 \value{
-A numeric vector of length 3 with coordinates of current direction
+A numeric vector of length 3 with coordinates of the player's current 
+   direction as a unit vector.
 }
 \description{
-Get a vector describing the current direction a player is facing.
+Returns a unit vector describing the current direction a player is facing.
+The default is to get the direction for the current player, but the directions
+of other players can be gotten using the \code{player_id} argument.
 }
 \examples{
 \dontrun{
-getDirection()
+getPlayerDirection()
+
+example_playerId <- getPlayerIds()[1]
+getPlayerDirection(example_playerId) 
 }
+
 }
