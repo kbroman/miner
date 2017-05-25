@@ -8,17 +8,17 @@
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
+#' mc_connect()
 #' getPlayerIds(mc)
 #' }
 #'
 #' @export
 #'
-getPlayerIds <- function(con)
+getPlayerIds <- function()
 {
 
 
-    result <- mc_sendreceive("world.getPlayerIds()", con)
+    result <- mc_sendreceive("world.getPlayerIds()")
     as.numeric(strsplit(result, "\\|")[[1]])
 
 }
