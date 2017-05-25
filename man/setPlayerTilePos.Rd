@@ -4,7 +4,7 @@
 \alias{setPlayerTilePos}
 \title{Change player position to a tile}
 \usage{
-setPlayerTilePos(x, y, z)
+setPlayerTilePos(x, y, z, id = NULL)
 }
 \arguments{
 \item{x}{north/south position}
@@ -24,6 +24,9 @@ Move player to tile position (x,y,z)
 mc_connect()
 p <- getPlayerTilePos()
 setPlayerTilePos(0, p + 5, 0)
+
+example_entity <- getPlayerIds()[1]
+setPlayerTilePos(0, p, 0, id = example_entity)
 }
 
 }
