@@ -55,12 +55,21 @@ one on the list.
 myid <- tail(getPlayerIds(),1) 
 ```
 
-Once you have a Player ID, you can move the player around.
+Once you have a Player ID, you can move the player around. Note that in Minecraft, "x" is the North/South axis, "z" is the East/West axis, and "y" is the vertical axis.
 
 ```r
 myloc <- getPlayerPost(myid)
-setPlayerPos(myloc[1],myloc[2],myloc[3]+100,player_id=myid) # move player 10 tiles in the air
+setPlayerPos(myloc[1]+1,myloc[2],myloc[3],player_id=myid) # move player 1 tile North
+setPlayerPos(myloc[1],myloc[2]+50,myloc[3],player_id=myid) # raise player 50 tiles in the air
 ```
+
+You can also modify the game world. For example, this adds a diamond block near the player.
+
+```r
+myloc <- getPlayerPos(myid)
+setBlock(myloc[1]+1, myloc[2], myloc[3], 57, 1)
+```
+
 
 
 
