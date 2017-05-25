@@ -4,11 +4,9 @@
 \alias{setPlayerTilePos}
 \title{Change player position to a tile}
 \usage{
-setPlayerTilePos(con, x, y, z)
+setPlayerTilePos(x, y, z)
 }
 \arguments{
-\item{con}{Socket connection to minecraft server}
-
 \item{x}{north/south position}
 
 \item{y}{height}
@@ -23,9 +21,9 @@ Move player to tile position (x,y,z)
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
-p <- getPlayerPost(mc)
-setPlayerPos(mc, 0, p + 5, 0)
+mc_connect()
+p <- getPlayerTilePos()
+setPlayerTilePos(0, p + 5, 0)
 }
 
 }

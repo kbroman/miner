@@ -4,10 +4,7 @@
 \alias{getPlayerIds}
 \title{Get player IDs}
 \usage{
-getPlayerIds(con)
-}
-\arguments{
-\item{con}{Socket connection to minecraft server}
+getPlayerIds()
 }
 \value{
 set of integers
@@ -17,9 +14,8 @@ Get player IDs
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
-p <- getPlayerPost(mc)
-setPlayerPos(mc, 0, p + 5, 0)
+mc_connect()
+getPlayerIds()
 }
 
 }

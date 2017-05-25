@@ -4,18 +4,25 @@
 \alias{getPlayerPos}
 \title{Get player position}
 \usage{
-getPlayerPos()
+getPlayerPos(id = NULL)
+}
+\arguments{
+\item{id}{Entity id}
 }
 \value{
 vector (x,y,z)
 }
 \description{
-Get player position
+Get entity position. The default is to get the player position, but other
+positions can be gotten using the \code{id} argument.
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
+mc_connect()
 getPlayerPos()
+
+example_entity <- getPlayerIds()[1]
+getPlayerPos(id = example_entity)
 }
 
 }

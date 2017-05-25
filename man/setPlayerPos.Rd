@@ -4,28 +4,34 @@
 \alias{setPlayerPos}
 \title{Change player position}
 \usage{
-setPlayerPos(con, x, y, z)
+setPlayerPos(x, y, z, id = NULL)
 }
 \arguments{
-\item{con}{Socket connection to minecraft server}
-
 \item{x}{north/south position}
 
 \item{y}{height}
 
 \item{z}{east/west position}
+
+\item{id}{Entity id}
 }
 \value{
 None.
 }
 \description{
-Move player to position (x,y,z)
+Move player to position (x,y,z). The default is to move your player, but
+other entities can also be moved using the \code{id} argument.
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
-p <- getPlayerPos(mc)
+mc_connect()
+p <- getPlayerPos()
 setPlayerPos(mc, 0, p + 5, 0)
+
+example_entity <- getPlayerIds()[1]
+getPlayerPos(id = example_entity)
+setPlayerPos(0, p, 0, id = example_entity)
+getPlayerPos(id = example_entity)
 }
 
 }

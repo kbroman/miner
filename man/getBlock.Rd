@@ -4,11 +4,9 @@
 \alias{getBlock}
 \title{Determine block type at some position}
 \usage{
-getBlock(con, x, y, z)
+getBlock(x, y, z)
 }
 \arguments{
-\item{con}{Socket connection to minecraft server}
-
 \item{x}{north/south position}
 
 \item{y}{height}
@@ -23,9 +21,9 @@ Determine block type at position (x,y,z)
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
-h <- getHeight(mc, 0,0)
-getBlock(mc,  0,h,0)
+mc_connect()
+h <- getHeight(0,0)
+getBlock(0,h,0)
 }
 
 }

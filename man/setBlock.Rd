@@ -25,7 +25,7 @@ Place a block at position (x,y,z) by type id
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
+mc_connect()
 h <- getHeight(0, 0)
 setBlock(0, h, 0, 46)
 }
