@@ -4,7 +4,7 @@
 \alias{getPlayerPos}
 \title{Get player position}
 \usage{
-getPlayerPos(id = NULL)
+getPlayerPos(player_id = NULL)
 }
 \arguments{
 \item{player_id}{Entity id}
