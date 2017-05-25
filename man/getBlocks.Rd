@@ -7,29 +7,41 @@
 getBlocks(x0, y0, z0, x1, y1, z1)
 }
 \arguments{
-\item{x0}{north/south position}
+\item{x0}{A numeric value giving the starting north / south position
+of the cuboid.}
 
-\item{y0}{height}
+\item{y0}{A numeric value giving the starting height
+of the cuboid.}
 
-\item{z0}{east/west position}
+\item{z0}{A numeric value giving the starting east / west position
+of the cuboid.}
 
-\item{x1}{north/south position}
+\item{x1}{A numeric value giving the north / south position of 
+the opposite corner of the cuboid.}
 
-\item{y1}{height}
+\item{y1}{A numeric value giving the ending height of 
+the opposite corner of the cuboid.}
 
-\item{z1}{east/west position}
+\item{z1}{A numeric value giving the ending east / west position of 
+the opposite corner of the cuboid.}
 }
 \value{
-An array of integers of block IDs
+An 3-D array of integers where each integer gives the ID of the 
+   type of a block in the cuboid.
 }
 \description{
-Determine block types in a cuboid defined by (x0,y0,z0) to (x1,y1,z1)
+Determine block types in a cuboid for which one corner is at 
+the position (x0, y0, z0) and the opposite corner is at the position 
+(x1, y1, z1).
 }
 \examples{
 \dontrun{
 mc_connect()
 h <- getHeight(0,0)
-getBlocks(0,h,0, 0, h+5, 0)
+block_types <- getBlocks(0, h, 0, 1, h + 3, 2)
+block_types
+
+find_item(id = block_types[1, 1, 1])
 }
 
 }
