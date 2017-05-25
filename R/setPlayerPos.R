@@ -3,7 +3,6 @@
 #' Move player to position (x,y,z). The default is to move your player, but
 #' other entities can also be moved using the \code{id} argument.
 #'
-#' @param con Socket connection to minecraft server
 #' @param x north/south position
 #' @param y height
 #' @param z east/west position
