@@ -1,6 +1,6 @@
 #' Minecraft item information
 #'
-#' Minecraft item information
+#' Dataset with the name, ID, and style of possible Minecraft items.
 #'
 #' @docType data
 #'

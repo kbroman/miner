@@ -12,7 +12,7 @@
 data(mc_items)
 }
 \description{
-Minecraft item information
+Dataset with the name, ID, and style of possible Minecraft items.
 }
 \examples{
 data(mc_items)
