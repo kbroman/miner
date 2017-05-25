@@ -2,11 +2,13 @@
 
 export(getBlock)
 export(getBlockWithData)
+export(getBlocks)
 export(getHeight)
 export(getPlayerIds)
 export(getPlayerPos)
 export(getPlayerTilePos)
 export(mc_connect)
 export(setBlock)
+export(setBlocks)
 export(setPlayerPos)
 export(setPlayerTilePos)
