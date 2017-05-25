@@ -31,7 +31,6 @@ getBlock <- function(x,y,z)
 #'
 #' Determine block type and style at position (x,y,z)
 #'
-#' @param con Socket connection to minecraft server
 #' @param x north/south position
 #' @param y height
 #' @param z east/west position
@@ -40,19 +39,19 @@ getBlock <- function(x,y,z)
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
-#' h <- getHeight(mc, 0,0)
-#' getBlockWithStyle(mc,  0,h,0)
+#' mc_connect()
+#' h <- getHeight(0,0)
+#' getBlockWithData(0,h,0)
 #' }
 #'
 #' @export
 
-getBlockWithData <- function(con, x,y,z)
+getBlockWithData <- function(x,y,z)
 {
     x <- round(x)
     y <- round(y)
     z <- round(z)
-    result <- mc_sendreceive(merge_data("world.getBlockWithData", x, y, z), con)
+    result <- mc_sendreceive(merge_data("world.getBlockWithData", x, y, z))
 
     # convert to vector of length 2
     setNames(as.numeric(strsplit(result, ",")[[1]]), c("typeID", "style"))
