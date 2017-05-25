@@ -13,14 +13,14 @@
 #'
 #' @examples
 #' \dontrun{
-#' getPlayerRotation(mc)
+#' getPlayerRotation()
 #' }
 #'
 #' @seealso [getPlayerDirection]
 #'
 #' @export
 
-getPlayerRotation <- function(con)
+getPlayerRotation <- function()
 {
   p <- mc_sendreceive("player.getRotation()")
   as.numeric(p)
@@ -40,7 +40,7 @@ getPlayerRotation <- function(con)
 #' \dontrun{
 #' getPitch()
 #' }
-getPitch <- function(con) {
+getPitch <- function() {
   
   p <- mc_sendreceive("player.getPitch()")
   as.numeric(p)
@@ -61,7 +61,7 @@ getPitch <- function(con) {
 #' \dontrun{
 #' getDirection()
 #' }
-getDirection <- function(con) {
+getDirection <- function() {
   
   z <- mc_sendreceive("player.getDirection()")
   as.numeric(strsplit(z, ",")[[1]])
