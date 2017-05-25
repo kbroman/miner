@@ -1,8 +1,9 @@
 #' Get player IDs
 #'
-#' Get player IDs
+#' Get the IDs of all player currently in the world. 
 #'
-#' @return set of integers
+#' @return A numeric vector with the IDs of each player currently 
+#'    in the Minecraft world. 
 #'
 #' @examples
 #' \dontrun{

@@ -7,10 +7,11 @@
 getPlayerIds()
 }
 \value{
-set of integers
+A numeric vector with the IDs of each player currently 
+   in the Minecraft world.
 }
 \description{
-Get player IDs
+Get the IDs of all player currently in the world.
 }
 \examples{
 \dontrun{
