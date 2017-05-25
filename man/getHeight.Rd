@@ -19,7 +19,7 @@ Get height of the world at a given position
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
+mc_connect()
 getHeight(0,0)
 }
 

@@ -4,11 +4,9 @@
 \alias{setBlocks}
 \title{Place blocks in a cuboid}
 \usage{
-setBlocks(con, x0, y0, z0, x1, y1, z1, block_id)
+setBlocks(x0, y0, z0, x1, y1, z1, block_id)
 }
 \arguments{
-\item{con}{Socket connection to minecraft server}
-
 \item{x0}{north/south position}
 
 \item{y0}{height}
@@ -31,9 +29,9 @@ Place blocks in cuboid defined by (x0,y0,z0) and (x1,y1,z1)
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
-h <- getHeight(mc, 0,0)
-setBlock(mc,  0,h,0,  46)
+mc_connect()
+h <- getHeight(0,0)
+setBlock(0,h,0,  46)
 }
 
 }

@@ -14,7 +14,7 @@ Get player tile position
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
+mc_connect()
 getPlayerTilePos()
 }
 

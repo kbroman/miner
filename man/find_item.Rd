@@ -2,19 +2,31 @@
 % Please edit documentation in R/find_item.R
 \name{find_item}
 \alias{find_item}
-\title{Find item IDs by name}
+\title{Find item by name or ID/style}
 \usage{
-find_item(name)
+find_item(name = NULL, id = NULL, style = 0)
 }
 \arguments{
 \item{name}{Name of an item}
+
+\item{id}{ID of an item (provide either `name` or `id`, not both)}
+
+\item{style}{Style of an item (used only if `id` is provided)}
 }
 \value{
-Data frame defined by a row or set of rows from \code{\link{mc_items}}.
+Data frame with a row or set of rows from \code{\link{mc_items}}.
 }
 \description{
-Find item ID by name
+Find item by name or ID/style
 }
 \details{
-If an exact match, just return that row. If no exact match, use grep and return all matching rows.
+If `name` is provided, we first look to see whether there
+    is an exact match to the `name` column in `mc_items`. If there
+    is, we return that row. If not, we use \code{\link[base]{grep}}
+    with `ignore.case=TRUE` and return matching rows.
+
+    If instead `id` is provided, we return the row with that id.
+    The default is to return the row with that ID and `style==0`,
+    or whatever style was provided. If `style` is NULL, we return
+    all rows with that ID.
 }

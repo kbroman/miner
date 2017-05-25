@@ -4,11 +4,9 @@
 \alias{getBlocks}
 \title{Determine block types in a cuboid}
 \usage{
-getBlocks(con, x0, y0, z0, x1, y1, z1)
+getBlocks(x0, y0, z0, x1, y1, z1)
 }
 \arguments{
-\item{con}{Socket connection to minecraft server}
-
 \item{x0}{north/south position}
 
 \item{y0}{height}
@@ -29,9 +27,9 @@ Determine block types in a cuboid defined by (x0,y0,z0) to (x1,y1,z1)
 }
 \examples{
 \dontrun{
-mc <- mc_connect()
-h <- getHeight(mc, 0,0)
-getBlocks(mc,  0,h,0, 0, h+5, 0)
+mc_connect()
+h <- getHeight(0,0)
+getBlocks(0,h,0, 0, h+5, 0)
 }
 
 }
