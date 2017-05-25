@@ -29,11 +29,11 @@ chatPost <- function(text) {
 #' @return A dataframe of recent chat posts with columns for the player 
 #'    id of the poster and the message posted
 #' 
-#' @seealso \code{\link{getEventsBlockHits}}
+#' @seealso \code{\link{getBlockHits}}
 #' 
 #' @examples \dontrun{
 #' mc_connect()
-#' getEventsChatPosts()
+#' getChatPosts()
 #' }
 #' 
 #' @export

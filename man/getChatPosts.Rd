@@ -18,10 +18,10 @@ return chat posts that were posted using \code{\link{chatPost}}.
 \examples{
 \dontrun{
 mc_connect()
-getEventsChatPosts()
+getChatPosts()
 }
 
 }
 \seealso{
-\code{\link{getEventsBlockHits}}
+\code{\link{getBlockHits}}
 }

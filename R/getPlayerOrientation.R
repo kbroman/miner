@@ -23,7 +23,7 @@
 
 getPlayerRotation <- function(player_id = NULL)
 {
-  if(is.null(id)){
+  if(is.null(player_id)){
     p <- mc_sendreceive("player.getRotation()")    
   } else {
     p <- mc_sendreceive(merge_data("entity.getRotation", player_id))
