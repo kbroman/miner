@@ -4,10 +4,7 @@
 \alias{getPlayerTilePos}
 \title{Get player tile position}
 \usage{
-getPlayerTilePos(con)
-}
-\arguments{
-\item{con}{Socket connection to minecraft server}
+getPlayerTilePos()
 }
 \value{
 vector (x,y,z)
@@ -18,7 +15,7 @@ Get player tile position
 \examples{
 \dontrun{
 mc <- mc_connect()
-getPlayerTilePos(mc)
+getPlayerTilePos()
 }
 
 }

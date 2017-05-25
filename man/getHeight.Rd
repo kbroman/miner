@@ -4,11 +4,9 @@
 \alias{getHeight}
 \title{Get height of the world at a given position}
 \usage{
-getHeight(con, x, z)
+getHeight(x, z)
 }
 \arguments{
-\item{con}{Socket connection to minecraft server}
-
 \item{x}{north/south position}
 
 \item{z}{east/west position}

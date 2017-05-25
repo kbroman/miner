@@ -4,10 +4,7 @@
 \alias{getPlayerPos}
 \title{Get player position}
 \usage{
-getPlayerPos(con)
-}
-\arguments{
-\item{con}{Socket connection to minecraft server}
+getPlayerPos()
 }
 \value{
 vector (x,y,z)
@@ -18,7 +15,7 @@ Get player position
 \examples{
 \dontrun{
 mc <- mc_connect()
-getPlayerPos(mc)
+getPlayerPos()
 }
 
 }
