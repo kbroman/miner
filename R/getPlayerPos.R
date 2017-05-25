@@ -2,13 +2,15 @@
 #'
 #' Get player tile position
 #'
+#' @param player_id Optional player ID
+#'
 #' @return vector (x,y,z)
 #'
 #' @examples
 #' \dontrun{
 #' mc_connect()
 #' getPlayerTilePos()
-#' 
+#'
 #' example_playerId <- getPlayerIds()[1]
 #' getPlayerPos(example_playerId)
 #' }
@@ -24,7 +26,7 @@ getPlayerTilePos <- function(player_id = NULL)
   } else {
     z <- mc_sendreceive(merge_data("entity.getTile", player_id))
   }
-    
+
     as.numeric( strsplit(z, ",")[[1]] )
 }
 

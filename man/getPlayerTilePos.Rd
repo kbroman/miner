@@ -6,6 +6,9 @@
 \usage{
 getPlayerTilePos(player_id = NULL)
 }
+\arguments{
+\item{player_id}{Optional player ID}
+}
 \value{
 vector (x,y,z)
 }
