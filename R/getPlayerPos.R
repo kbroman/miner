@@ -6,7 +6,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' mc <- mc_connect()
+#' mc_connect()
 #' getPlayerTilePos()
 #' }
 #'
