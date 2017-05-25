@@ -13,7 +13,7 @@ Note, that only right clicks with an Iron sword are logged.
 \dontrun{
 library(futile.logger)
 while (TRUE) {
-    getEventsBlockHits()
+    flog.info(getEventsBlockHits())
     Sys.sleep(1)
 }
 }

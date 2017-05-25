@@ -4,20 +4,24 @@
 \alias{getPlayerRotation}
 \title{Get player rotation}
 \usage{
-getPlayerRotation()
+getPlayerRotation(player_id = NULL)
 }
 \value{
-double of length 1 with rotatio
+A double vector of length 1 with a value between 
+-360 and 360 giving the angle of rotation of the player.
 }
 \description{
-Get player rotation from current position
+Get the current rotation of the player.
 }
 \examples{
 \dontrun{
 getPlayerRotation()
+
+example_playerId <- getPlayerIds()[1]
+getPlayerRotation(example_playerId)
 }
 
 }
 \seealso{
-[getPlayerDirection]
+\code{\link{getPlayerDirection}}
 }
