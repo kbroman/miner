@@ -8,15 +8,23 @@
 #' \dontrun{
 #' mc_connect()
 #' getPlayerTilePos()
+#' 
+#' example_entity <- getPlayerIds()[1]
+#' getPlayerPos(id = example_entity)
 #' }
 #'
 #' @seealso [getPlayerPos]
 #'
 #' @export
 
-getPlayerTilePos <- function()
+getPlayerTilePos <- function(id = NULL)
 {
+  if(is.null(id)){
     z <- mc_sendreceive("player.getTile()")
+  } else {
+    z <- mc_sendreceive(merge_data("entity.getTile", id))
+  }
+    
     as.numeric( strsplit(z, ",")[[1]] )
 }
 
