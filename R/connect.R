@@ -26,7 +26,7 @@ mc_connect <- function(address = "localhost", port = 4711)
     utils::assignInMyNamespace('con',
                         socketConnection(
                             host = address, port, open = "r+b",
-                            encoding = "CP437", blocking = TRUE))
+                            encoding = "CP437", blocking = TRUE, timeout = 1))
 }
 
 
@@ -45,16 +45,18 @@ mc_send <- function(text)
 
 mc_receive <- function()
 {
-    readLines(mc_connection(), n=1L, encoding="CP437")
+    res <- readLines(mc_connection(), n = 1L, encoding = "CP437")
+    if (length(res) == 1 && res == 'Fail') {
+        stop('The server returned an unknown error')
+    }
+    res
 }
 
+
 # trick seems to be waiting long enough for the response, but not too long
-mc_sendreceive <- function(text, delay=0.02)
+mc_sendreceive <- function(text)
 {
     mc_send(text)
-
-    if(delay > 0) Sys.sleep(delay)
-
     mc_receive()
 }
 
