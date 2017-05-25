@@ -3,7 +3,6 @@
 export(chatPost)
 export(find_item)
 export(getBlock)
-export(getBlockWithData)
 export(getBlocks)
 export(getDirection)
 export(getHeight)
