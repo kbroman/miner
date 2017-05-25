@@ -4,7 +4,7 @@
 \alias{getPlayerTilePos}
 \title{Get player tile position}
 \usage{
-getPlayerTilePos(id = NULL)
+getPlayerTilePos(player_id = NULL)
 }
 \value{
 vector (x,y,z)
@@ -17,8 +17,8 @@ Get player tile position
 mc_connect()
 getPlayerTilePos()
 
-example_entity <- getPlayerIds()[1]
-getPlayerPos(id = example_entity)
+example_playerId <- getPlayerIds()[1]
+getPlayerPos(example_playerId)
 }
 
 }
