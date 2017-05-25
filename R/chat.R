@@ -17,5 +17,5 @@
 #' 
 #' @export
 chatPost <- function(text) {
-    mc_send(sprintf('chat.post(%s)', shQuote(text)))
+    mc_send(sprintf('chat.post(%s)', text))
 }
