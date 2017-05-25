@@ -9,8 +9,7 @@
 #' @examples
 #' \dontrun{
 #' mc <- mc_connect()
-#' p <- getPlayerPost(mc)
-#' setPlayerPos(mc, 0, p + 5, 0)
+#' getPlayerIds(mc)
 #' }
 #'
 #' @export
