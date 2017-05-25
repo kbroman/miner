@@ -13,27 +13,67 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Introduction
+## Introduction
 
-The mineR package provides a simple interface to the Minecraft world. Use R functions to connet with a MineCraft server and control the world within.
+The mineR package provides a simple interface to the Minecraft world. Use R functions
+to connect with a MineCraft server and control the world within.
 
 
 The purpose of this package is to teach new programmers about R. See the effect of your programs
 directly in the Mindcraft world!
 
-## About Minecraft
+### About Minecraft
 
-Info on getting Minecraft and setting up a server
+To use the mineR package, you will need to set up your own Minecraft server.
 
-# Your first mineR adventure
+Here's how to download and install a server.
 
-Quick tutorial demonstrating basic Minecraft commands
+Here's how to get the Minecraft client to connect. You must use the PC version, not the "Pocket Minecraft" or Windows 10 version.
 
-# mineR commands
+## Your first mineR adventure
 
-Overview of tools
+Here is a quick tutorial demonstrating basic mineR commands.
 
-# Suggestions for writing your own programs with mineR
+Connect to the world. For this you will need to know the IP address of your server.
+
+```
+mc_connect("52.168.1.2") # use the IP of your server here
+```
+
+To check you have successfully connected to the world, you can try chatting:
+
+```r
+chatPost("Message goes to all players.")
+```
+
+Each player in the world gets a Player ID. If you're the only player in the world,
+this is easy. But if there are multiple players, the easiest way to find your ID is 
+to sign out of the server and then sign in again. Your player ID will then be the last
+one on the list.
+
+```r
+myid <- tail(getPlayerIds(),1) 
+```
+
+Once you have a Player ID, you can move the player around.
+
+```r
+myloc <- getPlayerPost(myid)
+setPlayerPos(myloc[1],myloc[2],myloc[3]+100,player_id=myid) # move player 10 tiles in the air
+```
+
+
+
+## mineR commands
+
+Functions you can use:
+
+* `mc_connect`: Connect to a MineCraft server
+* `getPlayerIds`: Get a list of players in the world
+* 
+
+
+## Suggestions for writing your own programs with mineR
 
 Put your picture on a Minecraft wall!
 
