@@ -6,6 +6,9 @@
 \usage{
 getEventsChatPosts()
 }
+\value{
+\code{data.frame} player id and message
+}
 \description{
 Read most recent chat messages
 }
