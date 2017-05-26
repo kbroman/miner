@@ -59,6 +59,7 @@ mc_close <- function() {
 
 mc_send <- function(text)
 {
+    if(is.null(text) || text=='') warning("text was empty")
     writeLines(text, con=mc_connection(), useBytes=TRUE)
 }
 
@@ -67,7 +68,7 @@ mc_receive <- function()
 {
     res <- readLines(mc_connection(), n = 1L, encoding = "CP437")
     if (length(res) == 1 && res == 'Fail') {
-        stop('The server returned an unknown error')
+        stop('The server returned an error')
     }
     res
 }
@@ -83,6 +84,7 @@ mc_sendreceive <- function(text)
 merge_data <- function(text, ...)
 {
     dots <- list(...)
+    if(is.null(text)) text <- ""
 
     paste0(text, "(",
            paste(unlist(dots), collapse=","), ")")
