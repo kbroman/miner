@@ -21,6 +21,31 @@ chatPost <- function(text) {
     mc_send(sprintf('chat.post(%s)', text))
 }
 
+#' Helper function to split string into data.frame, for the chat
+#' @keywords internal
+mcsplit_message <- function(string, colnames) {
+
+    if (string == '') {
+        return(as.data.frame(sapply(colnames, function(x) character(0)), stringsAsFactor = FALSE))
+    }
+
+
+    setNames(data.frame(
+        do.call(rbind,
+                sapply(
+                    X = sub(",", "|", strsplit(string, '|', fixed = TRUE)[[1]], fixed=TRUE),
+                    FUN = strsplit,
+                    split = '|', fixed=TRUE,
+                    USE.NAMES = FALSE)),
+        stringsAsFactors=FALSE),
+        colnames)
+
+}
+
+
+
+
+
 #' Pull the most recent chat message
 #'
 #' Returns the chat posts that have been posted recently and since the
@@ -39,6 +64,6 @@ chatPost <- function(text) {
 #'
 #' @export
 getChatPosts <- function() {
-  mcsplit(mc_sendreceive('events.chat.posts()'),
+  mcsplit_message(mc_sendreceive('events.chat.posts()'),
           c('player', 'message'))
 }
