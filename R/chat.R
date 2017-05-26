@@ -17,6 +17,7 @@
 #'
 #' @export
 chatPost <- function(text) {
+    if(is.null(text)) text <- ""
     mc_send(sprintf('chat.post(%s)', text))
 }
 
