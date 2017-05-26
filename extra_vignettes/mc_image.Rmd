@@ -1,7 +1,7 @@
 ---
 title: "Rendering an image in Minecraft"
 author: "Karl Broman"
-output: rmarkdown::html_vignette
+output: rmarkdown::github_document
 vignette: >
   %\VignetteIndexEntry{Rendering an image in Minecraft}
   %\VignetteEngine{knitr::rmarkdown}
