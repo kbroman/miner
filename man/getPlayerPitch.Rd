@@ -7,11 +7,11 @@
 getPlayerPitch(player_id = NULL)
 }
 \arguments{
-\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all
 current players using \code{\link{getPlayerIds}}.}
 }
 \value{
-A double vector of length one with a value between 
+A double vector of length one with a value between
 -90 and 90 giving the pitch of the player.
 }
 \description{

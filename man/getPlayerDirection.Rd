@@ -7,11 +7,11 @@
 getPlayerDirection(player_id = NULL)
 }
 \arguments{
-\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all
 current players using \code{\link{getPlayerIds}}.}
 }
 \value{
-A numeric vector of length 3 with coordinates of the player's current 
+A numeric vector of length 3 with coordinates of the player's current
    direction as a unit vector.
 }
 \description{
@@ -24,7 +24,7 @@ of other players can be gotten using the \code{player_id} argument.
 getPlayerDirection()
 
 example_playerId <- getPlayerIds()[1]
-getPlayerDirection(example_playerId) 
+getPlayerDirection(example_playerId)
 }
 
 }
