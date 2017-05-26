@@ -40,9 +40,7 @@ head(recent_hits, 3)
 ```{r}
 library(dplyr)
 hit_locs <- recent_hits %>% 
-  filter(player == 5799549) %>% 
-  select(x, y, z) %>% 
-  mutate_all(funs(as.numeric(as.character(.)))) 
+  filter(player == 5799549)
 hit_locs
 ```
 
@@ -91,6 +89,36 @@ for(i in 1:nrow(hit_locs)){
 ```
 
 ![](figure/ice_towers.png)
+
+## Write a function to do this interactively
+
+You can expand on this idea and write a function that will "listen" to your Minecraft world from R and build ice towers as you make block hits. 
+
+```{r}
+ice_towers <- function(player_id, delay = 0.2){
+  j <- 1
+  while(TRUE){
+    latest_events <- miner::getBlockHits() 
+    latest_events <- latest_events %>% 
+      filter(player == player_id) %>% 
+      distinct()
+    for(i in 1:nrow(latest_events)){
+      tower_height <- sample(1:4, size = 1)
+      setBlocks(latest_events$x[i], latest_events$y[i], latest_events$z[i],
+                latest_events$x[i], latest_events$y[i] + tower_height, latest_events$z[i],
+                id = 212)
+    }
+    print(j)
+    j <- j + 1
+    Sys.sleep(delay)
+  }
+}
+```
+
+```{r}
+ice_towers(player_id = 7433954, delay = 3)
+```
+
 
 ## Close the connection
 
