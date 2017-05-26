@@ -144,7 +144,9 @@ some things you can try (in some cases, with links to examples showing how).
 * Create a [staircase](../extra-vignettes/stairway-to-heaven.Rmd) or 
   [tower](../extra-vignettes/stnad_on_tower.Rmd) programatically.
 * Make it possible to run over water, by having ice appear wherever water touches
-  the player's feet.
+  the player's feet (like in [this video](https://youtu.be/6gcRyuj0smg).)
+* Track the player's actions to have them [plant flowers or build an ice tower](../extra-vignettes/).  
+* Write a bot to [play a game with players over chat](../extra-vignettes/numguess.Rmd), [like this](../extra-vignettes/figure/guessnum.png).  
   
 ## Details on Setting up a Minecraft server
 
