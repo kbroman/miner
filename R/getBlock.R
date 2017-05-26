@@ -34,9 +34,9 @@
 
 getBlock <- function(x,y,z, include_style = TRUE)
 {
-    x <- round(as.numeric(x))
-    y <- round(as.numeric(y))
-    z <- round(as.numeric(z))
+    x <- floor(as.numeric(x))
+    y <- floor(as.numeric(y))
+    z <- floor(as.numeric(z))
     result <- mc_sendreceive(merge_data("world.getBlockWithData", x, y, z))
 
     # convert to vector of length 2
@@ -86,13 +86,13 @@ getBlock <- function(x,y,z, include_style = TRUE)
 
 getBlocks <- function(x0,y0,z0, x1,y1,z1)
 {
-    x0 <- round(as.numeric(x0))
-    y0 <- round(as.numeric(y0))
-    z0 <- round(as.numeric(z0))
+    x0 <- floor(as.numeric(x0))
+    y0 <- floor(as.numeric(y0))
+    z0 <- floor(as.numeric(z0))
 
-    x1 <- round(as.numeric(x1))
-    y1 <- round(as.numeric(y1))
-    z1 <- round(as.numeric(z1))
+    x1 <- floor(as.numeric(x1))
+    y1 <- floor(as.numeric(y1))
+    z1 <- floor(as.numeric(z1))
 
     result <- mc_sendreceive(merge_data("world.getBlocks", x0, y0, z0, x1, y1, z1))
 

@@ -19,8 +19,8 @@
 
 getHeight <- function(x,z)
 {
-    x <- round(as.numeric(x))
-    z <- round(as.numeric(z))
+    x <- floor(as.numeric(x))
+    z <- floor(as.numeric(z))
 
     as.integer(
         mc_sendreceive(merge_data("world.getHeight", x, z))
