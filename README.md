@@ -41,7 +41,7 @@ Write a bot to play a game with players over chat:
 
 And, of course, make `ggplot` plots in Minecraft: 
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/VRHYOSPy1Nk" frameborder="0" allowfullscreen></iframe>
+![](extra_vignettes/figure/ggplot.gif) 
 
 This package was created as part of the [ROpenSci unconference](http://unconf17.ropensci.org/)
 in May, 2017 by:
