@@ -8,3 +8,5 @@ connection to the
 using [RaspberryJuice](https://dev.bukkit.org/projects/raspberryjuice)
 and either [Spigot](https://www.spigotmc.org/) or
 [Minecraft:Pi](https://minecraft.net/en-us/edition/pi/)
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/6gcRyuj0smg" frameborder="0" allowfullscreen></iframe>
