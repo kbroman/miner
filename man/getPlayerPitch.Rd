@@ -12,11 +12,13 @@ current players using \code{\link{getPlayerIds}}.}
 }
 \value{
 A double vector of length one with a value between
--90 and 90 giving the pitch of the player.
+-90 (looking straight up) and 90 (looking straight down)
+giving the pitch of the player's viewpoint.
 }
 \description{
 Return the player's pitch (angle in the up / down direction).
-This can be run for a different player by using the \code{player_id}
+The default is to get the rotation for the first player spawned in the Minecraft 
+world, but this can be run for a different player by using the \code{player_id}
 argument.
 }
 \examples{

@@ -1,6 +1,7 @@
 #' Get player rotation
 #'
-#' Get the current rotation of the player. This can be run for a different
+#' Get the current rotation of a player. The default is to get the rotation for
+#' the first player spawned in the Minecraft world, but this can be run for a different
 #' player by using the \code{player_id} argument.
 #'
 #' @inheritParams getPlayerPos
@@ -38,7 +39,8 @@ getPlayerRotation <- function(player_id = NULL)
 #' Get player pitch
 #'
 #' Return the player's pitch (angle in the up / down direction).
-#' This can be run for a different player by using the \code{player_id}
+#' The default is to get the rotation for the first player spawned in the Minecraft 
+#' world, but this can be run for a different player by using the \code{player_id}
 #' argument.
 #'
 #' @inheritParams getPlayerPos
@@ -72,8 +74,9 @@ getPlayerPitch <- function(player_id = NULL) {
 #' Get player direction as unit vector
 #'
 #' Returns a unit vector describing the current direction a player is facing.
-#' The default is to get the direction for the current player, but the directions
-#' of other players can be gotten using the \code{player_id} argument.
+#' The default is to get the direction for the first player spawned in the Minecraft,
+#' world, but the directions of other players can be gotten using the \code{player_id} 
+#' argument.
 #'
 #' @return A numeric vector of length 3 with coordinates of the player's current
 #'    direction (gaze) as a unit vector.

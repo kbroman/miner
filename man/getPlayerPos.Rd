@@ -19,8 +19,9 @@ A numeric vector of length three giving the position (x, y, and z) of the
   requested player.
 }
 \description{
-Get entity position. The default is to get the player position, but other
-positions can be gotten using the \code{id} argument.
+Get entity position. The default is to get the position of the first player spawned
+in the game, but the positions of other players can be gotten using the 
+\code{player_id} argument.
 }
 \examples{
 \dontrun{
