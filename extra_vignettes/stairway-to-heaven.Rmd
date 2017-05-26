@@ -1,0 +1,48 @@
+---
+title: "A Stairway to Heaven"
+author: "Ali Zaidi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Building Objects
+
+The function to create objects in `miner` is the `setBlock` function. It expects four arguments, the first three being the coordinates of your item's location, and the fourth being the `block_id` you want to set. An optional argument is `block_style`.
+
+```{r setup,  eval = FALSE}
+ids <- getPlayerIds()
+lapply(ids, getPlayerPos)
+ali <- ids[1]
+```
+
+## Stairway to heaven
+
+We will create a matrix that contains our increments. First we create a matrix with as mnay columns as we want stairs, and three rows specifying our coordinates. The coordinates are obtained by incrementing the first and second element of each column. We then use `purrr:map` that matrix to the `setBlocks` function.
+
+```{r create_blocks, eval = FALSE}
+pos <- getPlayerPos(player_id = ali, tile = TRUE)
+stair_blocks <- 10
+
+stepsize <- 1
+
+stairs <- replicate(stair_blocks, pos)
+upset <- cbind(rep(0, 3), replicate(stair_blocks - 1, c(1, 1, 0)))
+t_upset <- t(apply(upset, 1, cumsum))
+
+t_stairs <- stairs + t_upset
+
+library(tidyverse)
+
+d_stairs <- as.data.frame(t_stairs) %>% tbl_df
+
+d_stairs %>% map(function(x) setBlock(x[1], x[2], x[3], id = 53))
+
+
+
+```
+
+![](figure/stairs.png)

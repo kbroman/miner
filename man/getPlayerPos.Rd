@@ -7,15 +7,15 @@
 getPlayerPos(player_id = NULL, tile = FALSE)
 }
 \arguments{
-\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all
 current players using \code{\link{getPlayerIds}}.}
 
-\item{tile}{Logical value specifying whether to truncate the output position to 
-an integer (i.e., the location of the tile on which the player is 
+\item{tile}{Logical value specifying whether to truncate the output position to
+an integer (i.e., the location of the tile on which the player is
 positioned).}
 }
 \value{
-A numeric vector of length three giving the position (x, y, and z) of the 
+A numeric vector of length three giving the position (x, y, and z) of the
   requested player.
 }
 \description{

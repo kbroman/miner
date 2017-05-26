@@ -16,16 +16,16 @@ of the cuboid.}
 \item{z0}{A numeric value giving the starting east / west position
 of the cuboid.}
 
-\item{x1}{A numeric value giving the north / south position of 
+\item{x1}{A numeric value giving the north / south position of
 the opposite corner of the cuboid.}
 
-\item{y1}{A numeric value giving the ending height of 
+\item{y1}{A numeric value giving the ending height of
 the opposite corner of the cuboid.}
 
-\item{z1}{A numeric value giving the ending east / west position of 
+\item{z1}{A numeric value giving the ending east / west position of
 the opposite corner of the cuboid.}
 
-\item{id}{A numeric or character string with the ID of a Minecraft item 
+\item{id}{A numeric or character string with the ID of a Minecraft item
 (specify either \code{name} or \code{id}, not both)}
 }
 \value{

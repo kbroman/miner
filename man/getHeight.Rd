@@ -12,12 +12,12 @@ getHeight(x, z)
 \item{z}{A numeric string with east/west position}
 }
 \value{
-Integer with height of block just above the last bit of 
+Integer with height of block just above the last bit of
    non-air at the specified x / z position.
 }
 \description{
 Get height of the world at a given position, where the world's
-height is defined as the height of the highest non-air point at 
+height is defined as the height of the highest non-air point at
 that location.
 }
 \examples{
