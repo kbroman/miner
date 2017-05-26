@@ -26,15 +26,22 @@
 #'
 setPlayerPos <- function(x,y,z, player_id = NULL, tile = FALSE)
 {
+    x <- as.numeric(x)
+    y <- as.numeric(y)
+    z <- as.numeric(z)
+
+
   if(tile){
     x <- floor(x)
     y <- floor(y)
     z <- floor(z)
   }
-  
+
+
   if(is.null(player_id)){
     mc_send(merge_data("player.setPos", x, y, z))
   } else{
+    player_id <- as.numeric(player_id)
     mc_send(merge_data("entity.setPos", player_id, x, y, z))
   }
 
