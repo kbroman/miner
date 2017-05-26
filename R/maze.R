@@ -11,7 +11,7 @@ mc_maze <- function(n = 5, player_id = NULL) {
     z <- pos[3]
 
     ## generate a random maze
-    library(Rmaze)
+    requireNamespace(Rmaze)
     maze <- makeGraph(n, n)
     set.seed(42)
     maze <- makeMaze_dfs(maze)
@@ -30,8 +30,8 @@ mc_maze <- function(n = 5, player_id = NULL) {
     nc <- ncol(df)
 
     ## draw edges
-    library(igraph)
-    library(data.table)
+    requireNamespace(igraph)
+    requireNamespace(data.table)
     mazedf <- data.table(as_data_frame(maze))
     for (v in c('from', 'to')) {
         mazedf[, (paste0(v, 'x')) := as.numeric(sub('A_([0-9]*)_[0-9]*', '\\1', get(v)))]
