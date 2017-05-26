@@ -27,6 +27,8 @@ Render a photograph as a wall of blocks:
 
 ![](extra_vignettes/figure/karthik_minecraft.png)
 
+Or the [R](https://www.r-project.org) logo:
+
 ![](extra_vignettes/figure/Rlogo_minecraft.png)
 
 Generate a random maze in R, and create it in the world for players to explore:
@@ -34,9 +36,10 @@ Generate a random maze in R, and create it in the world for players to explore:
 ![](extra_vignettes/figure/maze-minecraft.png)
 
 Give the player the powers of Elsa: [freeze water as you run over it](https://youtu.be/6gcRyuj0smg)
-or create towers of ice with a gesture:
 
 ![](extra_vignettes/figure/elsa-animated.gif)
+
+or create towers of ice with a gesture:
 
 ![](extra_vignettes/figure/ice_towers.png)
 
