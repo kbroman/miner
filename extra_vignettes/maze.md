@@ -1,26 +1,21 @@
----
-title: "Generate a maze in Minecraft"
-author: "Gergely Daroczi"
-output: rmarkdown::github_document
-vignette: >
-  %\VignetteIndexEntry{Generate a maze in Minecraft}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
----
+Generate a maze in Minecraft
+================
+Gergely Daroczi
 
 This example illustrates how to generate a perfect maze from R and the render in Minecraft.
 
-## Generate a random maze
+Generate a random maze
+----------------------
 
 First, we need to generate a maze, for which we will use the [`Rmaze`](https://github.com/Vessy/Rmaze) R package's depth-first search algorithm. As the package is not on CRAN, you have to install from GitHub:
 
-```{r rmaze-install, eval = FALSE}
+``` r
 devtools::install_github('Vessy/Rmaze')
 ```
 
 Then load the package and generate a maze with, for example, 10 x 10 tiles:
 
-```{r maze-gen}
+``` r
 library(Rmaze)
 
 n <- 10
@@ -31,47 +26,62 @@ maze <- makeMaze_dfs(maze)
 
 This is a graph representation of the maze, which can be rendered with `ggplot2` very easily:
 
-```{r maze-plot}
+``` r
 plotMaze(maze, n, n)
 ```
 
-## Transform maze graph into matrix
+![](maze_files/figure-markdown_github/maze-plot-1.png)
+
+Transform maze graph into matrix
+--------------------------------
 
 Now we have to transform this graph representation into a binary matrix, where we see in 2D which blocks need to be air or wall. Let's start with a large empty `matrix` allowing 4 block for every single cell, as in the matrix we will use blocks for the wall as well (unlike in the above plot):
 
-```{r maze-transform-1}
+``` r
 df <- matrix(NA, nrow = n*4, ncol = n*4)
 ```
 
 Then let's mark the surrounding border with ones:
 
-```{r maze-transform-2}
+``` r
 df[c(1, nrow(df)), ] <- 1
 df[, c(1, nrow(df))] <- 1
 ```
 
-Here is the top corner of the matrix now: 
+Here is the top corner of the matrix now:
 
-```{r}
+``` r
 df[1:4, 1:4]
 ```
 
+    ##      [,1] [,2] [,3] [,4]
+    ## [1,]    1    1    1    1
+    ## [2,]    1   NA   NA   NA
+    ## [3,]    1   NA   NA   NA
+    ## [4,]    1   NA   NA   NA
+
 But we should leave the entrance and exit open in the bottom left and top right corner:
 
-```{r maze-transform-3}
+``` r
 df[1, ncol(df) - 1:2] <- NA
 df[nrow(df), 2:3] <- NA
 ```
 
-Here is the top right corner showing the maze exit we just made: 
+Here is the top right corner showing the maze exit:
 
-```{r}
+``` r
 df[1:4, ncol(df) - 3:0]
 ```
 
+    ##      [,1] [,2] [,3] [,4]
+    ## [1,]    1   NA   NA    1
+    ## [2,]   NA   NA   NA    1
+    ## [3,]   NA   NA   NA    1
+    ## [4,]   NA   NA   NA    1
+
 Now we need to convert the graph object into a `data.frame` on which we can iterate later to render the actual wall blocks:
 
-```{r maze-transform-4, message = FALSE, warning = FALSE}
+``` r
 library(igraph)
 mazedf <- as_data_frame(maze)
 library(data.table)
@@ -80,7 +90,7 @@ setDT(mazedf)
 
 Then let's extract the `x` and `y` positions from the `A_x_y` names:
 
-```{r maze-transform-5}
+``` r
 for (v in c('from', 'to')) {
     mazedf[, (paste0(v, 'x')) := as.numeric(sub('A_([0-9]*)_[0-9]*', '\\1', get(v)))]
     mazedf[, (paste0(v, 'y')) := as.numeric(sub('A_[0-9]*_([0-9]*)', '\\1', get(v)))]
@@ -89,21 +99,21 @@ for (v in c('from', 'to')) {
 
 And let's also record in which direction the edge points:
 
-```{r maze-transform-6}
+``` r
 mazedf[fromx < tox, direction := 'top']
 mazedf[fromy < toy, direction := 'right']
 ```
 
 Now let's map the `x` and `y` coordinates to the 2D matrix:
 
-```{r maze-transform-7}
+``` r
 mazedf[, x := nrow(df) - fromx * 4 + 3 - as.numeric(direction == 'top') * 2]
 mazedf[, y := fromy * 4 - 1 + as.numeric(direction == 'right') * 2]
 ```
 
 And then let's update the blank matrix `NA` cells with 1, 2 or 3 to represent the actual walls:
 
-```{r maze-transform-8}
+``` r
 for (i in seq_len(nrow(mazedf))) {
     cell <- mazedf[i]
     if (cell$wall == 'ON') {
@@ -122,18 +132,19 @@ I know it was a bit tricky, and probably there's a nicer and lot more elegant wa
 
 ![](figure/maze-matrix.png)
 
-## Render the maze in Minecraft
+Render the maze in Minecraft
+----------------------------
 
-Now that we have a binary matrix representation of the maze, it's very easy to render the related blocks in Minecraft. First, we need to load the `miner` package and establish a connection to a Minecraft server: 
+Now that we have a binary matrix representation of the maze, it's very easy to render the related blocks in Minecraft. First, we need to load the `miner` package and establish a connection to a Minecraft server:
 
-```{r eval = FALSE}
+``` r
 library(miner)
 mc_connect()
 ```
 
 Next, we will clean up some space, then generate the floor (diamond) and ceiling (glass), then the wall blocks(gold):
 
-```{r maze-render, eval = FALSE}
+``` r
 ## clean up some space
 setBlocks(1, 50, 1, nr, 54, nc, 0)
 ## add floor
