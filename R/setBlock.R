@@ -2,11 +2,8 @@
 #'
 #' Place a block at position (x,y,z) by type id
 #'
-#' @param x north/south position
-#' @param y height
-#' @param z east/west position
-#' @param block_id block id
-#' @param block_style block_style
+#' @inheritParams find_item
+#' @inheritParams getBlock
 #'
 #' @return None.
 #'
@@ -19,46 +16,44 @@
 #'
 #' @export
 
-setBlock <- function(x, y, z, block_id, block_style=0)
+setBlock <- function(x, y, z, id, style=0)
 {
     x <- round(x)
     y <- round(y)
     z <- round(z)
-    block_id <- round(block_id)
-    block_style <- round(block_style)
+    id <- round(id)
+    style <- round(style)
 
-    if(is.null(block_style) || is.na(block_style)) block_style <- 0
+    if(is.null(style) || is.na(style)) style <- 0
 
-    mc_send(merge_data("world.setBlock", x, y, z, block_id, block_style))
+    mc_send(merge_data("world.setBlock", x, y, z, id, style))
 
 }
 
 
 #' Place blocks in a cuboid
 #'
-#' Place blocks in cuboid defined by (x0,y0,z0) and (x1,y1,z1)
+#' Place blocks of a single type (specified by \code{id}) in the cuboid
+#' with opposite corners at the positions (x0, y0, z0) and (x1, y1, z1).
 #'
-#' @param x0 north/south position
-#' @param y0 height
-#' @param z0 east/west position
-#' @param x1 north/south position
-#' @param y1 height
-#' @param z1 east/west position
-#'
-#' @param block_id block id
+#' @inheritParams getBlocks
+#' @inheritParams find_item
 #'
 #' @return None.
 #'
 #' @examples
 #' \dontrun{
 #' mc_connect()
+#' 
+#' ice <- find_item(name = "Ice")
+#' 
 #' h <- getHeight(0,0)
-#' setBlock(0,h,0,  46)
+#' setBlocks(0, h, 0, 1, h + 3, 2, id = ice$id)
 #' }
 #'
 #' @export
 
-setBlocks <- function(x0,y0,z0, x1,y1,z1,  block_id)
+setBlocks <- function(x0,y0,z0, x1,y1,z1,  id)
 {
     x0 <- round(x0)
     y0 <- round(y0)
@@ -66,8 +61,8 @@ setBlocks <- function(x0,y0,z0, x1,y1,z1,  block_id)
     x1 <- round(x1)
     y1 <- round(y1)
     z1 <- round(z1)
-    block_id <- round(block_id)
+    id <- round(id)
 
-    mc_send(merge_data("world.setBlocks", x0, y0, z0, x1, y1, z1, block_id))
+    mc_send(merge_data("world.setBlocks", x0, y0, z0, x1, y1, z1, id))
 
 }

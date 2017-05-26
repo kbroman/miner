@@ -4,34 +4,45 @@
 \alias{setBlocks}
 \title{Place blocks in a cuboid}
 \usage{
-setBlocks(x0, y0, z0, x1, y1, z1, block_id)
+setBlocks(x0, y0, z0, x1, y1, z1, id)
 }
 \arguments{
-\item{x0}{north/south position}
+\item{x0}{A numeric value giving the starting north / south position
+of the cuboid.}
 
-\item{y0}{height}
+\item{y0}{A numeric value giving the starting height
+of the cuboid.}
 
-\item{z0}{east/west position}
+\item{z0}{A numeric value giving the starting east / west position
+of the cuboid.}
 
-\item{x1}{north/south position}
+\item{x1}{A numeric value giving the north / south position of 
+the opposite corner of the cuboid.}
 
-\item{y1}{height}
+\item{y1}{A numeric value giving the ending height of 
+the opposite corner of the cuboid.}
 
-\item{z1}{east/west position}
+\item{z1}{A numeric value giving the ending east / west position of 
+the opposite corner of the cuboid.}
 
-\item{block_id}{block id}
+\item{id}{A numeric or character string with the ID of a Minecraft item 
+(specify either \code{name} or \code{id}, not both)}
 }
 \value{
 None.
 }
 \description{
-Place blocks in cuboid defined by (x0,y0,z0) and (x1,y1,z1)
+Place blocks of a single type (specified by \code{id}) in the cuboid
+with opposite corners at the positions (x0, y0, z0) and (x1, y1, z1).
 }
 \examples{
 \dontrun{
 mc_connect()
+
+ice <- find_item(name = "Ice")
+
 h <- getHeight(0,0)
-setBlock(0,h,0,  46)
+setBlocks(0, h, 0, 1, h + 3, 2, id = ice$id)
 }
 
 }

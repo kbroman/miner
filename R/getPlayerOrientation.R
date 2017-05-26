@@ -1,6 +1,7 @@
 #' Get player rotation
 #'
-#' Get the current rotation of the player.
+#' Get the current rotation of the player. This can be run for a different 
+#' player by using the \code{player_id} argument. 
 #' 
 #' @inheritParams getPlayerPos
 #'
@@ -34,38 +35,65 @@ getPlayerRotation <- function(player_id = NULL)
 
 #' Get player pitch
 #'
-#' Return player pitch
+#' Return the player's pitch (angle in the up / down direction).
+#' This can be run for a different player by using the \code{player_id}
+#' argument. 
+#' 
+#' @inheritParams getPlayerPos
 #'
-#' @return a vector double of length one with pitch
-#' @export
+#' @return A double vector of length one with a value between 
+#' -90 and 90 giving the pitch of the player.
 #'
 #' @examples
 #' \dontrun{
-#' getPitch()
+#' getPlayerPitch()
+#' 
+#' example_playerId <- getPlayerIds()[1]
+#' getPlayerPitch(example_playerId)
 #' }
-getPlayerPitch <- function() {
+#' 
+#' @export
+getPlayerPitch <- function(player_id = NULL) {
+
+  if(is.null(player_id)){
+    p <- mc_sendreceive("player.getPitch()")
+  } else {
+    p <- mc_sendreceive(merge_data("entity.getPitch", player_id))
+  }
   
-  p <- mc_sendreceive("player.getPitch()")
   as.numeric(p)
   
 }
 
 
-#' Get direction vector
+#' Get player direction as unit vector
 #'
-#' Get a vector describing the current direction a player is facing. 
+#' Returns a unit vector describing the current direction a player is facing.
+#' The default is to get the direction for the current player, but the directions
+#' of other players can be gotten using the \code{player_id} argument.  
 #'
-#' @return A numeric vector of length 3 with coordinates of current direction 
-#' @export
+#' @return A numeric vector of length 3 with coordinates of the player's current 
+#'    direction as a unit vector. 
+#'    
+#' @inheritParams getPlayerPos
 #'
 #' @examples
 #' \dontrun{
-#' getDirection()
+#' getPlayerDirection()
+#' 
+#' example_playerId <- getPlayerIds()[1]
+#' getPlayerDirection(example_playerId) 
 #' }
-getPlayerDirection <- function() {
+#' 
+#' @export
+getPlayerDirection <- function(player_id = NULL) {
   
-  z <- mc_sendreceive("player.getDirection()")
+  if(is.null(player_id)){
+    z <- mc_sendreceive("player.getDirection()")
+  } else {
+    z <- mc_sendreceive(merge_data("entity.getDirection", player_id))    
+  }
+  
   as.numeric(strsplit(z, ",")[[1]])
-  
   
 }

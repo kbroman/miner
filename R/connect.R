@@ -14,11 +14,20 @@ mc_connection <- function() {
 }
 
 
-#' Create connection to minecraft server
+#' Create a connection to a Minecraft server
 #'
-#' @param address The url for the minecraft server
-#' @param port The port to use for the connection
+#' @param address A character string with the IP address for the 
+#'    Minecraft server to which you want to connect.
+#' @param port An integer giving the port to use for the connection.
+#' 
 #' @return Nothing returned, the connection is cached within the package namespace.
+#' 
+#' @examples \dontrun{
+#' mc_connect()
+#' getPlayerIds()
+#' mc_close()
+#' }
+#' 
 #' @importFrom utils assignInMyNamespace
 #' @export
 mc_connect <- function(address = "localhost", port = 4711)
@@ -30,7 +39,18 @@ mc_connect <- function(address = "localhost", port = 4711)
 }
 
 
-#' Close cached connection to Minecraft Server
+#' Close cached connection to Minecraft server
+#' 
+#' Close the current connection to a Minecraft server.
+#' 
+#' @return None.
+#' 
+#' @examples \dontrun{
+#'   mc_connect()
+#'   getPlayerIds()
+#'   mc_close()
+#' }
+#' 
 #' @export
 mc_close <- function() {
     close(con)
