@@ -67,6 +67,9 @@ mc_send <- function(text)
 mc_receive <- function()
 {
     res <- readLines(mc_connection(), n = 1L, encoding = "CP437")
+    if(length(res) == 0) {
+        stop("The server returned nothing; the connection may be down.")
+    }
     if (length(res) == 1 && res == 'Fail') {
         stop('The server returned an error')
     }
