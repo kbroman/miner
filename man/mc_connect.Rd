@@ -7,7 +7,7 @@
 mc_connect(address = "localhost", port = 4711)
 }
 \arguments{
-\item{address}{A character string with the IP address for the 
+\item{address}{A character string with the IP address for the
 Minecraft server to which you want to connect.}
 
 \item{port}{An integer giving the port to use for the connection.}
