@@ -16,8 +16,8 @@ mc_connection <- function() {
 
 #' Create a connection to a Minecraft server
 #'
-#' @param address A character string with the IP address for the
-#'    Minecraft server to which you want to connect.
+#' @param hostname A character string with the hostname or IP address for the
+#'    Minecraft Spigot server to which you want to connect.
 #' @param port An integer giving the port to use for the connection.
 #'
 #' @return Nothing returned, the connection is cached within the package namespace.
@@ -30,11 +30,11 @@ mc_connection <- function() {
 #'
 #' @importFrom utils assignInMyNamespace
 #' @export
-mc_connect <- function(address = "localhost", port = 4711)
+mc_connect <- function(hostname = Sys.getenv("SPIGOT_HOSTNAME", "localhost"), port = Sys.getenv("SPIGOT_PORT", "4711"))
 {
     utils::assignInMyNamespace('con',
                         socketConnection(
-                            host = address, port, open = "r+b",
+                            host = hostname, as.integer(port), open = "r+b",
                             encoding = "CP437", blocking = TRUE, timeout = 1))
 }
 
