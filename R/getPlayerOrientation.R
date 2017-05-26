@@ -6,7 +6,9 @@
 #' @inheritParams getPlayerPos
 #'
 #' @return A double vector of length 1 with a value between 
-#' -360 and 360 giving the angle of rotation of the player.  
+#' 0 and -360 giving the angle of rotation of the player. (The value is always negative.)
+#' Values near 0/-360 indicate a player facing North (moving forward would increase position in the 
+#' "x" direction.)   
 #'
 #'
 #' @examples
@@ -42,7 +44,8 @@ getPlayerRotation <- function(player_id = NULL)
 #' @inheritParams getPlayerPos
 #'
 #' @return A double vector of length one with a value between 
-#' -90 and 90 giving the pitch of the player.
+#' -90 (looking straight up) and 90 (looking straight down)
+#' giving the pitch of the player's viewpoint.
 #'
 #' @examples
 #' \dontrun{
@@ -73,7 +76,7 @@ getPlayerPitch <- function(player_id = NULL) {
 #' of other players can be gotten using the \code{player_id} argument.  
 #'
 #' @return A numeric vector of length 3 with coordinates of the player's current 
-#'    direction as a unit vector. 
+#'    direction (gaze) as a unit vector. 
 #'    
 #' @inheritParams getPlayerPos
 #'
