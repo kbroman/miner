@@ -34,9 +34,9 @@
 
 getBlock <- function(x,y,z, include_style = TRUE)
 {
-    x <- round(x)
-    y <- round(y)
-    z <- round(z)
+    x <- round(as.numeric(x))
+    y <- round(as.numeric(y))
+    z <- round(as.numeric(z))
     result <- mc_sendreceive(merge_data("world.getBlockWithData", x, y, z))
 
     # convert to vector of length 2
@@ -86,16 +86,22 @@ getBlock <- function(x,y,z, include_style = TRUE)
 
 getBlocks <- function(x0,y0,z0, x1,y1,z1)
 {
-    x0 <- round(x0)
-    y0 <- round(y0)
-    z0 <- round(z0)
-    x1 <- round(x1)
-    y1 <- round(y1)
-    z1 <- round(z1)
+    x0 <- round(as.numeric(x0))
+    y0 <- round(as.numeric(y0))
+    z0 <- round(as.numeric(z0))
+
+    x1 <- round(as.numeric(x1))
+    y1 <- round(as.numeric(y1))
+    z1 <- round(as.numeric(z1))
+
     result <- mc_sendreceive(merge_data("world.getBlocks", x0, y0, z0, x1, y1, z1))
+
+    # blocks come back as a vector with values separated by commas
     result <- as.numeric(strsplit(result, ",")[[1]])
+    # the order of things is a bit tricky
     result <- array(result, dim=c(z1-z0+1, x1-x0+1, y1-y0+1))
     result <- aperm(result, c(2,3,1))
+
     dimnames(result) <- list(x0:x1, y0:y1, z0:z1)
     result
 }
