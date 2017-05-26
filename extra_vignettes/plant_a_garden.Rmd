@@ -1,0 +1,102 @@
+---
+title: "Planting a garden"
+author: "Brooke Anderson"
+date: "5/26/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE,
+                      fig.width=7, eval = FALSE)
+```
+
+From within R, you can get a record of recent events, like block hits. You can take advantage of this to place blocks at the places you hit. This tutorial shows how to plant random flowers at every spot you hit. It then expands on these ideas to show how to make ice towers.
+
+## Connect with a Minecraft server
+
+First, you need to connect to a Minecraft server, which you can do with the `mc_connect` function:
+
+```{r}
+mc_connect('52.168.137.73')
+```
+
+## Create a dataframe with recent hits
+
+The `getBlockHits` function will pull a dataframe with recent hits made by players in the Minecraft world. This dataframe will only include hits that were made by an iron sword and with a right click. 
+Go into the game, make sure you have an iron sword, and use the right click to hit some blocks around you. Go back into R and create a dataframe with those hits using:
+
+```{r}
+recent_hits <- getBlockHits()
+head(recent_hits, 3)
+```
+
+```
+    x  y  z block  player
+1  10  0  8     2 5799549
+2  10  0  8     2 5799549
+3  10  0  8     2 5799549
+```
+
+```{r}
+library(dplyr)
+hit_locs <- recent_hits %>% 
+  filter(player == 5799549) %>% 
+  select(x, y, z) %>% 
+  mutate_all(funs(as.numeric(as.character(.)))) 
+hit_locs
+```
+
+```{r}
+flowers <- mc_items %>% 
+  filter(name %in% c("Sunflower", "Lilac", "Rose Bush", "Peony",
+                     "Blue Orchid", "Red Tulip", "Pink Tulip",
+                     "Oxeye Daisy"))
+flowers
+```
+
+```
+         name  id style
+1 Blue Orchid  38     1
+2   Red Tulip  38     4
+3  Pink Tulip  38     7
+4 Oxeye Daisy  38     8
+5   Sunflower 175     0
+6       Lilac 175     1
+7   Rose Bush 175     4
+8       Peony 175     5
+```
+
+
+```{r}
+for(i in 1:nrow(hit_locs)){
+  this_flower <- sample_n(flowers, 1)
+  setBlock(hit_locs$x[i], hit_locs$y[i], hit_locs$z[i], 
+           id = this_flower$id, style = this_flower$style)
+}
+```
+
+![](figure/flowers.png)
+
+## Build ice towers
+
+Expanding on this, instead of just adding in flowers, you could make full towers. The `setBlocks` function lets you fill a cuboid space with a single type of blocks. If you have a dataframe of hit locations named `hit_locs`, as in the previous example, you can add ice towers with random heights between 1 and 4 units at each location using the following loop:
+
+```{r}
+for(i in 1:nrow(hit_locs)){
+  tower_height <- sample(1:4, size = 1)
+  setBlocks(hit_locs$x[i], hit_locs$y[i], hit_locs$z[i],
+            hit_locs$x[i], hit_locs$y[i] + tower_height, hit_locs$z[i],
+            id = 212)
+}
+```
+
+![](figure/ice_towers.png)
+
+## Close the connection
+
+When you're done working with the Minecraft world, you can close the connection using `mc_close`:
+
+```{r}
+mc_close()
+```
+
