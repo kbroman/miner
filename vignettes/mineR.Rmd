@@ -84,6 +84,8 @@ one on the list returned by `getPlayerIds`.
 myid <- tail(getPlayerIds(),1) 
 ```
 
+An alternative way of getting the player ID without the need to log out, using the chat window and an R script, see the [`mc_whoami` function in the related vignette](https://github.com/ropenscilabs/miner/blob/master/extra_vignettes/mc_whoami.R).
+
 Once you have a Player ID, you can move the player around. Note that in Minecraft, "x"
 is the North/South axis, "z" is the East/West axis, and "y" is the vertical axis.
 
