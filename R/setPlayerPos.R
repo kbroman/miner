@@ -31,7 +31,7 @@ setPlayerPos <- function(x,y,z, player_id = NULL, tile = FALSE)
     y <- floor(y)
     z <- floor(z)
   }
-  
+
   if(is.null(player_id)){
     mc_send(merge_data("player.setPos", x, y, z))
   } else{

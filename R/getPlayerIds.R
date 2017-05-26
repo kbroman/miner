@@ -1,6 +1,6 @@
 #' Get player IDs
 #'
-#' Get the IDs of all player currently in the world. 
+#' Get the IDs of all player currently in the world.
 #'
 #' @return A numeric vector with the IDs of each player currently
 #'   in the MineCraft world. Player ids are listed in the order they joined the game world.

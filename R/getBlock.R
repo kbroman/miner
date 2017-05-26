@@ -1,19 +1,19 @@
 #' Determine block type and style at some position
 #'
 #' Determine the type of the block at position x (north / south),
-#' y (height), z (east / west). By default, the block's style is 
-#' also given, although the style can be excluded from the output 
-#' using the \code{include_style} parameter. 
+#' y (height), z (east / west). By default, the block's style is
+#' also given, although the style can be excluded from the output
+#' using the \code{include_style} parameter.
 #'
 #' @param x A numeric string with north/south position
 #' @param y A numeric string with height
 #' @param z A numeric string with east/west position
 #' @param include_style A logical value of whether the block's
-#'    style should also be included in the output (defaults to TRUE). 
+#'    style should also be included in the output (defaults to TRUE).
 #'
-#' @return A numeric vector of length one or two with the type ID 
-#'    and style, if \code{include_style} is \code{TRUE}, of the block 
-#'    at position (x, y, z). You can use \code{\link{find_item}} to 
+#' @return A numeric vector of length one or two with the type ID
+#'    and style, if \code{include_style} is \code{TRUE}, of the block
+#'    at position (x, y, z). You can use \code{\link{find_item}} to
 #'    find the name of the block type based on this returned ID.
 #'
 #' @examples
@@ -22,10 +22,10 @@
 #' h <- getHeight(0,0)
 #' b_type <- getBlock(0,h,0)
 #' b_type
-#' 
+#'
 #' find_item(id = b_type[1])
 #' find_item(id = b_type[1], style = b_type[2])
-#' 
+#'
 #' getBlock(0,h,0, include_style = FALSE)
 #' }
 #'
@@ -52,8 +52,8 @@ getBlock <- function(x,y,z, include_style = TRUE)
 
 #' Determine block types in a cuboid
 #'
-#' Determine block types in a cuboid for which one corner is at 
-#' the position (x0, y0, z0) and the opposite corner is at the position 
+#' Determine block types in a cuboid for which one corner is at
+#' the position (x0, y0, z0) and the opposite corner is at the position
 #' (x1, y1, z1).
 #'
 #' @param x0 A numeric value giving the starting north / south position
@@ -62,15 +62,15 @@ getBlock <- function(x,y,z, include_style = TRUE)
 #'    of the cuboid.
 #' @param z0 A numeric value giving the starting east / west position
 #'    of the cuboid.
-#' @param x1 A numeric value giving the north / south position of 
+#' @param x1 A numeric value giving the north / south position of
 #'    the opposite corner of the cuboid.
-#' @param y1 A numeric value giving the ending height of 
+#' @param y1 A numeric value giving the ending height of
 #'    the opposite corner of the cuboid.
-#' @param z1 A numeric value giving the ending east / west position of 
+#' @param z1 A numeric value giving the ending east / west position of
 #'    the opposite corner of the cuboid.
 #'
-#' @return An 3-D array of integers where each integer gives the ID of the 
-#'    type of a block in the cuboid. 
+#' @return An 3-D array of integers where each integer gives the ID of the
+#'    type of a block in the cuboid.
 #'
 #' @examples
 #' \dontrun{
@@ -78,7 +78,7 @@ getBlock <- function(x,y,z, include_style = TRUE)
 #' h <- getHeight(0,0)
 #' block_types <- getBlocks(0, h, 0, 1, h + 3, 2)
 #' block_types
-#' 
+#'
 #' find_item(id = block_types[1, 1, 1])
 #' }
 #'
