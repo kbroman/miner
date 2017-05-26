@@ -3,7 +3,7 @@ title: "Generate a maze in Minecraft"
 author: "Gergely Daroczi"
 output: rmarkdown::github_document
 vignette: >
-  %\VignetteIndexEntry{Rendering an image in Minecraft}
+  %\VignetteIndexEntry{Generate a maze in Minecraft}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
