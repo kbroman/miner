@@ -7,15 +7,15 @@
 getPlayerRotation(player_id = NULL)
 }
 \arguments{
-\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all
 current players using \code{\link{getPlayerIds}}.}
 }
 \value{
-A double vector of length 1 with a value between 
+A double vector of length 1 with a value between
 -360 and 360 giving the angle of rotation of the player.
 }
 \description{
-Get the current rotation of the player. This can be run for a different 
+Get the current rotation of the player. This can be run for a different
 player by using the \code{player_id} argument.
 }
 \examples{

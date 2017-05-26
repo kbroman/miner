@@ -16,18 +16,18 @@ mc_connection <- function() {
 
 #' Create a connection to a Minecraft server
 #'
-#' @param address A character string with the IP address for the 
+#' @param address A character string with the IP address for the
 #'    Minecraft server to which you want to connect.
 #' @param port An integer giving the port to use for the connection.
-#' 
+#'
 #' @return Nothing returned, the connection is cached within the package namespace.
-#' 
+#'
 #' @examples \dontrun{
 #' mc_connect()
 #' getPlayerIds()
 #' mc_close()
 #' }
-#' 
+#'
 #' @importFrom utils assignInMyNamespace
 #' @export
 mc_connect <- function(address = "localhost", port = 4711)
@@ -40,17 +40,17 @@ mc_connect <- function(address = "localhost", port = 4711)
 
 
 #' Close cached connection to Minecraft server
-#' 
+#'
 #' Close the current connection to a Minecraft server.
-#' 
+#'
 #' @return None.
-#' 
+#'
 #' @examples \dontrun{
 #'   mc_connect()
 #'   getPlayerIds()
 #'   mc_close()
 #' }
-#' 
+#'
 #' @export
 mc_close <- function() {
     close(con)
@@ -59,6 +59,7 @@ mc_close <- function() {
 
 mc_send <- function(text)
 {
+    if(is.null(text) || text=='') warning("text was empty")
     writeLines(text, con=mc_connection(), useBytes=TRUE)
 }
 
@@ -66,8 +67,11 @@ mc_send <- function(text)
 mc_receive <- function()
 {
     res <- readLines(mc_connection(), n = 1L, encoding = "CP437")
+    if(length(res) == 0) {
+        stop("The server returned nothing; the connection may be down.")
+    }
     if (length(res) == 1 && res == 'Fail') {
-        stop('The server returned an unknown error')
+        stop('The server returned an error')
     }
     res
 }
@@ -83,6 +87,7 @@ mc_sendreceive <- function(text)
 merge_data <- function(text, ...)
 {
     dots <- list(...)
+    if(is.null(text)) text <- ""
 
     paste0(text, "(",
            paste(unlist(dots), collapse=","), ")")

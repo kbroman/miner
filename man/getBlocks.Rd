@@ -16,22 +16,22 @@ of the cuboid.}
 \item{z0}{A numeric value giving the starting east / west position
 of the cuboid.}
 
-\item{x1}{A numeric value giving the north / south position of 
+\item{x1}{A numeric value giving the north / south position of
 the opposite corner of the cuboid.}
 
-\item{y1}{A numeric value giving the ending height of 
+\item{y1}{A numeric value giving the ending height of
 the opposite corner of the cuboid.}
 
-\item{z1}{A numeric value giving the ending east / west position of 
+\item{z1}{A numeric value giving the ending east / west position of
 the opposite corner of the cuboid.}
 }
 \value{
-An 3-D array of integers where each integer gives the ID of the 
+An 3-D array of integers where each integer gives the ID of the
    type of a block in the cuboid.
 }
 \description{
-Determine block types in a cuboid for which one corner is at 
-the position (x0, y0, z0) and the opposite corner is at the position 
+Determine block types in a cuboid for which one corner is at
+the position (x0, y0, z0) and the opposite corner is at the position
 (x1, y1, z1).
 }
 \examples{

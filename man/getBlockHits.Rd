@@ -11,7 +11,7 @@ A dataframe with columns for the coordinates, block type,
     and player id of recent block hits.
 }
 \description{
-Return the most recent block hits made in the Minecraft 
+Return the most recent block hits made in the Minecraft
 world by an iron sword.
 }
 \note{
