@@ -1,12 +1,6 @@
----
-title: "Number-guess chat bot in Minecraft"
-author: "Gergely Daroczi"
-output: rmarkdown::github_document
-vignette: >
-  %\VignetteIndexEntry{Rendering an image in Minecraft}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
----
+Number-guess chat bot in Minecraft
+================
+Gergely Daroczi
 
 This example illustrates how to build a chat bot, interacting with players in the chat window.
 
@@ -14,32 +8,34 @@ This example illustrates how to build a chat bot, interacting with players in th
 
 This is a simple number guessing game:
 
-* the server picks a random number between 1 and 100
-* the player tries to guess that number
-* the server provides feedback after every single guess:
+-   the server picks a random number between 1 and 100
+-   the player tries to guess that number
+-   the server provides feedback after every single guess:
 
-    * the game ends if the player's guess matches the number
-    * let the player know if the number is greater or smaller
+    -   the game ends if the player's guess matches the number
+    -   let the player know if the number is greater or smaller
 
-## Init
+Init
+----
 
 First, let's pick a random number between 1 and 100:
 
-```{r pick-random}
+``` r
 num <- ceiling(runif(1) * 100)
 ```
 
 Then we connect to the Minecraft server and write a message in the chat window so that players get notified:
 
-```r
+``` r
 chatPost('Hi, I thought a number between 1 and 100. Can you guess it? Type numbers in the chat window!')
 ```
 
-## Loop
+Loop
+----
 
 Then we can run an infinite loop to provide feedback to the user:
 
-```r
+``` r
 while (TRUE) {
 
     ## poll for most recent chat messages
@@ -70,7 +66,8 @@ while (TRUE) {
 }
 ```
 
-## Let's Play!
+Let's Play!
+-----------
 
 The result looks like this:
 
