@@ -95,3 +95,26 @@ turnLeft <- function(player_id, angle = 90) {
   }
   setHeading(player_id, new_heading)
 }
+
+#' Check the block type (if any) ahead of the player
+#' 
+#' Check the block type (if any) ahead of the player.
+#' Look in the direction of the player heading
+#' at the specified distance.
+#' 
+#' @param player_id An integer with the player id
+#' @param distance The distance to look
+#'
+#' @examples \dontrun{
+#' lookForward(myid)
+#' }
+#'
+#' @export
+lookForward <- function(player_id, distance = 1) {
+  pos <- getPlayerPos(player_id)
+  player_heading_degrees <- getHeading(player_id)
+  player_heading_radians <- player_heading_degrees * pi / 180
+  unit_vector <- c(-sin(player_heading_radians), 0, cos(player_heading_radians))
+  new_pos <- pos + unit_vector * distance
+  getBlock(new_pos[1], new_pos[2], new_pos[3])
+}
