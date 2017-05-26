@@ -99,9 +99,14 @@ ice_towers <- function(player_id, delay = 0.2){
   j <- 1
   while(TRUE){
     latest_events <- miner::getBlockHits()
+    if(nrow(latest_events) == 0) next
+
     latest_events <- latest_events %>%
       dplyr::filter(player == player_id) %>%
       dplyr::distinct()
+
+    if(nrow(latest_events) == 0) next
+
     for(i in 1:nrow(latest_events)){
       tower_height <- sample(1:4, size = 1)
       miner::setBlocks(latest_events$x[i], latest_events$y[i], latest_events$z[i],
