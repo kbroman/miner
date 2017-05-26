@@ -22,7 +22,7 @@ mc_connect('52.168.137.73')
 
 ## Create a dataframe with recent hits
 
-The `getBlockHits` function will pull a dataframe with recent hits made by players in the Minecraft world. This dataframe will only include hits that were made by an iron sword and with a right click. 
+The `getBlockHits` function will pull a dataframe with recent hits made by players in the Minecraft world. This dataframe will only include hits that were made by an iron sword and with a right click.
 Go into the game, make sure you have an iron sword, and use the right click to hit some blocks around you. Go back into R and create a dataframe with those hits using:
 
 ```{r}
@@ -39,13 +39,13 @@ head(recent_hits, 3)
 
 ```{r}
 library(dplyr)
-hit_locs <- recent_hits %>% 
+hit_locs <- recent_hits %>%
   filter(player == 5799549)
 hit_locs
 ```
 
 ```{r}
-flowers <- mc_items %>% 
+flowers <- mc_items %>%
   filter(name %in% c("Sunflower", "Lilac", "Rose Bush", "Peony",
                      "Blue Orchid", "Red Tulip", "Pink Tulip",
                      "Oxeye Daisy"))
@@ -68,7 +68,7 @@ flowers
 ```{r}
 for(i in 1:nrow(hit_locs)){
   this_flower <- sample_n(flowers, 1)
-  setBlock(hit_locs$x[i], hit_locs$y[i], hit_locs$z[i], 
+  setBlock(hit_locs$x[i], hit_locs$y[i], hit_locs$z[i],
            id = this_flower$id, style = this_flower$style)
 }
 ```
@@ -92,21 +92,26 @@ for(i in 1:nrow(hit_locs)){
 
 ## Write a function to do this interactively
 
-You can expand on this idea and write a function that will "listen" to your Minecraft world from R and build ice towers as you make block hits. 
+You can expand on this idea and write a function that will "listen" to your Minecraft world from R and build ice towers as you make block hits.
 
 ```{r}
 ice_towers <- function(player_id, delay = 0.2){
   j <- 1
   while(TRUE){
-    latest_events <- miner::getBlockHits() 
-    latest_events <- latest_events %>% 
-      filter(player == player_id) %>% 
-      distinct()
+    latest_events <- miner::getBlockHits()
+    if(nrow(latest_events) == 0) next
+
+    latest_events <- latest_events %>%
+      dplyr::filter(player == player_id) %>%
+      dplyr::distinct()
+
+    if(nrow(latest_events) == 0) next
+
     for(i in 1:nrow(latest_events)){
       tower_height <- sample(1:4, size = 1)
-      setBlocks(latest_events$x[i], latest_events$y[i], latest_events$z[i],
-                latest_events$x[i], latest_events$y[i] + tower_height, latest_events$z[i],
-                id = 212)
+      miner::setBlocks(latest_events$x[i], latest_events$y[i], latest_events$z[i],
+                       latest_events$x[i], latest_events$y[i] + tower_height, latest_events$z[i],
+                       id = 212)
     }
     print(j)
     j <- j + 1
@@ -127,4 +132,3 @@ When you're done working with the Minecraft world, you can close the connection 
 ```{r}
 mc_close()
 ```
-

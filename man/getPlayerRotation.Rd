@@ -12,10 +12,13 @@ current players using \code{\link{getPlayerIds}}.}
 }
 \value{
 A double vector of length 1 with a value between
--360 and 360 giving the angle of rotation of the player.
+0 and -360 giving the angle of rotation of the player. (The value is always negative.)
+Values near 0/-360 indicate a player facing North (moving forward would increase position in the
+"x" direction.)
 }
 \description{
-Get the current rotation of the player. This can be run for a different
+Get the current rotation of a player. The default is to get the rotation for
+the first player spawned in the Minecraft world, but this can be run for a different
 player by using the \code{player_id} argument.
 }
 \examples{

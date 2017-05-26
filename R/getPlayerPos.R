@@ -1,7 +1,8 @@
 #' Get player position
 #'
-#' Get entity position. The default is to get the player position, but other
-#' positions can be gotten using the \code{id} argument.
+#' Get entity position. The default is to get the position of the first player spawned
+#' in the game, but the positions of other players can be gotten using the 
+#' \code{player_id} argument.
 #'
 #' @param player_id  Integer giving the ID of a player. You can find IDs of all
 #'   current players using \code{\link{getPlayerIds}}.
