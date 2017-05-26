@@ -69,3 +69,29 @@ moveForward <- function(player_id, distance = 1) {
   new_pos <- pos + unit_vector * distance
   setPlayerPos(new_pos[1], new_pos[2], new_pos[3], player_id)
 }
+
+#' Rotate the player heading to the left
+#' 
+#' Use a positive angle value to rotate to the left.
+#' Use a negative angle to rotate to the right.
+#' The player does not turn in the game; rather, the heading
+#' for subsequent movement commands is rotated.
+#' 
+#' @param player_id An integer with the player id
+#' @param angle The number of degrees to rotate left
+#'
+#' @examples \dontrun{
+#' turnLeft(myid)
+#' }
+#'
+#' @export
+turnLeft <- function(player_id, angle = 90) {
+  current_heading <- getHeading(player_id)
+  new_heading <- current_heading - angle
+  if (new_heading > 180) {
+    new_heading <- new_heading - 360
+  } else if (new_heading < -180) {
+    new_heading <- new_heading + 360
+  }
+  setHeading(player_id, new_heading)
+}
