@@ -89,22 +89,22 @@ grayscale_blocks
 Now, let's render that in Minecraft. We use `mc_connect()` to connect
 to a minecraft server.
 
-```{r connect}
-mc_connect("52.168.137.73")
+```{r connect, eval=FALSE}
+mc_connect()
 ```
 
 Let's find the "host" player position, and put the image 20 blocks
 above his/her head. Actually, I'll hard-code it in here, so if I
 re-run this it ends up in the same place.
 
-```{r host_pos}
+```{r host_pos, eval=FALSE}
 host_pos <- getPlayerPos()
 host_pos[2] <- host_pos[2] + 20
 ```
 
 Now, we render the image, with a nested `for` loop.
 
-```{r render_image, eval=FALSE}
+```{r render_image, eval=FALSE, eval=FALSE}
 for(i in 1:100) {
     for(j in 1:100) {
         setBlock(host_pos[1]+i, host_pos[2]+j, host_pos[3],
