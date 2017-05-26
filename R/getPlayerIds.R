@@ -17,7 +17,6 @@
 getPlayerIds <- function()
 {
 
-
     result <- mc_sendreceive("world.getPlayerIds()")
     as.numeric(strsplit(result, "\\|")[[1]])
 
