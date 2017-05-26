@@ -12,7 +12,8 @@ mcsplit <- function(string, colnames) {
                     X = strsplit(string, '|', fixed = TRUE)[[1]],
                     FUN = strsplit,
                     split = ',',
-                    USE.NAMES = FALSE))),
+                    USE.NAMES = FALSE)),
+        stringsAsFactors=FALSE),
         colnames)
 
 }
@@ -41,6 +42,8 @@ mcsplit <- function(string, colnames) {
 #'
 #' @export
 getBlockHits <- function() {
-    mcsplit(mc_sendreceive('events.block.hits()'),
-            c('x', 'y', 'z', 'block', 'player'))
+    result <- mcsplit(mc_sendreceive('events.block.hits()'),
+                      c('x', 'y', 'z', 'block', 'player'))
+    for(i in 1:ncol(result)) result[,i] <- as.numeric(result[,i])
+    result
 }
