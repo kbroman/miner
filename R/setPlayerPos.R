@@ -1,9 +1,10 @@
 #' Change player position
 #'
-#' Move player to position (x,y,z). The default is to move your player, but
-#' other entities can also be moved using the \code{player_id} argument. If
-#' the \code{tile} argument is set to \code{TRUE}, the player will be moved to
-#' the position specified by truncating the specified x, y, and z to integers.
+#' Move player to position (x,y,z). The default is to move the first player who
+#' was spawned in the Minecraft world, but other players can also be moved using 
+#' the \code{player_id} argument. If the \code{tile} argument is set to \code{TRUE}, 
+#' the player will be moved to the position specified by truncating the specified 
+#' x, y, and z to integers.
 #'
 #' @inheritParams getBlock
 #' @inheritParams getPlayerPos
