@@ -7,20 +7,21 @@
 getPlayerPos(player_id = NULL, tile = FALSE)
 }
 \arguments{
-\item{player_id}{Integer giving the ID of a player. You can find IDs of all 
+\item{player_id}{Integer giving the ID of a player. You can find IDs of all
 current players using \code{\link{getPlayerIds}}.}
 
-\item{tile}{Logical value specifying whether to truncate the output position to 
-an integer (i.e., the location of the tile on which the player is 
+\item{tile}{Logical value specifying whether to truncate the output position to
+an integer (i.e., the location of the tile on which the player is
 positioned).}
 }
 \value{
-A numeric vector of length three giving the position (x, y, and z) of the 
+A numeric vector of length three giving the position (x, y, and z) of the
   requested player.
 }
 \description{
-Get entity position. The default is to get the player position, but other
-positions can be gotten using the \code{id} argument.
+Get entity position. The default is to get the position of the first player spawned
+in the game, but the positions of other players can be gotten using the 
+\code{player_id} argument.
 }
 \examples{
 \dontrun{

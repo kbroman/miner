@@ -94,7 +94,6 @@ setPlayerPos(myloc[1],myloc[2]+50,myloc[3],player_id=myid) # raise player 50 til
 ```
 
 You can also modify the game world. For example, this adds a diamond block near the player.
-(You can find a [list of block ids here](http://minecraft-ids.grahamedgecombe.com/).)
 
 ```r
 myloc <- getPlayerPos(myid)
@@ -103,12 +102,34 @@ setBlock(myloc[1]+1, myloc[2], myloc[3], 57, 1)
 
 ## Overview of mineR commands
 
-Functions you can use:
+General functions for connecting to the game world:
 
-* `mc_connect`: Connect to a MineCraft server
+* `mc_connect`: Connect to a Minecraft server
+* `chatPost`: Make a chat message appear to players in their clients
+* `getChatPosts`: Retrieve the most recent chat message
+* `mc_close`: Close the connection to the Minecraft server
+
+Functions for interacting with player location and direction (the angle of their gaze). 
+Note that in Minecraft, `x` is East, `y` is Up and `z` is South, and the unit is one block.
+(A block is a 1-unit cube.) The player figure is about 2 units tall.
+
 * `getPlayerIds`: Get a list of players in the world
-* 
+* `getPlayerPos`: Find the position of a specified player
+* `getPlayerDirection`: Get a unit vector representing player direction
+* `getPlayerRotation`: Return the angle of the player's direction in the x-z plane
+* `getPlayerPitch`: Return the up/down angle of the player's direction
+* `setPlayerPos`: Teleport a player to a specified location 
 
+Functions for interacting with the Minecraft world.
+
+* `getHeight`: Find the height of the world (the y value of the highest non-air point)
+   at a given x-z location
+* `getBlock`: Return the type of block (air, wood etc) in a given location, as a code. See the 
+   provided data frame `mc_items` for a list of blocks and item codes.
+* `setBlock`: change the block type at a given location. Use this to place items in the world.
+* `getBlocks`: Return the block types in a rectangular region, as a 3-dimensional array.
+* `setBlocks`: Fill a rectangular region with a specific block type
+* `getBlockHits`: Return the locations of blocks recently struck by a player's iron sword
 
 ## Suggestions for writing your own programs with mineR
 
@@ -116,11 +137,16 @@ Using the commands above, you can write programs in R to create structures in th
 manipulate players, or even have the game world react to actions players take. Here are
 some things you can try (in some cases, with links to examples showing how).
 
-* Take an image, and create a wall in Minecraft that looks like the image.
-* Build a random maze to explore in Minecraft.
+* Take an image (like a [photo](../extra-vignettes/mc_image.Rmd) or    
+  [logo](../extra-vignettes/R_logo.Rmd)), 
+  and create a wall ([like this](minecraft-face.png)) in Minecraft that looks like the image.
+* Build a random maze ([like this](maze.png)) to explore in Minecraft.
+* Create a [staircase](../extra-vignettes/stairway-to-heaven.Rmd) or 
+  [tower](../extra-vignettes/stnad_on_tower.Rmd) programatically.
 * Make it possible to run over water, by having ice appear wherever water touches
-  the player's feet.
-  
+  the player's feet (like in [this video](https://youtu.be/6gcRyuj0smg).)
+* Track the player's actions to have them [plant flowers or build an ice tower](../extra-vignettes/).  
+* Write a bot to [play a game with players over chat](../extra-vignettes/numguess.Rmd), [like this](../extra-vignettes/figure/guessnum.png).  
   
 ## Details on Setting up a Minecraft server
 

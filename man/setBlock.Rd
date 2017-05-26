@@ -13,10 +13,10 @@ setBlock(x, y, z, id, style = 0)
 
 \item{z}{A numeric string with east/west position}
 
-\item{id}{A numeric or character string with the ID of a Minecraft item 
+\item{id}{A numeric or character string with the ID of a Minecraft item
 (specify either \code{name} or \code{id}, not both)}
 
-\item{style}{A numeric or character string with the style of a Minecraft 
+\item{style}{A numeric or character string with the style of a Minecraft
 item (use this argument only if querying by \code{id} is provided)}
 }
 \value{

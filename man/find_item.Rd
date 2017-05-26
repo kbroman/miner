@@ -7,17 +7,17 @@
 find_item(name = NULL, id = NULL, style = 0)
 }
 \arguments{
-\item{name}{Character string with the name of a Minecraft item (specify 
+\item{name}{Character string with the name of a Minecraft item (specify
 either \code{name} or \code{id}, not both)}
 
-\item{id}{A numeric or character string with the ID of a Minecraft item 
+\item{id}{A numeric or character string with the ID of a Minecraft item
 (specify either \code{name} or \code{id}, not both)}
 
-\item{style}{A numeric or character string with the style of a Minecraft 
+\item{style}{A numeric or character string with the style of a Minecraft
 item (use this argument only if querying by \code{id} is provided)}
 }
 \value{
-Data frame with a row or set of rows from \code{\link{mc_items}} that 
+Data frame with a row or set of rows from \code{\link{mc_items}} that
    match the queried name, ID, and / or style.
 }
 \description{
