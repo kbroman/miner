@@ -1,30 +1,26 @@
----
-title: "A Stairway to Heaven"
-author: "Ali Zaidi"
-output: rmarkdown::github_document
-vignette: >
-  %\VignetteIndexEntry{Rendering an image in Minecraft}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
----
+A Stairway to Heaven
+================
+Ali Zaidi
 
-## Building Objects
+Building Objects
+----------------
 
 The function to create objects in `miner` is the `setBlock` function. It expects four arguments, the first three being the coordinates of your item's location, and the fourth being the `block_id` you want to set. An optional argument is `block_style`.
 
 First, you need to find out where you are. You can use `getPlayerIds` to get the ids of all players currently in the Minecraft world. You can use the `getPlayerPos` function to find the position of each player. If you are the first player, you can pull your ID as the first element of the object returned by `getPlayerIds`:
 
-```{r setup,  eval = FALSE}
+``` r
 ids <- getPlayerIds()
 lapply(ids, getPlayerPos)
 ali <- ids[1]
 ```
 
-## Stairway to heaven
+Stairway to heaven
+------------------
 
 We will create a matrix that contains our increments. First we create a matrix with as many columns as we want stairs, and three rows specifying our coordinates. The coordinates are obtained by incrementing the first and second element of each column. We then use `purrr:map` to input that matrix to the `setBlocks` function.
 
-```{r create_blocks, eval = FALSE}
+``` r
 pos <- getPlayerPos(player_id = ali, tile = TRUE)
 stair_blocks <- 10
 
