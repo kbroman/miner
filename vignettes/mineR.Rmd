@@ -150,12 +150,18 @@ some things you can try (in some cases, with links to examples showing how).
   
 ## Details on Setting up a Minecraft server
 
-We have tested this package using Spigot installed on an Ubuntu 16.04 virtual machine.
+We have tested this package using [Spigot](https://www.spigotmc.org) installed on an Ubuntu 16.04 virtual machine, and created a [Docker image](https://github.com/ropenscilabs/miner/blob/master/extra_vignettes/Dockerfile) after all that you can easily deploy in your environment.
 
-You may need to open ports on the Minecraft server to allow R and game clients to connect with 
-it.
+Note, that you may need to open ports on the Minecraft server and firewall to allow R and game clients to connect with it.
 
-You probably want to configure the server to run in Creative mode. (How?)
+You probably want to configure the server to run in Creative mode, so edit the `server.properties` file as below:
+
+```
+force-gamemode=true
+gamemode=1
+difficulty=0
+motd=My very own minecraft server
+```
 
 ## Acknowledgments and References
 
