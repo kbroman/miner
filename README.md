@@ -37,6 +37,8 @@ Or the [R](https://www.r-project.org) logo:
 
 ![](extra_vignettes/figure/maze-minecraft.png)
 
+This player is operated by a bot trying to find its way out of the maze via a rule-based algorithm:
+
 ![](extra_vignettes/figure/maze_bot.gif)
 
 ### Give the player the powers of Elsa: 
