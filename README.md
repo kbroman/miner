@@ -18,30 +18,34 @@ intent of this package is to encourage new R users to learn R by writing scripts
 in Minecraft. (See the [extra_vignettes](extra_vignettes) folder for details.) 
 For example, with these functions you could:
 
-Take an image of a photograph and render it as a wall of blocks:
+### Take an image of a photograph and render it as a wall of blocks:
 
 ![](extra_vignettes/figure/karthik_minecraft.png)
 
 ![](extra_vignettes/figure/Rlogo_minecraft.png)
 
-Generate a random maze in R, and create it in the world for players to explore:
+### Generate a random maze in R, and create it in the world for players to explore:
+
+![](extra_vignettes/figure/maze.gif) 
 
 ![](extra_vignettes/figure/maze-minecraft.png)
 
-Give the player the powers of Elsa: [freeze water as you run over it](https://youtu.be/6gcRyuj0smg)
+### Give the player the powers of Elsa: [freeze water as you run over it](https://youtu.be/6gcRyuj0smg)
 or create towers of ice with a gesture:
 
 ![](extra_vignettes/figure/elsa-animated.gif) 
 
 ![](extra_vignettes/figure/ice_towers.png)
 
-Write a bot to play a game with players over chat:
+### Write a bot to play a game with players over chat:
 
 ![](extra_vignettes/figure/guessnum.png). 
 
-And, of course, make `ggplot` plots in Minecraft: 
+### And, of course, make `ggplot` plots in Minecraft: 
 
 ![](extra_vignettes/figure/ggplot.gif) 
+
+### About this package
 
 This package was created as part of the [ROpenSci unconference](http://unconf17.ropensci.org/)
 in May, 2017 by:
