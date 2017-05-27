@@ -65,9 +65,9 @@ or create towers of ice with a gesture:
 This package was created as part of the [ROpenSci unconference](http://unconf17.ropensci.org/)
 in May, 2017 by:
 
-* Brooke Anderson
-* Karl Broman
-* Gergely Daróczi
-* Mario Inchiosa
-* David Smith
-* Ali Zaidi
+* [Brooke Anderson](https://github.com/geanders)
+* [Karl Broman](https://github.com/kbroman)
+* Gergely Daróczi](https://github.com/daroczig)
+* Mario Inchiosa](https://github.com/inchiosa)
+* David Smith](https://github.com/revodavid)
+* Ali Zaidi](https://github.com/akzaidi)
