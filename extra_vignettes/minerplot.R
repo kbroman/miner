@@ -62,8 +62,9 @@ char_bitmap <- function(char, chars, png=char_png)
     round(t(1-png[rows,cols,1,1]))
 }
 
-# merge letters into
-merge_letters <- function(char_bitmaps, space=2)
+# merge letters into a word
+#     space = number of extra pixels between letters (but not that 1 space is built into the font)
+merge_letters <- function(char_bitmaps, space=0)
 {
     rows <- vapply(char_bitmaps, nrow, 1)
     if(length(unique(rows)) != 1)
