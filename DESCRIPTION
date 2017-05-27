@@ -13,7 +13,7 @@ Authors@R: c(
 Description: Following the code in py3minepi, allows one to connect to the minecraft from R.
 Depends: R (>= 3.1.0)
 Imports: stats, utils
-Suggests: testthat, knitr, rmarkdown, Rmaze, igraph, data.table
+Suggests: testthat, knitr, rmarkdown, Rmaze, igraph
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

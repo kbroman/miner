@@ -157,3 +157,6 @@ for (i in 1:nrow(df)) {
 The result looks like this:
 
 ![](figure/maze-minecraft.png)
+
+For a more complete solution, see the `mc_maze` and `mc_mazer` functions. The prior generates a maze with given dimensions right in front of a specified player id, while the latter does the same but triggered from the chat window by any player.
+
