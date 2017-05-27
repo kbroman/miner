@@ -37,7 +37,7 @@ Generate a random maze in R, and create it in the world for players to explore:
 
 Give the player the powers of Elsa: [freeze water as you run over it](https://youtu.be/6gcRyuj0smg)
 
-![](extra_vignettes/figure/elsa-animated.gif)
+[![](extra_vignettes/figure/elsa-animated.gif)](https://www.youtube.com/watch?v=6gcRyuj0smg)
 
 or create towers of ice with a gesture:
 
@@ -49,7 +49,7 @@ Write a bot to play a game with players over chat:
 
 And, of course, make `ggplot` plots in Minecraft:
 
-![](extra_vignettes/figure/ggplot.gif)
+[![](extra_vignettes/figure/ggplot.gif)](https://www.youtube.com/watch?v=zggCAYAfjXE)
 
 This package was created as part of the [ROpenSci unconference](http://unconf17.ropensci.org/)
 in May, 2017 by:
