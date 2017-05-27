@@ -6,9 +6,7 @@ library(imager)
 
 # 4x6 character set
 url <- "http://uzebox.org/wiki/images/0/06/Charset_4x6_128x18.png"
-file <- basename(url)
-if(!file.exists(file)) download.file(url, file)
-char_png_4x6 <- load.image(file)
+char_png_4x6 <- load.image(url)
 char_png_4x6 <- grayscale(char_png_4x6)
 chars_4x6 <- c(" !\"#$%&'()^+,-./0123456789:;<=>?",
                "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_",
@@ -16,9 +14,7 @@ chars_4x6 <- c(" !\"#$%&'()^+,-./0123456789:;<=>?",
 
 # 16x16 character set
 url <- "http://uzebox.org/wiki/images/2/20/16x16.png"
-file <- basename(url)
-if(!file.exists(file)) download.file(url, file)
-char_png_16x16 <- load.image(file)
+char_png_16x16 <- load.image(url)
 char_png_16x16 <- grayscale(char_png_16x16)
 chars_16x16 <- c(" !\"#$%&'()*+,-./",
                  "0123456789:;<=>?",
@@ -27,9 +23,7 @@ chars_16x16 <- c(" !\"#$%&'()*+,-./",
 
 # 6x12 character set
 url <- "http://uzebox.org/wiki/images/5/50/Dangen_charset_6x12.png"
-file <- basename(url)
-if(!file.exists(file)) download.file(url, file)
-char_png_6x12 <- load.image(file)
+char_png_6x12 <- load.image(url)
 char_png_6x12 <- grayscale(char_png_6x12)
 chars_6x12 <- c(" !\"#$%&'()*+,-./",
                 "0123456789:;<=>?",
