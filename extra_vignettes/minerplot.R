@@ -54,6 +54,7 @@ char_bitmap <- function(char, chars, png=char_png)
 
     # row column coordinates
     wh <- which(chars==char, arr.ind=TRUE)
+    if(length(wh) == 0) stop('Character "', char, '" not found')
     if(length(wh) > 2) wh <- wh[1,]
 
     rows <- rows[wh[1]]:(rows[wh[1]+1]-1)
