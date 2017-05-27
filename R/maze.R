@@ -10,41 +10,41 @@ mc_maze <- function(n = 5, player_id = NULL) {
     y <- pos[2]
     z <- pos[3]
 
-    ## generate a random maze
-    requireNamespace(Rmaze)
+    ## generate a random but perfect maze
+    requireNamespace('Rmaze')
     maze <- makeGraph(n, n)
-    set.seed(42)
     maze <- makeMaze_dfs(maze)
     ## plotMaze(maze, n, n)
-    plotMaze(maze, n, n)
 
+    ## let's start the binary matrix representation with blank cells
     df <- matrix(NA, nrow = n*4, ncol = n*4)
 
-    ## bottom left is the entrance, top right is exit
+    ## add border
     df[c(1, nrow(df)), ] <- 1
     df[, c(1, nrow(df))] <- 1
+
+    ## bottom left is the entrance, top right is exit
     df[1, ncol(df) - 1:2] <- NA
     df[nrow(df), 2:3] <- NA
 
     nr <- nrow(df)
     nc <- ncol(df)
 
-    ## draw edges
-    requireNamespace(igraph)
-    requireNamespace(data.table)
-    mazedf <- data.table(as_data_frame(maze))
+    ## map graph edges into matrix cells
+    requireNamespace('igraph')
+    mazedf <- as_data_frame(maze)
     for (v in c('from', 'to')) {
-        mazedf[, (paste0(v, 'x')) := as.numeric(sub('A_([0-9]*)_[0-9]*', '\\1', get(v)))]
-        mazedf[, (paste0(v, 'y')) := as.numeric(sub('A_[0-9]*_([0-9]*)', '\\1', get(v)))]
+        mazedf[, paste0(v, 'x')] <- as.numeric(sub('A_([0-9]*)_[0-9]*', '\\1', mazedf[, v]))
+        mazedf[, paste0(v, 'y')] <- as.numeric(sub('A_[0-9]*_([0-9]*)', '\\1', mazedf[, v]))
     }
-    mazedf[fromx < tox, direction := 'top']
-    mazedf[fromy < toy, direction := 'right']
+    mazedf[mazedf$fromx < mazedf$tox, 'direction'] <- 'top'
+    mazedf[mazedf$fromy < mazedf$toy, 'direction'] <- 'right'
 
     ## fill in walls
-    mazedf[, x := nrow(df) - fromx * 4 + 3 - as.numeric(direction == 'top') * 2]
-    mazedf[, y := fromy * 4 - 1 + as.numeric(direction == 'right') * 2]
+    mazedf$x <- nrow(df) - mazedf$fromx * 4 + 3 - as.numeric(mazedf$direction == 'top') * 2
+    mazedf$y <- mazedf$fromy * 4 - 1 + as.numeric(mazedf$direction == 'right') * 2
     for (i in seq_len(nrow(mazedf))) {
-        cell <- mazedf[i]
+        cell <- mazedf[i, ]
         if (cell$wall == 'ON') {
             df[cell$x + -1:0, cell$y + -1:0] <- 1
         }
