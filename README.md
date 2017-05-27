@@ -37,6 +37,8 @@ Or the [R](https://www.r-project.org) logo:
 
 ![](extra_vignettes/figure/maze-minecraft.png)
 
+![](extra_vignettes/figure/maze_bot.gif)
+
 ### Give the player the powers of Elsa: 
 
 [Freeze water as you run over it](https://youtu.be/6gcRyuj0smg)
