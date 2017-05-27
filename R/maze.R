@@ -74,3 +74,36 @@ mc_maze <- function(n = 5, player_id = NULL) {
     }
 
 }
+
+
+#' Poll the chat window for maze generator commands and spawn mazes right in front of the player
+#' @export
+mc_mazer <- function() {
+
+    chatPost('Hi, I am a maze generator bot! Just say "maze x" to generate a maze right in front of you, where x is the size of the maze (eg between 3 and 20). No need for the quotes, and please specify round integers.')
+
+    while (TRUE) {
+
+        ## poll for most recent chat messages
+        msgs <- getChatPosts()
+
+        ## do nothing if there are no messages since last poll
+        if (nrow(msgs) > 0) {
+
+            ## iterate through all messages
+            for (msgi in seq_len(nrow(msgs))) {
+                msg <- msgs[msgi, ]
+                if (grepl('^maze [0-9]*$', as.character(msg[, 'message']), ignore.case = TRUE)) {
+                    mc_maze(
+                       as.numeric(sub('^maze ([0-9])*', '\\1', as.character(msg[, 'message']))),
+                       msg[msgi, 'player'])
+                }
+            }
+        }
+
+        ## sleep a bit until polling chat again
+        Sys.sleep(1)
+
+    }
+
+}
