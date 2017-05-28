@@ -67,7 +67,7 @@ in May, 2017 by:
 
 * [Brooke Anderson](https://github.com/geanders)
 * [Karl Broman](https://github.com/kbroman)
-* Gergely Daróczi](https://github.com/daroczig)
-* Mario Inchiosa](https://github.com/inchiosa)
-* David Smith](https://github.com/revodavid)
-* Ali Zaidi](https://github.com/akzaidi)
+* [Gergely Daróczi](https://github.com/daroczig)
+* [Mario Inchiosa](https://github.com/inchiosa)
+* [David Smith](https://github.com/revodavid)
+* [Ali Zaidi](https://github.com/akzaidi)
