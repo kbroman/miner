@@ -190,14 +190,20 @@ intscale <- function(in_lim, out_lim)
 }
 
 
+# make a scatterplot
 mc_plot <-
-    function(x=iris$Sepal.Length, y=iris$Sepal.Width, lowerleft=v, width=200, height=150,
-             group=as.numeric(iris$Species), xlab="Sepal.Length", ylab="Sepal.Width")
+    function(x=iris$Sepal.Length, y=iris$Sepal.Width,
+             lowerleft=miner::getPlayerPos()+c(0,5,5),
+             width=200, height=150,
+             group=as.numeric(iris$Species),
+             xlab="Sepal.Length", ylab="Sepal.Width",
+             block_colors=list(gray=c(35,8), white=c(35,0), black=c(35,15),
+                               colors=cbind(35, c(9,14,5))))
 {
-    gray <- c(35, 8)
-    white <- c(35, 0)
-    black <- c(35, 15)
-    colors <- cbind(35, c(9, 14, 5))
+    gray <- block_colors$gray
+    white <- block_colors$white
+    black <- block_colors$black
+    colors <- block_colors$colors
 
     lowmarg <- 14 + 3
     lefmarg <- 10 + 3
@@ -219,6 +225,7 @@ mc_plot <-
 
     xval <- lowerleft[1] + (lefmarg+1):width
     yval <- lowerleft[2] + (lowmarg+1):height
+
 
     # gray rectangle
     for(i in xval) {
@@ -259,37 +266,50 @@ mc_plot <-
 
     for(i in seq_along(xtick_sc)) {
         bmp <- char_bitmap(xtick_ch[i], chars_4x6, char_png_4x6)
-        render_bitmap(bmp, c(xtick_sc[i]-ncol(bmp)/2,
-                             lowerleft[2] + lowmarg - 8,
-                             lowerleft[3]), black[1], black[2])
+        render_bitmap(bmp, c(xtick_sc[i]-ncol(bmp)/2+1,
+                             lowerleft[2] + lowmarg - 9,
+                             lowerleft[3]), black[1], black[2],
+                      "east", "up")
     }
 
     for(i in seq_along(ytick_sc)) {
         bmp <- char_bitmap(ytick_ch[i], chars_4x6, char_png_4x6)
         if(is.list(bmp)) bmp <- do.call("cbind", bmp)
-        render_bitmap(bmp, c(lowerleft[1] + lefmarg - ncol(bmp)-3,
-                             ytick_sc[i] - nrow(bmp)/2,
-                             lowerleft[3]), black[1], black[2])
+        render_bitmap(bmp, c(lowerleft[1] + lefmarg - ncol(bmp)-2,
+                             ytick_sc[i] - nrow(bmp)/2-1,
+                             lowerleft[3]), black[1], black[2],
+                      "east", "up")
     }
 
-    # x axis labe
+    # x axis label
     bmp <- char_bitmap(xlab, chars_4x6, char_png_4x6)
     if(is.list(bmp)) bmp <- do.call("cbind", bmp)
     render_bitmap(bmp, c(mean(xscale(xlim)) - ncol(bmp)/2,
-                         lowerleft[2] + lowmarg - 15,
-                         lowerleft[3]), black[1], black[2])
+                         lowerleft[2] + lowmarg - 17,
+                         lowerleft[3]), black[1], black[2],
+                  "east", "up")
 
+    # y axis label
     bmp <- char_bitmap(ylab, chars_4x6, char_png_4x6)
     if(is.list(bmp)) bmp <- do.call("cbind", bmp)
-    render_bitmap(bmp, c(lowerleft[1] - ncol(bmp)-1,
-                         mean(yscale(ylim)),
-                         lowerleft[3]), black[1], black[2])
+    render_bitmap(bmp, c(lowerleft[1] - max(nchar(ytick_ch))-2,
+                         mean(yscale(ylim))-ncol(bmp)/2,
+                         lowerleft[3]), black[1], black[2],
+                  "up", "west")
 
 }
 
-# plot gray background
-# plot grid lines
-# plot ticks
-# plot digits on x and y axis
-# plot x and y axis labels
-# plot points, with colors
+
+# make a scatterplot
+mc_clearplot <-
+    function(x=iris$Sepal.Length, y=iris$Sepal.Width,
+             lowerleft=miner::getPlayerPos()+c(0,5,5),
+             width=200, height=150,
+             group=as.numeric(iris$Species),
+             xlab="Sepal.Length", ylab="Sepal.Width")
+{
+    mc_plot(x, y, lowerleft, width, height, group,
+            xlab, ylab,
+            list(gray=c(0,0), white=c(0,0), black=c(0,0),
+                 colors=cbind(0, rep(0, 3))))
+}
