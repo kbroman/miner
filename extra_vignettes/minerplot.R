@@ -113,7 +113,7 @@ round_char <- function (x, digits = 1)
 #   For example, if dir=north or south, top can't be north or south
 render_bitmap <- function(bitmap, bottomleft, id, style=0,
                           dir=c("north", "south", "east", "west", "up", "down"),
-                          top=c("east", "west", "up", "down", "north", "south"))
+                          top=c("up", "down", "east", "west", "north", "south"))
 {
     require(miner)
 
