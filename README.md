@@ -71,3 +71,7 @@ in May, 2017 by:
 * [Mario Inchiosa](https://github.com/inchiosa)
 * [David Smith](https://github.com/revodavid)
 * [Ali Zaidi](https://github.com/akzaidi)
+
+### License
+
+Licensed under the [MIT license](https://cran.r-project.org/web/licenses/MIT). ([More information here](https://en.wikipedia.org/wiki/MIT_License).)
