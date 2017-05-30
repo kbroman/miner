@@ -11,7 +11,7 @@ and either [Spigot](https://www.spigotmc.org/) or
 [Minecraft:Pi](https://minecraft.net/en-us/edition/pi/).
 
 The miner package provides a few simple functions to manipulate the Minecraft world from R. See
-the [vignette](vignettes/mineR.Rmd) for details on setting up a Minecraft server and using
+the [vignette](vignettes/miner.Rmd) for details on setting up a Minecraft server and using
 this package.
 
 The
