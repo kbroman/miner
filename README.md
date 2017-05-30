@@ -10,8 +10,8 @@ using [RaspberryJuice](https://dev.bukkit.org/projects/raspberryjuice)
 and either [Spigot](https://www.spigotmc.org/) or
 [Minecraft:Pi](https://minecraft.net/en-us/edition/pi/).
 
-The mineR package provides a few simple functions to manipulate the Minecraft world from R. See
-the [vignette](vignettes/mineR.Rmd) for details on setting up a Minecraft server and using
+The miner package provides a few simple functions to manipulate the Minecraft world from R. See
+the [vignette](vignettes/miner.Rmd) for details on setting up a Minecraft server and using
 this package.
 
 The
@@ -33,7 +33,7 @@ Or the [R](https://www.r-project.org) logo:
 
 ### Generate a random maze in R, and create it in the world for players to explore:
 
-![](extra_vignettes/figure/maze.gif) 
+![](extra_vignettes/figure/maze.gif)
 
 ![](extra_vignettes/figure/maze-minecraft.png)
 
@@ -41,7 +41,7 @@ This player is operated by a bot trying to find its way out of the maze via a ru
 
 ![](extra_vignettes/figure/maze_bot.gif)
 
-### Give the player the powers of Elsa: 
+### Give the player the powers of Elsa:
 
 [Freeze water as you run over it](https://youtu.be/6gcRyuj0smg)
 
@@ -56,7 +56,7 @@ or create towers of ice with a gesture:
 ![](extra_vignettes/figure/guessnum.png).
 
 
-### And, of course, make `ggplot` plots in Minecraft: 
+### And, of course, make `ggplot` plots in Minecraft:
 
 [![](extra_vignettes/figure/ggplot.gif)](https://www.youtube.com/watch?v=zggCAYAfjXE)
 
