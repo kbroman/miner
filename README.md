@@ -1,6 +1,6 @@
 ## miner
 
-[![Travis-CI Build Status](https://travis-ci.org/kbroman/miner.svg?branch=master)](https://travis-ci.org/kbroman/miner>)
+[![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/miner.svg?branch=master)](https://travis-ci.org/ropenscilabs/miner)
 
 Following the python module
 [py3minepi](https://github.com/py3minepi/py3minepi), this is an R package that allows
