@@ -27,4 +27,4 @@ EXPOSE 4711
 EXPOSE 25565
 
 ## Start the server
-CMD java -Xms512M -Xmx1G -XX:MaxPermSize=128M -XX:+UseConcMarkSweepGC -jar /minecraft/spigot.jar
+CMD cd /minecraft; java -Xms512M -Xmx1G -XX:MaxPermSize=128M -XX:+UseConcMarkSweepGC -jar spigot.jar
