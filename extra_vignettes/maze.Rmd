@@ -134,6 +134,9 @@ mc_connect()
 Next, we will clean up some space, then generate the floor (diamond) and ceiling (glass), then the wall blocks(gold):
 
 ```{r maze-render, eval = FALSE}
+nr <- nrow(df)
+nc <- ncol(df)
+
 ## clean up some space
 setBlocks(1, 50, 1, nr, 54, nc, 0)
 ## add floor
