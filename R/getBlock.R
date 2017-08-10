@@ -99,7 +99,7 @@ getBlocks <- function(x0,y0,z0, x1,y1,z1)
     # blocks come back as a vector with values separated by commas
     result <- as.numeric(strsplit(result, ",")[[1]])
     # the order of things is a bit tricky
-    result <- array(result, dim=c(z1-z0+1, x1-x0+1, y1-y0+1))
+    result <- array(result, dim=c(abs(z1-z0)+1, abs(x1-x0)+1, abs(y1-y0)+1))
     result <- aperm(result, c(2,3,1))
 
     dimnames(result) <- list(x0:x1, y0:y1, z0:z1)
