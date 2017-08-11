@@ -3,3 +3,4 @@
 ^\.travis\.yml$
 ^Makefile$
 ^extra_vignettes/
+^README.md$
