@@ -60,6 +60,15 @@ or create towers of ice with a gesture:
 
 [![](extra_vignettes/figure/ggplot.gif)](https://www.youtube.com/watch?v=zggCAYAfjXE)
 
+### Extending
+
+The [craft](https://github.com/ropenscilabs/craft) package includes additional functions that illustrate and extend the use of [miner](https://github.com/ropenscilabs/miner). Contributors who want to extend the functionality of [miner](https://github.com/ropenscilabs/miner) should submit their pull requests to the [craft](https://github.com/ropenscilabs/craft) package.
+
+### Documentation
+
+[R Programming with Minecraft](https://ROpenSciLabs.github.io/miner_book/) is a bookdown book about R and Minecraft, and particularly about using Minecraft with the [miner](https://github.com/ropenscilabs/miner) package. Contributors who want to add documentation should submit ther pull request the [miner-book](https://github.com/ropenscilabs/miner) package.
+
+
 ### About this package
 
 This package was created as part of the [ROpenSci unconference](http://unconf17.ropensci.org/)
