@@ -62,11 +62,11 @@ or create towers of ice with a gesture:
 
 ### Extending
 
-The [craft](https://github.com/ropenscilabs/craft) package includes additional functions that illustrate and extend the use of [miner](https://github.com/ropenscilabs/miner). Contributors who want to extend the functionality of [miner](https://github.com/ropenscilabs/miner) should submit their pull requests to the [craft](https://github.com/ropenscilabs/craft) package.
+The [craft](https://github.com/ropenscilabs/craft) package includes additional functions that illustrate and extend the use of [miner](https://github.com/ropenscilabs/miner). Contributors who want to extend the functionality of [miner](https://github.com/ropenscilabs/miner) should submit a pull request to the [craft](https://github.com/ropenscilabs/craft) package.
 
 ### Documentation
 
-[R Programming with Minecraft](https://ROpenSciLabs.github.io/miner_book/) is a bookdown book about R and Minecraft, and particularly about using Minecraft with the [miner](https://github.com/ropenscilabs/miner) package. Contributors who want to add documentation should submit ther pull request the [miner_book](https://github.com/ropenscilabs/miner_book) package.
+[R Programming with Minecraft](https://ROpenSciLabs.github.io/miner_book/) is a bookdown book about R and Minecraft, and particularly about using Minecraft with the [miner](https://github.com/ropenscilabs/miner) package. Contributors who want to add documentation should submit a pull request to the [miner_book](https://github.com/ropenscilabs/miner_book) repository on Github.
 
 
 ### About this package
