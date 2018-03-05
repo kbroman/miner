@@ -66,7 +66,7 @@ The [craft](https://github.com/ropenscilabs/craft) package includes additional f
 
 ### Documentation
 
-[R Programming with Minecraft](https://ROpenSciLabs.github.io/miner_book/) is a bookdown book about R and Minecraft, and particularly about using Minecraft with the [miner](https://github.com/ropenscilabs/miner) package. Contributors who want to add documentation should submit ther pull request the [miner-book](https://github.com/ropenscilabs/miner) package.
+[R Programming with Minecraft](https://ROpenSciLabs.github.io/miner_book/) is a bookdown book about R and Minecraft, and particularly about using Minecraft with the [miner](https://github.com/ropenscilabs/miner) package. Contributors who want to add documentation should submit ther pull request the [miner_book](https://github.com/ropenscilabs/miner_book) package.
 
 
 ### About this package
