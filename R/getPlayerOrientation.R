@@ -50,8 +50,8 @@ getPlayerRotation <- function(player_id = NULL)
 #'
 #' @return A numeric value between -90 and +90, giving the pitch of
 #'     the player's viewpoint, with -90 indicating the player is
-#'     looking straight down and +90 indicating that the player is
-#'     looking straight up.
+#'     looking straight up and +90 indicating that the player is
+#'     looking straight down.
 #'
 #' @examples
 #' \dontrun{

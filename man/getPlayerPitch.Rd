@@ -13,8 +13,8 @@ current players using \code{\link[=getPlayerIds]{getPlayerIds()}}.}
 \value{
 A numeric value between -90 and +90, giving the pitch of
 the player's viewpoint, with -90 indicating the player is
-looking straight down and +90 indicating that the player is
-looking straight up.
+looking straight up and +90 indicating that the player is
+looking straight down.
 }
 \description{
 Return the player's pitch (angle in the up / down direction).
