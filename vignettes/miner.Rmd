@@ -1,8 +1,8 @@
 ---
-title: "Learning to program in R with mineR"
+title: "Learning to program in R with miner"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Learn to program in Minecraft with mineR}
+  %\VignetteIndexEntry{Learn to program in Minecraft with miner}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-The mineR package provides a simple interface to the Minecraft world. Use R functions
+The miner package provides a simple interface to the Minecraft world. Use R functions
 to connect with a Minecraft server and control the world within.
 
 The purpose of this package is to teach new programmers about R. See the effect of
@@ -56,7 +56,7 @@ For the client, you will need to purchase and install [Minecraft](https://minecr
 your local PC or Mac machine. Note: this package will not work with Pocket Minecraft on mobile
 devices/tablets, or with the Windows 10 version of Minecraft found in the Windows Store.
 
-## Your first mineR adventure
+## Your first miner adventure
 
 Once you have a Minecraft server set up, here are some commands you can try. Use your Minecraft
 client to observe the changes these commands make to the world.
@@ -102,7 +102,7 @@ myloc <- getPlayerPos(myid)
 setBlock(myloc[1]+1, myloc[2], myloc[3], 57, 1)
 ```
 
-## Overview of mineR commands
+## Overview of miner commands
 
 General functions for connecting to the game world:
 
@@ -133,7 +133,7 @@ Functions for interacting with the Minecraft world.
 * `setBlocks`: Fill a rectangular region with a specific block type
 * `getBlockHits`: Return the locations of blocks recently struck by a player's iron sword
 
-## Suggestions for writing your own programs with mineR
+## Suggestions for writing your own programs with miner
 
 Using the commands above, you can write programs in R to create structures in the game world,
 manipulate players, or even have the game world react to actions players take. Here are
