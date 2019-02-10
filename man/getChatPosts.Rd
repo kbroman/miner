@@ -8,12 +8,12 @@ getChatPosts()
 }
 \value{
 A dataframe of recent chat posts with columns for the player
-   id of the poster and the message posted
+id of the poster and the message posted
 }
 \description{
 Returns the chat posts that have been posted recently and since the
 last time the function was run. It is possible that this does not
-return chat posts that were posted using \code{\link{chatPost}}.
+return chat posts that were posted using \code{\link[=chatPost]{chatPost()}}.
 }
 \examples{
 \dontrun{
@@ -23,5 +23,5 @@ getChatPosts()
 
 }
 \seealso{
-\code{\link{getBlockHits}}
+\code{\link[=getBlockHits]{getBlockHits()}}
 }

@@ -4,7 +4,7 @@
 \name{mc_items}
 \alias{mc_items}
 \title{Minecraft item information}
-\format{Data frame with columns `name`, `id`, and `style`.}
+\format{Data frame with columns \code{name}, \code{id}, and \code{style}.}
 \source{
 \url{http://minecraft-ids.grahamedgecombe.com}
 }

@@ -2,6 +2,8 @@
 #'
 #' Dataset with the name, ID, and style of possible Minecraft items.
 #'
+#' @md
+#'
 #' @docType data
 #'
 #' @usage data(mc_items)
@@ -10,7 +12,7 @@
 #'
 #' @keywords datasets
 #'
-#' @source \url{http://minecraft-ids.grahamedgecombe.com}
+#' @source <http://minecraft-ids.grahamedgecombe.com>
 #'
 #' @examples
 #' data(mc_items)
