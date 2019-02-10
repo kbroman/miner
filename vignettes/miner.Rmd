@@ -171,4 +171,4 @@ motd=My very own minecraft server
 ## Acknowledgments and References
 
 Many of the ideas and techniques in this package were adapted from
-"Learn to program with Minecraft" by Craid Richardson. (No Starch Press, 2016)
+["Learn to program with Minecraft" by Craid Richardson (No Starch Press, 2016)](https://nostarch.com/programwithminecraft).
