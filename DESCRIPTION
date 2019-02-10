@@ -1,7 +1,7 @@
 Package: miner
 Title: Control Minecraft with RaspberryJuice API
-Version: 0.1.4
-Date: 2019-02-09
+Version: 0.1.5
+Date: 2019-02-10
 Authors@R: c(
     person("Karl",    "Broman",   role = c("aut", "cre"), email = "kbroman@biostat.wisc.edu"),
     person("Brooke",  "Anderson", role="aut"),

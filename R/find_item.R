@@ -36,7 +36,8 @@ find_item <-
     function(name=NULL, id=NULL, style=0)
 {
     # load the data
-    utils::data("mc_items", envir=environment())
+    library(miner) # force loading package
+#    utils::data("mc_items", envir=environment())
 
     if(is.null(name) && is.null(id))
         stop("Provide either name or id")
