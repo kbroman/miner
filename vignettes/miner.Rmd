@@ -141,10 +141,10 @@ some things you can try (in some cases, with links to examples showing how).
 
 * Take an image (like a [photo](https://ropenscilabs.github.io/miner_book/rendering-an-image-in-minecraft.html) or
   [logo](https://ropenscilabs.github.io/miner_book/rendering-the-r-logo-in-minecraft.html)),
-  and create a wall ([like this](figures/minecraft-face.png)) in Minecraft that looks like the image.
+  and create a wall ([like this](https://ropenscilabs.github.io/miner_book/figure/karthik_minecraft.png)) in Minecraft that looks like the image.
 * Build a [random
   maze](https://ropenscilabs.github.io/miner_book/generate-a-maze-in-minecraft.html)
-  ([like this](figures/maze.png)) to explore in Minecraft.
+  ([like this](https://ropenscilabs.github.io/miner_book/figure/maze-minecraft.png)) to explore in Minecraft.
 * Create a
 [staircase](https://ropenscilabs.github.io/miner_book/a-stairway-to-heaven.html) or
   [tower](https://ropenscilabs.github.io/miner_book/building-a-tower-and-jumping-on-top.html) programatically.
