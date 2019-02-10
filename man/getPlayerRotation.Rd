@@ -8,13 +8,13 @@ getPlayerRotation(player_id = NULL)
 }
 \arguments{
 \item{player_id}{Integer giving the ID of a player. You can find IDs of all
-current players using \code{\link{getPlayerIds}}.}
+current players using \code{\link[=getPlayerIds]{getPlayerIds()}}.}
 }
 \value{
-A double vector of length 1 with a value between
-0 and -360 giving the angle of rotation of the player. (The value is always negative.)
-Values near 0/-360 indicate a player facing North (moving forward would increase position in the
-"x" direction.)
+A numeric value between 0 and +360 indicating the direction
+that the player is facing, with 0 being south (positive z), 90
+being west (negative x), 180 being north (negative z), 270
+being east (positive x), and 360 being back at the south again.
 }
 \description{
 Get the current rotation of a player. The default is to get the rotation for
@@ -31,5 +31,5 @@ getPlayerRotation(example_playerId)
 
 }
 \seealso{
-\code{\link{getPlayerDirection}}
+\code{\link[=getPlayerDirection]{getPlayerDirection()}}, \code{\link[=getPlayerPitch]{getPlayerPitch()}}, \code{\link[=getPlayerPos]{getPlayerPos()}}
 }

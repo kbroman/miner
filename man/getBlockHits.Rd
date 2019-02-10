@@ -8,7 +8,7 @@ getBlockHits()
 }
 \value{
 A dataframe with columns for the coordinates, block type,
-    and player id of recent block hits.
+and player id of recent block hits.
 }
 \description{
 Return the most recent block hits made in the Minecraft
@@ -30,5 +30,5 @@ while (TRUE) {
 
 }
 \seealso{
-\code{\link{getChatPosts}}
+\code{\link[=getChatPosts]{getChatPosts()}}
 }

@@ -23,6 +23,8 @@ mcsplit <- function(string, colnames) {
 #' Return the most recent block hits made in the Minecraft
 #' world by an iron sword.
 #'
+#' @md
+#'
 #' @note Only right clicks with an iron sword are logged.
 #'
 #' @return A dataframe with columns for the coordinates, block type,
@@ -38,7 +40,7 @@ mcsplit <- function(string, colnames) {
 #' }
 #' }
 #'
-#' @seealso \code{\link{getChatPosts}}
+#' @seealso [getChatPosts()]
 #'
 #' @export
 getBlockHits <- function() {

@@ -18,7 +18,7 @@ item (use this argument only if querying by \code{id} is provided)}
 }
 \value{
 Data frame with a row or set of rows from \code{\link{mc_items}} that
-   match the queried name, ID, and / or style.
+match the queried name, ID, and / or style.
 }
 \description{
 Find a Minecraft item by name or ID. If querying an item by ID, the search
@@ -26,14 +26,13 @@ can also specify item style.
 }
 \details{
 If \code{name} is provided, we first look to see whether there
-    is an exact match to the `name` column in \code{mc_items}. If there
-    is, we return that row. If not, we use \code{\link[base]{grep}}
-    with \code{ignore.case=TRUE} and return matching rows.
-
-    If instead \code{id} is provided, we return the row with that id.
-    The default is to return the row with that ID and \code{style==0},
-    or whatever style was provided. If \code{style} is NULL, we return
-    all rows with that ID.
+is an exact match to the \code{name} column in \code{\link{mc_items}}. If there
+is, we return that row. If not, we use \code{\link[=grep]{grep()}}
+with \code{ignore.case=TRUE} and return matching rows.\preformatted{If instead `id` is provided, we return the row with that id.
+The default is to return the row with that ID and `style==0`,
+or whatever style was provided. If `style` is NULL, we return
+all rows with that ID.
+}
 }
 \examples{
 find_item(name = "Oak")

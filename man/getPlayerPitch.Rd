@@ -8,16 +8,17 @@ getPlayerPitch(player_id = NULL)
 }
 \arguments{
 \item{player_id}{Integer giving the ID of a player. You can find IDs of all
-current players using \code{\link{getPlayerIds}}.}
+current players using \code{\link[=getPlayerIds]{getPlayerIds()}}.}
 }
 \value{
-A double vector of length one with a value between
--90 (looking straight up) and 90 (looking straight down)
-giving the pitch of the player's viewpoint.
+A numeric value between -90 and +90, giving the pitch of
+the player's viewpoint, with -90 indicating the player is
+looking straight up and +90 indicating that the player is
+looking straight down.
 }
 \description{
 Return the player's pitch (angle in the up / down direction).
-The default is to get the rotation for the first player spawned in the Minecraft 
+The default is to get the rotation for the first player spawned in the Minecraft
 world, but this can be run for a different player by using the \code{player_id}
 argument.
 }
@@ -29,4 +30,7 @@ example_playerId <- getPlayerIds()[1]
 getPlayerPitch(example_playerId)
 }
 
+}
+\seealso{
+\code{\link[=getPlayerDirection]{getPlayerDirection()}}, \code{\link[=getPlayerRotation]{getPlayerRotation()}}, \code{\link[=getPlayerPos]{getPlayerPos()}}
 }

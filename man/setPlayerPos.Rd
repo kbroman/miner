@@ -14,7 +14,7 @@ setPlayerPos(x, y, z, player_id = NULL, tile = FALSE)
 \item{z}{A numeric string with east/west position}
 
 \item{player_id}{Integer giving the ID of a player. You can find IDs of all
-current players using \code{\link{getPlayerIds}}.}
+current players using \code{\link[=getPlayerIds]{getPlayerIds()}}.}
 
 \item{tile}{Logical value specifying whether to truncate the output position to
 an integer (i.e., the location of the tile on which the player is
@@ -25,9 +25,9 @@ None.
 }
 \description{
 Move player to position (x,y,z). The default is to move the first player who
-was spawned in the Minecraft world, but other players can also be moved using 
-the \code{player_id} argument. If the \code{tile} argument is set to \code{TRUE}, 
-the player will be moved to the position specified by truncating the specified 
+was spawned in the Minecraft world, but other players can also be moved using
+the \code{player_id} argument. If the \code{tile} argument is set to \code{TRUE},
+the player will be moved to the position specified by truncating the specified
 x, y, and z to integers.
 }
 \examples{

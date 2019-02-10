@@ -18,9 +18,9 @@ style should also be included in the output (defaults to TRUE).}
 }
 \value{
 A numeric vector of length one or two with the type ID
-   and style, if \code{include_style} is \code{TRUE}, of the block
-   at position (x, y, z). You can use \code{\link{find_item}} to
-   find the name of the block type based on this returned ID.
+and style, if \code{include_style} is \code{TRUE}, of the block
+at position (x, y, z). You can use \code{\link[=find_item]{find_item()}} to
+find the name of the block type based on this returned ID.
 }
 \description{
 Determine the type of the block at position x (north / south),
