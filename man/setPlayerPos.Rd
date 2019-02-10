@@ -14,7 +14,7 @@ setPlayerPos(x, y, z, player_id = NULL, tile = FALSE)
 \item{z}{A numeric string with east/west position}
 
 \item{player_id}{Integer giving the ID of a player. You can find IDs of all
-current players using \code{\link{getPlayerIds}}.}
+current players using \code{\link[=getPlayerIds]{getPlayerIds()}}.}
 
 \item{tile}{Logical value specifying whether to truncate the output position to
 an integer (i.e., the location of the tile on which the player is

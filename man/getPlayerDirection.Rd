@@ -8,17 +8,22 @@ getPlayerDirection(player_id = NULL)
 }
 \arguments{
 \item{player_id}{Integer giving the ID of a player. You can find IDs of all
-current players using \code{\link{getPlayerIds}}.}
+current players using \code{\link[=getPlayerIds]{getPlayerIds()}}.}
 }
 \value{
 A numeric vector of length 3 with coordinates of the player's current
-   direction (gaze) as a unit vector.
+direction (gaze) as a unit vector, (x,y,z).
 }
 \description{
 Returns a unit vector describing the current direction a player is facing.
 The default is to get the direction for the first player spawned in the Minecraft,
-world, but the directions of other players can be gotten using the \code{player_id} 
+world, but the directions of other players can be gotten using the \code{player_id}
 argument.
+}
+\details{
+x is east/west with east being the positive direction. y
+is up/down with up being the positive direction, and z is
+north/south with south being the positive direction.
 }
 \examples{
 \dontrun{
@@ -28,4 +33,7 @@ example_playerId <- getPlayerIds()[1]
 getPlayerDirection(example_playerId)
 }
 
+}
+\seealso{
+\code{\link[=getPlayerRotation]{getPlayerRotation()}}, \code{\link[=getPlayerPitch]{getPlayerPitch()}}, \code{\link[=getPlayerPos]{getPlayerPos()}}
 }
