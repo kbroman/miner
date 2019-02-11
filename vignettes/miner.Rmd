@@ -40,6 +40,10 @@ library(miner)
 mc_connect('52.1.2.3') ## use your server IP address here, or 127.0.0.1 if installed locally
 ```
 
+Full installation instructions are provided in the online book, [R
+programming with Minecraft](https://ropenscilabs.github.io/miner_book).
+
+
 ### About Minecraft
 
 Minecraft is a virtual world, arranged as a 3-D grid of blocks of various materials
