@@ -23,7 +23,10 @@ is, we return that row. If not, we use \code{\link[=grep]{grep()}} with
 \code{ignore.case=TRUE} and return matching rows.
 }
 \examples{
-find_entity(name = "witch")
+\dontrun{
+find_entity("HORSE")
+find_entity("horse")
+}
 
 }
 \seealso{

@@ -15,7 +15,10 @@
 #'     `ignore.case=TRUE` and return matching rows.
 #'
 #' @examples
-#' find_entity(name = "witch")
+#' \dontrun{
+#' find_entity("HORSE")
+#' find_entity("horse")
+#' }
 #'
 #' @seealso [getEntityTypes()], [find_item()]
 #'
