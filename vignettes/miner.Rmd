@@ -137,6 +137,18 @@ Functions for interacting with the Minecraft world.
 * `setBlocks`: Fill a rectangular region with a specific block type
 * `getBlockHits`: Return the locations of blocks recently struck by a player's iron sword
 
+Additional commands were added in later versions of the API:
+
+* `getPlayerName`: get the name of the particular player with a
+  particular ID
+* `getPlayerId`: get the numeric ID for a player, given their name.
+* `getEntityTypes`: get a data frame of the available entity types
+  (with columns `id` and `name`).
+* `spawnEntity`: spawn a particular entity at a specific position.
+* `setPlayerRotation`, `setPlayerPitch`, `setPlayerDirection`: like
+  the corresponding `get` functions, but for setting a player's
+  orientation.
+
 ## Suggestions for writing your own programs with miner
 
 Using the commands above, you can write programs in R to create structures in the game world,
