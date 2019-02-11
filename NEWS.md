@@ -7,9 +7,10 @@
 
 - A bunch of new functions available with the latest version of the
   RaspberryJuice plugin (1.11): `getPlayerId()`, `getPlayerName()`,
-  `getEntityTypes()`
+  `getEntityTypes()`, `spawnEntity()`, `setDirection()`,
+  `setRotation()`, and `setPitch()`.
 
-- Added `find_entity()` for search the output of `getEntityTypes()` to
+- Added `find_entity()` for searching the output of `getEntityTypes()` to
   find a particular type of entity. This is similar to `find_item()`.
 
 
