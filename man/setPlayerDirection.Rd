@@ -4,7 +4,7 @@
 \alias{setPlayerDirection}
 \title{Set a player's direction}
 \usage{
-setPlayerDirection(x, y, z, id)
+setPlayerDirection(x, y, z, id = NULL)
 }
 \arguments{
 \item{x}{east/west direction}

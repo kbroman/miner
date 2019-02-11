@@ -4,7 +4,7 @@
 \alias{setPlayerRotation}
 \title{Set a player's rotation}
 \usage{
-setPlayerRotation(angle, id)
+setPlayerRotation(angle, id = NULL)
 }
 \arguments{
 \item{angle}{Angle of rotation (0-360)}

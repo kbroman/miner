@@ -24,7 +24,7 @@
 #' @export
 #'
 
-setPlayerRotation <- function(angle, id)
+setPlayerRotation <- function(angle, id=NULL)
 {
 
     mc_send(merge_data("player.setRotation", angle, id))
@@ -57,7 +57,7 @@ setPlayerRotation <- function(angle, id)
 #' @export
 #'
 
-setPlayerPitch <- function(angle, id)
+setPlayerPitch <- function(angle, id=NULL)
 {
 
     mc_send(merge_data("player.setPitch", angle, id))
@@ -96,7 +96,7 @@ setPlayerPitch <- function(angle, id)
 #' @export
 #'
 
-setPlayerDirection <- function(x, y, z, id)
+setPlayerDirection <- function(x, y, z, id=NULL)
 {
 
     mc_send(merge_data("player.setDirection", x, y, z, id))

@@ -4,7 +4,7 @@
 \alias{setPlayerPitch}
 \title{Set a player's pitch}
 \usage{
-setPlayerPitch(angle, id)
+setPlayerPitch(angle, id = NULL)
 }
 \arguments{
 \item{angle}{Angle of pitch (-90 is straight up and +90 is straight down)}
