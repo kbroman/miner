@@ -17,7 +17,7 @@
 #' @examples
 #' find_entity(name = "witch")
 #'
-#' @seealso [getEntityTypes()], [find_items()]
+#' @seealso [getEntityTypes()], [find_item()]
 #'
 #' @export
 find_entity <-

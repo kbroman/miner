@@ -27,5 +27,5 @@ find_entity(name = "witch")
 
 }
 \seealso{
-\code{\link[=getEntityTypes]{getEntityTypes()}}, \code{\link[=find_items]{find_items()}}
+\code{\link[=getEntityTypes]{getEntityTypes()}}, \code{\link[=find_item]{find_item()}}
 }
