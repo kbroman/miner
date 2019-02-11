@@ -40,6 +40,10 @@ library(miner)
 mc_connect('52.1.2.3') ## use your server IP address here, or 127.0.0.1 if installed locally
 ```
 
+Full installation instructions are provided in the online book, [R
+programming with Minecraft](https://ropenscilabs.github.io/miner_book).
+
+
 ### About Minecraft
 
 Minecraft is a virtual world, arranged as a 3-D grid of blocks of various materials
@@ -71,7 +75,7 @@ To check you have successfully connected to the world, you can try chatting. You
 see this message appear in the feed in the Minecraft client.
 
 ```r
-chatPost("Message goes to all players.")
+chatPost("Hello, Minecraft!")
 ```
 
 Each player in the world gets a "player ID"", and you'll need to know the player ID to manipulate
@@ -132,6 +136,18 @@ Functions for interacting with the Minecraft world.
 * `getBlocks`: Return the block types in a rectangular region, as a 3-dimensional array.
 * `setBlocks`: Fill a rectangular region with a specific block type
 * `getBlockHits`: Return the locations of blocks recently struck by a player's iron sword
+
+Additional commands were added in later versions of the API:
+
+* `getPlayerName`: get the name of the particular player with a
+  particular ID
+* `getPlayerId`: get the numeric ID for a player, given their name.
+* `getEntityTypes`: get a data frame of the available entity types
+  (with columns `id` and `name`).
+* `spawnEntity`: spawn a particular entity at a specific position.
+* `setPlayerRotation`, `setPlayerPitch`, `setPlayerDirection`: like
+  the corresponding `get` functions, but for setting a player's
+  orientation.
 
 ## Suggestions for writing your own programs with miner
 

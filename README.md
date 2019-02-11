@@ -10,14 +10,18 @@ using [RaspberryJuice](https://dev.bukkit.org/projects/raspberryjuice)
 and either [Spigot](https://www.spigotmc.org/) or
 [Minecraft:Pi](https://minecraft.net/en-us/edition/pi/).
 
-The miner package provides a few simple functions to manipulate the Minecraft world from R. See
-the [vignette](vignettes/miner.Rmd) for details on setting up a Minecraft server and using
-this package.
+The miner package provides a few simple functions to manipulate the
+Minecraft world from R. The intent of this package is to encourage new
+R users to learn R by writing scripts to do fun things in Minecraft.
 
-The
-intent of this package is to encourage new R users to learn R by writing scripts to do fun things
-in Minecraft. (See the [extra_vignettes](extra_vignettes) folder for details.)
-For example, with these functions you could:
+See the online book, [R Programming with
+Minecraft](https://ROpenSciLabs.github.io/miner_book/), for details on
+setting up a Minecraft server and using this package, and for a
+variety of detailed examples. The package also contains a short
+[vignette](vignettes/miner.Rmd) on its basic use.
+
+Here are a few of the things you can do with
+[miner](https://github.com/ropenscilabs/miner):
 
 ### Write words on a hillside:
 

@@ -18,8 +18,8 @@ RUN echo "eula=true" > /minecraft/eula.txt
 
 ## Download and install the RaspberryJuice plugin for API access
 RUN mkdir -p /minecraft/plugins \
-    && wget https://github.com/zhuowei/RaspberryJuice/archive/master.zip \
-    && unzip -p master.zip RaspberryJuice-master/jars/raspberryjuice-1.9.jar > /minecraft/plugins/raspberryjuice-1.9.jar
+    && wget https://github.com/zhuowei/RaspberryJuice/raw/master/jars/raspberryjuice-1.11.jar \
+    && mv raspberryjuice-1.11.jar /minecraft/plugins/
 
 ## Open up API port
 EXPOSE 4711

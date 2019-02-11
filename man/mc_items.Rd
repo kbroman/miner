@@ -18,4 +18,7 @@ Dataset with the name, ID, and style of possible Minecraft items.
 data(mc_items)
 mc_items[grep("Dirt", mc_items$name),]
 }
+\seealso{
+\code{\link[=find_item]{find_item()}}, \code{\link[=find_entity]{find_entity()}}
+}
 \keyword{datasets}

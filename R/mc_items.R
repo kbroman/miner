@@ -14,6 +14,8 @@
 #'
 #' @source <http://minecraft-ids.grahamedgecombe.com>
 #'
+#' @seealso [find_item()], [find_entity()]
+#'
 #' @examples
 #' data(mc_items)
 #' mc_items[grep("Dirt", mc_items$name),]
