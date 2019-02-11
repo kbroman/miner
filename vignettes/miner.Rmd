@@ -75,7 +75,7 @@ To check you have successfully connected to the world, you can try chatting. You
 see this message appear in the feed in the Minecraft client.
 
 ```r
-chatPost("Message goes to all players.")
+chatPost("Hello, Minecraft!")
 ```
 
 Each player in the world gets a "player ID"", and you'll need to know the player ID to manipulate
