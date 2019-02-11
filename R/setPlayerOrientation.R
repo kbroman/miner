@@ -24,7 +24,7 @@
 setPlayerRotation <- function(angle, id)
 {
 
-    mc_sendreceive(merge_data("entity.setRotation", angle, id))
+    mc_send(merge_data("player.setRotation", angle, id))
 
 }
 
