@@ -12,6 +12,9 @@
 #'
 #' @return A number giving the spawned entity's ID.
 #'
+#' @note Only works with [RaspberryJuice](https://github.com/zhuowei/RaspberryJuice)
+#'     version 1.11 or later.
+#'
 #' @examples
 #' \dontrun{
 #' mc_connect()

@@ -16,10 +16,14 @@ setPlayerDirection(x, y, z, id)
 \item{id}{Player or entity ID}
 }
 \description{
-Set a player's direction
+Set a player's direction vector (x,y,z)
 }
 \details{
 (\code{x}, \code{y}, \code{z}) define a unit vector to which the player will now point.
+}
+\note{
+Only works with \href{https://github.com/zhuowei/RaspberryJuice}{RaspberryJuice}
+version 1.11 or later.
 }
 \examples{
 \dontrun{

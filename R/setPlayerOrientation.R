@@ -7,6 +7,9 @@
 #' @param angle Angle of rotation (0-360)
 #' @param id Player or entity ID
 #'
+#' @note Only works with [RaspberryJuice](https://github.com/zhuowei/RaspberryJuice)
+#'     version 1.11 or later.
+#'
 #' @examples
 #' \dontrun{
 #' mc_connect()
@@ -38,6 +41,9 @@ setPlayerRotation <- function(angle, id)
 #' @param angle Angle of pitch (-90 is straight up and +90 is straight down)
 #' @param id Player or entity ID
 #'
+#' @note Only works with [RaspberryJuice](https://github.com/zhuowei/RaspberryJuice)
+#'     version 1.11 or later.
+#'
 #' @examples
 #' \dontrun{
 #' mc_connect()
@@ -63,7 +69,7 @@ setPlayerPitch <- function(angle, id)
 
 #' Set a player's direction
 #'
-#' Set a player's direction
+#' Set a player's direction vector (x,y,z)
 #'
 #' @md
 #'
@@ -73,6 +79,9 @@ setPlayerPitch <- function(angle, id)
 #' @param id Player or entity ID
 #'
 #' @details (`x`, `y`, `z`) define a unit vector to which the player will now point.
+#'
+#' @note Only works with [RaspberryJuice](https://github.com/zhuowei/RaspberryJuice)
+#'     version 1.11 or later.
 #'
 #' @examples
 #' \dontrun{

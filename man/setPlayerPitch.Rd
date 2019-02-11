@@ -14,6 +14,10 @@ setPlayerPitch(angle, id)
 \description{
 Set a player's pitch
 }
+\note{
+Only works with \href{https://github.com/zhuowei/RaspberryJuice}{RaspberryJuice}
+version 1.11 or later.
+}
 \examples{
 \dontrun{
 mc_connect()

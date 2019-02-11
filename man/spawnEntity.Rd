@@ -22,6 +22,10 @@ A number giving the spawned entity's ID.
 \description{
 Spawn an entity of a given type at a given position.
 }
+\note{
+Only works with \href{https://github.com/zhuowei/RaspberryJuice}{RaspberryJuice}
+version 1.11 or later.
+}
 \examples{
 \dontrun{
 mc_connect()
