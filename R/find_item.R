@@ -30,6 +30,8 @@
 #' find_item(id = 5)
 #' find_item(id = 5, style = 5)
 #'
+#' @seealso [find_entity()], [`mc_items`]
+#'x
 #' @importFrom utils data globalVariables
 #' @export
 find_item <-

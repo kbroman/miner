@@ -40,3 +40,7 @@ find_item(id = 5)
 find_item(id = 5, style = 5)
 
 }
+\seealso{
+\code{\link[=find_entity]{find_entity()}}, \code{\link{mc_items}}
+x
+}
