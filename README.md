@@ -25,44 +25,44 @@ Here are a few of the things you can do with
 
 ### Write words on a hillside:
 
-![](extra_vignettes/figure/rOpenSci_sign.png)
+![](figure/rOpenSci_sign.png)
 
 ### Render a photograph as a wall of blocks:
 
-![](extra_vignettes/figure/karthik_minecraft.png)
+![](figure/karthik_minecraft.png)
 
 Or the [R](https://www.r-project.org) logo:
 
-![](extra_vignettes/figure/Rlogo_minecraft.png)
+![](figure/Rlogo_minecraft.png)
 
 ### Generate a random maze in R, and create it in the world for players to explore:
 
-![](extra_vignettes/figure/maze.gif)
+![](figure/maze.gif)
 
-![](extra_vignettes/figure/maze-minecraft.png)
+![](figure/maze-minecraft.png)
 
 This player is operated by a bot trying to find its way out of the maze via a rule-based algorithm:
 
-![](extra_vignettes/figure/maze_bot.gif)
+![](figure/maze_bot.gif)
 
 ### Give the player the powers of Elsa:
 
 [Freeze water as you run over it](https://youtu.be/6gcRyuj0smg)
 
-[![](extra_vignettes/figure/elsa-animated.gif)](https://www.youtube.com/watch?v=6gcRyuj0smg)
+[![](figure/elsa-animated.gif)](https://www.youtube.com/watch?v=6gcRyuj0smg)
 
 or create towers of ice with a gesture:
 
-![](extra_vignettes/figure/ice_towers.png)
+![](figure/ice_towers.png)
 
 ### Write a bot to play a game with players over chat:
 
-![](extra_vignettes/figure/guessnum.png).
+![](figure/guessnum.png).
 
 
 ### And, of course, make `ggplot` plots in Minecraft:
 
-[![](extra_vignettes/figure/ggplot.gif)](https://www.youtube.com/watch?v=zggCAYAfjXE)
+[![](figure/ggplot.gif)](https://www.youtube.com/watch?v=zggCAYAfjXE)
 
 ### Extending
 
