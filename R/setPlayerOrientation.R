@@ -2,8 +2,6 @@
 #'
 #' Set a player's rotation
 #'
-#' @md
-#'
 #' @param angle Angle of rotation (0-360)
 #' @param id Player or entity ID
 #'
@@ -35,8 +33,6 @@ setPlayerRotation <- function(angle, id=NULL)
 #' Set a player's pitch
 #'
 #' Set a player's pitch
-#'
-#' @md
 #'
 #' @param angle Angle of pitch (-90 is straight up and +90 is straight down)
 #' @param id Player or entity ID
@@ -70,8 +66,6 @@ setPlayerPitch <- function(angle, id=NULL)
 #' Set a player's direction
 #'
 #' Set a player's direction vector (x,y,z)
-#'
-#' @md
 #'
 #' @param x east/west direction
 #' @param y up/down direction

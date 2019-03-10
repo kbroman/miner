@@ -2,8 +2,6 @@
 #'
 #' Spawn an entity of a given type at a given position.
 #'
-#' @md
-#'
 #' @param x east/west position (east is positive)
 #' @param y up/down position (up is positive)
 #' @param z north/south position (south is positive)

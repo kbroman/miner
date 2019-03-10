@@ -27,7 +27,7 @@ the opposite corner of the cuboid.}
 }
 \value{
 An 3-D array of integers where each integer gives the ID of the
-   type of a block in the cuboid.
+type of a block in the cuboid.
 }
 \description{
 Determine block types in a cuboid for which one corner is at

@@ -36,8 +36,6 @@ setBlock <- function(x, y, z, id, style=0)
 #' Place blocks of a single type (specified by `id`) in the cuboid
 #' with opposite corners at the positions (x0, y0, z0) and (x1, y1, z1).
 #'
-#' @md
-
 #' @inheritParams getBlocks
 #' @inheritParams find_item
 #'

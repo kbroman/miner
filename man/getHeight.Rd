@@ -13,7 +13,7 @@ getHeight(x, z)
 }
 \value{
 Integer with height of block just above the last bit of
-   non-air at the specified x / z position.
+non-air at the specified x / z position.
 }
 \description{
 Get height of the world at a given position, where the world's

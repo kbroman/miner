@@ -3,8 +3,6 @@
 #' Find a Minecraft item by name or ID. If querying an item by ID, the search
 #' can also specify item style.
 #'
-#' @md
-#'
 #' @param name Character string with the name of a Minecraft item (specify
 #'    either `name` or `id`, not both)
 #' @param id A numeric or character string with the ID of a Minecraft item

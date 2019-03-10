@@ -2,8 +2,6 @@
 #'
 #' Get the ID for a player with a given name.
 #'
-#' @md
-#'
 #' @param player_name Character string with name of a player.
 #'
 #' @return A number representing the ID of the player.

@@ -2,8 +2,6 @@
 #'
 #' Get the name of a player with a given ID
 #'
-#' @md
-#'
 #' @param player_id Integer giving the ID of a player. You can find IDs of all
 #'   current players using [getPlayerIds()].
 #'

@@ -5,8 +5,6 @@
 #' also given, although the style can be excluded from the output
 #' using the `include_style` parameter.
 #'
-#' @md
-#'
 #' @param x A numeric string with north/south position
 #' @param y A numeric string with height
 #' @param z A numeric string with east/west position

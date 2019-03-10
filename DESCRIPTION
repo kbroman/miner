@@ -1,7 +1,7 @@
 Package: miner
 Title: Control Minecraft with RaspberryJuice API
-Version: 0.2.1
-Date: 2019-02-11
+Version: 0.2.2
+Date: 2019-03-10
 Authors@R: c(
     person("Karl",    "Broman",   role = c("aut", "cre"), email = "kbroman@biostat.wisc.edu"),
     person("Brooke",  "Anderson", role="aut"),
@@ -21,3 +21,4 @@ URL: https://github.com/ROpenSciLabs/miner
 BugReports: https://github.com/ROpenSciLabs/miner/issues
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
+Roxygen: list(markdown=TRUE)
