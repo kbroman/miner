@@ -4,8 +4,6 @@
 #' the first player spawned in the Minecraft world, but this can be run for a different
 #' player by using the `player_id` argument.
 #'
-#' @md
-#'
 #' @inheritParams getPlayerPos
 #'
 #' @return A numeric value between 0 and +360 indicating the direction
@@ -44,8 +42,6 @@ getPlayerRotation <- function(player_id = NULL)
 #' world, but this can be run for a different player by using the `player_id`
 #' argument.
 #'
-#' @md
-#'
 #' @inheritParams getPlayerPos
 #'
 #' @return A numeric value between -90 and +90, giving the pitch of
@@ -83,8 +79,6 @@ getPlayerPitch <- function(player_id = NULL) {
 #' The default is to get the direction for the first player spawned in the Minecraft,
 #' world, but the directions of other players can be gotten using the `player_id`
 #' argument.
-#'
-#' @md
 #'
 #' @return A numeric vector of length 3 with coordinates of the player's current
 #'    direction (gaze) as a unit vector, (x,y,z).

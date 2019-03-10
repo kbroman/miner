@@ -4,8 +4,6 @@
 #' in the game, but the positions of other players can be gotten using the
 #' `player_id` argument.
 #'
-#' @md
-#'
 #' @param player_id  Integer giving the ID of a player. You can find IDs of all
 #'   current players using [getPlayerIds()].
 #' @param tile Logical value specifying whether to truncate the output position to

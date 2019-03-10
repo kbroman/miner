@@ -1,3 +1,10 @@
+## miner version 0.2.2 (2019-03-10)
+
+### Minor changes
+
+- Convert documentation to markdown
+
+
 ## miner version 0.1.6 (2019-02-11)
 
 ### New features

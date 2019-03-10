@@ -52,8 +52,6 @@ mcsplit_message <- function(string, colnames) {
 #' last time the function was run. It is possible that this does not
 #' return chat posts that were posted using [chatPost()].
 #'
-#' @md
-#'
 #' @return A dataframe of recent chat posts with columns for the player
 #'    id of the poster and the message posted
 #'

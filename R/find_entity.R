@@ -2,8 +2,6 @@
 #'
 #' Find a Minecraft entity by name.
 #'
-#' @md
-#'
 #' @param name Character string with a Minecraft entity name (can be a partial match)
 #'
 #' @return Data frame with a row or set of rows from the output of

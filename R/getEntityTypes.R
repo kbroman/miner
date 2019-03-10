@@ -2,8 +2,6 @@
 #'
 #' Get a table of available entity types and their IDs.
 #'
-#' @md
-#'
 #' @return a data frame with two rows, id and type.
 #'
 #' @examples

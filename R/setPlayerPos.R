@@ -6,8 +6,6 @@
 #' the player will be moved to the position specified by truncating the specified
 #' x, y, and z to integers.
 #'
-#' @md
-#'
 #' @inheritParams getBlock
 #' @inheritParams getPlayerPos
 #'

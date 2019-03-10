@@ -2,8 +2,6 @@
 #'
 #' Dataset with the name, ID, and style of possible Minecraft items.
 #'
-#' @md
-#'
 #' @docType data
 #'
 #' @usage data(mc_items)
