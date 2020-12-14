@@ -1,6 +1,6 @@
 ## miner
 
-[![Travis-CI Build Status](https://travis-ci.org/ropenscilabs/miner.svg?branch=master)](https://travis-ci.org/ropenscilabs/miner)
+[![Travis-CI Build Status](https://travis-ci.org/kbroman/miner.svg?branch=master)](https://travis-ci.org/kbroman/miner)
 
 Following the python module
 [py3minepi](https://github.com/py3minepi/py3minepi), this is an R package that allows
@@ -15,13 +15,13 @@ Minecraft world from R. The intent of this package is to encourage new
 R users to learn R by writing scripts to do fun things in Minecraft.
 
 See the online book, [R Programming with
-Minecraft](https://ROpenSciLabs.github.io/miner_book/), for details on
+Minecraft](https://kbroman.org/miner_book/), for details on
 setting up a Minecraft server and using this package, and for a
 variety of detailed examples. The package also contains a short
 [vignette](vignettes/miner.Rmd) on its basic use.
 
 Here are a few of the things you can do with
-[miner](https://github.com/ropenscilabs/miner):
+[miner](https://github.com/kbroman/miner):
 
 ### Write words on a hillside:
 
@@ -66,11 +66,11 @@ or create towers of ice with a gesture:
 
 ### Extending
 
-The [craft](https://github.com/ropenscilabs/craft) package includes additional functions that illustrate and extend the use of [miner](https://github.com/ropenscilabs/miner). Contributors who want to extend the functionality of [miner](https://github.com/ropenscilabs/miner) should submit a pull request to the [craft](https://github.com/ropenscilabs/craft) package.
+The [craft](https://github.com/kbroman/craft) package includes additional functions that illustrate and extend the use of [miner](https://github.com/kbroman/miner). Contributors who want to extend the functionality of [miner](https://github.com/kbroman/miner) should submit a pull request to the [craft](https://github.com/kbroman/craft) package.
 
 ### Documentation
 
-[R Programming with Minecraft](https://ROpenSciLabs.github.io/miner_book/) is a bookdown book about R and Minecraft, and particularly about using Minecraft with the [miner](https://github.com/ropenscilabs/miner) package. Contributors who want to add documentation should submit a pull request to the [miner_book](https://github.com/ropenscilabs/miner_book) repository on Github.
+[R Programming with Minecraft](https://kbroman.org/miner_book/) is a bookdown book about R and Minecraft, and particularly about using Minecraft with the [miner](https://github.com/kbroman/miner) package. Contributors who want to add documentation should submit a pull request to the [miner_book](https://github.com/kbroman/miner_book) repository on Github.
 
 
 ### About this package

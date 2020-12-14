@@ -1,3 +1,11 @@
+## miner verison 0.2.3 (2020-12-14)
+
+### Minor changes
+
+- The miner package was moved from ropenscilabs to kbroman,
+  <https://github.com/kbroman/miner>
+
+
 ## miner version 0.2.2 (2019-03-10)
 
 ### Minor changes

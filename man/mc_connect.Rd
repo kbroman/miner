@@ -4,8 +4,10 @@
 \alias{mc_connect}
 \title{Create a connection to a Minecraft server}
 \usage{
-mc_connect(hostname = Sys.getenv("SPIGOT_HOSTNAME", "localhost"),
-  port = Sys.getenv("SPIGOT_PORT", "4711"))
+mc_connect(
+  hostname = Sys.getenv("SPIGOT_HOSTNAME", "localhost"),
+  port = Sys.getenv("SPIGOT_PORT", "4711")
+)
 }
 \arguments{
 \item{hostname}{A character string with the hostname or IP address for the

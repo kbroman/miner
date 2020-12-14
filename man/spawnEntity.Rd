@@ -14,7 +14,7 @@ spawnEntity(x, y, z, typeid)
 \item{z}{north/south position (south is positive)}
 
 \item{typeid}{Integer giving the type of entity. See the
-output of \code{[etEntityTypes()] or use }find_entity()` to search.}
+output of \verb{[etEntityTypes()] or use }find_entity()` to search.}
 }
 \value{
 A number giving the spawned entity's ID.
