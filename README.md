@@ -1,6 +1,6 @@
 ## miner
 
-[![Travis-CI Build Status](https://travis-ci.org/kbroman/miner.svg?branch=master)](https://travis-ci.org/kbroman/miner)
+[![R-CMD-check](https://github.com/kbroman/miner/workflows/R-CMD-check/badge.svg)](https://github.com/kbroman/miner/actions)
 
 Following the python module
 [py3minepi](https://github.com/py3minepi/py3minepi), this is an R package that allows

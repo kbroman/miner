@@ -1,6 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.travis\.yml$
 ^Makefile$
 ^README.md$
 figure/
+^\.github$
