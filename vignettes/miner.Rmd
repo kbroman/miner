@@ -24,9 +24,9 @@ your R programs directly in Minecraft!
 To install this package:
 
 ```r
-# install.packages("devtools")
-library(devtools)
-devtools::install_github('kbroman/miner')
+# install.packages("remotes")
+library(remotes)
+install_github('kbroman/miner')
 ```
 
 To use the package you will need to:
