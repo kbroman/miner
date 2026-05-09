@@ -1,6 +1,7 @@
 ## miner
 
-[![R-CMD-check](https://github.com/kbroman/miner/workflows/R-CMD-check/badge.svg)](https://github.com/kbroman/miner/actions)
+[![R-CMD-check](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml)
+[![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20070581.svg)](https://doi.org/10.5281/zenodo.20070581)
 
 Following the python module
 [py3minepi](https://github.com/py3minepi/py3minepi), this is an R package that allows
