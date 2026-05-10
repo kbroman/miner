@@ -28,11 +28,13 @@ can also specify item style.
 If \code{name} is provided, we first look to see whether there
 is an exact match to the \code{name} column in \code{\link{mc_items}}. If there
 is, we return that row. If not, we use \code{\link[=grep]{grep()}}
-with \code{ignore.case=TRUE} and return matching rows.\preformatted{If instead `id` is provided, we return the row with that id.
+with \code{ignore.case=TRUE} and return matching rows.
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{If instead `id` is provided, we return the row with that id.
 The default is to return the row with that ID and `style==0`,
 or whatever style was provided. If `style` is NULL, we return
 all rows with that ID.
-}
+}\if{html}{\out{</div>}}
 }
 \examples{
 find_item(name = "Oak")
