@@ -1,4 +1,4 @@
-## miner
+## miner <a href="https://github.com/kbroman/miner"><img src="figure/miner_logo.png" align="right" height="138" alt="miner logo"/></a>
 
 [![R-CMD-check](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml)
 [![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20070581.svg)](https://doi.org/10.5281/zenodo.20070581)
