@@ -14,14 +14,14 @@
 #'    match the queried name, ID, and / or style.
 #'
 #' @details If `name` is provided, we first look to see whether there
-#'     is an exact match to the `name` column in [`mc_items`]. If there
-#'     is, we return that row. If not, we use [grep()]
-#'     with `ignore.case=TRUE` and return matching rows.
+#' is an exact match to the `name` column in [`mc_items`]. If there
+#' is, we return that row. If not, we use [grep()]
+#' with `ignore.case=TRUE` and return matching rows.
 #'
-#'     If instead `id` is provided, we return the row with that id.
-#'     The default is to return the row with that ID and `style==0`,
-#'     or whatever style was provided. If `style` is NULL, we return
-#'     all rows with that ID.
+#' If instead `id` is provided, we return the row with that id.
+#' The default is to return the row with that ID and `style==0`,
+#' or whatever style was provided. If `style` is NULL, we return
+#' all rows with that ID.
 #'
 #' @examples
 #' find_item(name = "Oak")
