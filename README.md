@@ -69,6 +69,31 @@ or create towers of ice with a gesture:
 
 The [craft](https://github.com/kbroman/craft) package includes additional functions that illustrate and extend the use of [miner](https://github.com/kbroman/miner). Contributors who want to extend the functionality of [miner](https://github.com/kbroman/miner) should submit a pull request to the [craft](https://github.com/kbroman/craft) package.
 
+### Installation
+
+Install the [miner](https://github.com/kbroman/miner) and
+[craft](https://github.com/kbroman/craft) packages using the
+[remotes](https://remotes.r-lib.org) package.
+
+First install [remotes](https://remotes.r-lib.org):
+
+```r
+install.packages("remotes")
+```
+
+Then use `remotes:install_github()` to install [miner](https://github.com/kbroman/miner) and
+[craft](https://github.com/kbroman/craft):
+
+```r
+library(remotes)
+install_github("kbroman/miner")
+install_github("kbroman/craft")
+```
+
+You'll need a Minecraft server that is running the RaspberryJuice
+plugin. See the [Installation and configuration](https://kbroman.org/miner_book/installation-and-configuration.html)
+section of [R Programming with Minecraft](https://kbroman.org/miner_book/).
+
 ### Documentation
 
 [R Programming with Minecraft](https://kbroman.org/miner_book/) is a bookdown book about R and Minecraft, and particularly about using Minecraft with the [miner](https://github.com/kbroman/miner) package. Contributors who want to add documentation should submit a pull request to the [miner_book](https://github.com/kbroman/miner_book) repository on Github.
