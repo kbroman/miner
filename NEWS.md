@@ -1,3 +1,10 @@
+## miner version 0.2.4 (2026-05-10)
+
+### Minor changes
+
+- fixed a typo in the vignette
+
+
 ## miner verison 0.2.3 (2020-12-14)
 
 ### Minor changes

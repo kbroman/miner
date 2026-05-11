@@ -94,7 +94,7 @@ Once you have a Player ID, you can move the player around. Note that in Minecraf
 is the East/West axis, "z" is the North/South axis, and "y" is the vertical axis.
 
 ```r
-myloc <- getPlayerPost(myid)
+myloc <- getPlayerPos(myid)
 setPlayerPos(myloc[1]+1,myloc[2],myloc[3],player_id=myid)  # move player 1 tile East
 setPlayerPos(myloc[1],myloc[2]+50,myloc[3],player_id=myid) # raise player 50 tiles in the air
 ```
