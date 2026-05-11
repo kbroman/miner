@@ -1,8 +1,11 @@
-FROM java
-MAINTAINER daroczig@rapporter.net
+FROM mcr.microsoft.com/openjdk/jdk:25-ubuntu
+LABEL org.opencontainers.image.authors="daroczig@rapporter.net"
 
 ## Prepare folder for the Minecraft stuff
 RUN mkdir -p /minecraft
+
+## need wget and git
+RUN apt update && apt install -y wget git
 
 ## Download Spigot build tools
 RUN wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar -P /minecraft/
@@ -27,4 +30,4 @@ EXPOSE 4711
 EXPOSE 25565
 
 ## Start the server
-CMD cd /minecraft; java -Xms512M -Xmx1G -XX:MaxPermSize=128M -XX:+UseConcMarkSweepGC -jar spigot.jar
+CMD cd /minecraft; java -Xms512M -Xmx1G -jar spigot.jar

@@ -1,8 +1,10 @@
-## miner version 0.2.4 (2026-05-10)
+## miner version 0.2.5 (2026-05-11)
 
 ### Minor changes
 
-- fixed a typo in the vignette
+- Revised the Dockerfile, for installing minecraft in a docker container
+
+- Fixed a typo in the vignette
 
 
 ## miner verison 0.2.3 (2020-12-14)
