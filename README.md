@@ -6,7 +6,7 @@
 Following the python module
 [py3minepi](https://github.com/py3minepi/py3minepi), this is an R package that allows
 connection to the
-[Minecraft API](http://www.stuffaboutcode.com/p/minecraft-api-reference.html)
+[Minecraft API](https://www.stuffaboutcode.com/p/minecraft-api-reference.html/)
 using [RaspberryJuice](https://dev.bukkit.org/projects/raspberryjuice)
 and either [Spigot](https://www.spigotmc.org/) or
 [Minecraft:Pi](https://minecraft.net/en-us/edition/pi/).
@@ -101,7 +101,7 @@ section of [R Programming with Minecraft](https://kbroman.org/miner_book/).
 
 ### About this package
 
-This package was created as part of the [ROpenSci unconference](http://unconf17.ropensci.org/)
+This package was created as part of the [ROpenSci unconference](https<://unconf17.ropensci.org/)
 in May, 2017 by:
 
 * [Brooke Anderson](https://github.com/geanders)

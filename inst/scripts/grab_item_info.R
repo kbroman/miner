@@ -1,6 +1,6 @@
 library(rvest)
 
-mc_id_list <- read_html("http://minecraft-ids.grahamedgecombe.com")
+mc_id_list <- read_html("https://minecraft-ids.grahamedgecombe.com/")
 
 ids <- mc_id_list %>%
     html_nodes("td.id") %>% html_text

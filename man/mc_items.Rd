@@ -8,7 +8,7 @@
 Data frame with columns \code{name}, \code{id}, and \code{style}.
 }
 \source{
-\url{http://minecraft-ids.grahamedgecombe.com}
+\url{https://minecraft-ids.grahamedgecombe.com/}
 }
 \usage{
 data(mc_items)

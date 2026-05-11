@@ -41,7 +41,7 @@ mc_connect('52.1.2.3') ## use your server IP address here, or 127.0.0.1 if insta
 ```
 
 Full installation instructions are provided in the online book, [R
-programming with Minecraft](https://kbroman.org/miner_book).
+programming with Minecraft](https://kbroman.org/miner_book/).
 
 
 ### About Minecraft

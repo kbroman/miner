@@ -10,7 +10,7 @@
 #'
 #' @keywords datasets
 #'
-#' @source <http://minecraft-ids.grahamedgecombe.com>
+#' @source <https://minecraft-ids.grahamedgecombe.com/>
 #'
 #' @seealso [find_item()], [find_entity()]
 #'
