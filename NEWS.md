@@ -1,3 +1,11 @@
+## miner version 0.2.6 (2026-05-13)
+
+## Bug fixes
+
+- Add loops to try to get `getPlayerRotation()`, `getPlayerPitch()`,
+  and `getPlayerDirection()` to give fewer null results.
+
+
 ## miner version 0.2.5 (2026-05-11)
 
 ### Minor changes

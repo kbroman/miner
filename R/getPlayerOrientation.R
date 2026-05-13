@@ -25,10 +25,12 @@
 
 getPlayerRotation <- function(player_id = NULL)
 {
+    p <- NA
+
   if(is.null(player_id)){
-    p <- mc_sendreceive("player.getRotation()")
+    while(is.na(p)) p <- mc_sendreceive("player.getRotation()")
   } else {
-    p <- mc_sendreceive(merge_data("entity.getRotation", player_id))
+    while(is.na(p)) p <- mc_sendreceive(merge_data("entity.getRotation", player_id))
   }
 
   as.numeric(p)
@@ -62,10 +64,11 @@ getPlayerRotation <- function(player_id = NULL)
 #' @export
 getPlayerPitch <- function(player_id = NULL) {
 
+    p <- NA
   if(is.null(player_id)){
-    p <- mc_sendreceive("player.getPitch()")
+    while(is.na(p)) p <- mc_sendreceive("player.getPitch()")
   } else {
-    p <- mc_sendreceive(merge_data("entity.getPitch", player_id))
+    while(is.na(p)) p <- mc_sendreceive(merge_data("entity.getPitch", player_id))
   }
 
   as.numeric(p)
@@ -102,10 +105,11 @@ getPlayerPitch <- function(player_id = NULL) {
 #' @export
 getPlayerDirection <- function(player_id = NULL) {
 
+    z <- NA
   if(is.null(player_id)){
-    z <- mc_sendreceive("player.getDirection()")
+    while(is.na(z) || is.null(z)) z <- mc_sendreceive("player.getDirection()")
   } else {
-    z <- mc_sendreceive(merge_data("entity.getDirection", player_id))
+    while(is.na(z) || is.null(z)) z <- mc_sendreceive(merge_data("entity.getDirection", player_id))
   }
 
   as.numeric(strsplit(z, ",")[[1]])
