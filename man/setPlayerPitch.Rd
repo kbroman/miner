@@ -14,6 +14,10 @@ setPlayerPitch(angle, id = NULL)
 \description{
 Set a player's pitch
 }
+\details{
+Angles < -90 degrees are treated as -90 degrees (straight up),
+and angles > 90 degrees are treated as +90 degrees (straight down).
+}
 \note{
 Only works with \href{https://github.com/zhuowei/RaspberryJuice}{RaspberryJuice}
 version 1.11 or later.

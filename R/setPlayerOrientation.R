@@ -40,6 +40,9 @@ setPlayerRotation <- function(angle, id=NULL)
 #' @note Only works with [RaspberryJuice](https://github.com/zhuowei/RaspberryJuice)
 #'     version 1.11 or later.
 #'
+#' @details Angles < -90 degrees are treated as -90 degrees (straight up),
+#' and angles > 90 degrees are treated as +90 degrees (straight down).
+#'
 #' @examples
 #' \dontrun{
 #' mc_connect()
