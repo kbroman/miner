@@ -5,6 +5,10 @@
 - Add loops to try to get `getPlayerRotation()`, `getPlayerPitch()`,
   and `getPlayerDirection()` to give fewer null results.
 
+- The API for `getPlayerRotation()` seems to give incorrect values
+  when `player_id` is `NULL`, so now using `getPlayerDirection()` and then
+  converting to the rotation. (Issue #26)
+
 
 ## miner version 0.2.5 (2026-05-11)
 
