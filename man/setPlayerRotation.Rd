@@ -4,12 +4,12 @@
 \alias{setPlayerRotation}
 \title{Set a player's rotation}
 \usage{
-setPlayerRotation(angle, id = NULL)
+setPlayerRotation(angle, player_id = NULL)
 }
 \arguments{
 \item{angle}{Angle of rotation (0-360)}
 
-\item{id}{Player or entity ID}
+\item{player_id}{Player or entity ID}
 }
 \description{
 Set a player's rotation

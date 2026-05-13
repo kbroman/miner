@@ -4,7 +4,7 @@
 \alias{setPlayerDirection}
 \title{Set a player's direction}
 \usage{
-setPlayerDirection(x, y, z, id = NULL)
+setPlayerDirection(x, y, z, player_id = NULL)
 }
 \arguments{
 \item{x}{east/west direction}
@@ -13,7 +13,7 @@ setPlayerDirection(x, y, z, id = NULL)
 
 \item{z}{north/south direction}
 
-\item{id}{Player or entity ID}
+\item{player_id}{Player or entity ID}
 }
 \description{
 Set a player's direction vector (x,y,z)
@@ -29,7 +29,7 @@ version 1.11 or later.
 \dontrun{
 mc_connect()
 getPlayerIds()
-setPlayerDirection(45, 355)
+setPlayerDirection(1, 0, 1)
 }
 
 }

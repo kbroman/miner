@@ -3,7 +3,7 @@
 #' Set a player's rotation
 #'
 #' @param angle Angle of rotation (0-360)
-#' @param id Player or entity ID
+#' @param player_id Player or entity ID
 #'
 #' @note Only works with [RaspberryJuice](https://github.com/zhuowei/RaspberryJuice)
 #'     version 1.11 or later.
@@ -22,10 +22,10 @@
 #' @export
 #'
 
-setPlayerRotation <- function(angle, id=NULL)
+setPlayerRotation <- function(angle, player_id=NULL)
 {
 
-    mc_send(merge_data("player.setRotation", angle, id))
+    mc_send(merge_data("player.setRotation", angle, player_id))
 
 }
 
@@ -35,7 +35,7 @@ setPlayerRotation <- function(angle, id=NULL)
 #' Set a player's pitch
 #'
 #' @param angle Angle of pitch (-90 is straight up and +90 is straight down)
-#' @param id Player or entity ID
+#' @param player_id Player or entity ID
 #'
 #' @note Only works with [RaspberryJuice](https://github.com/zhuowei/RaspberryJuice)
 #'     version 1.11 or later.
@@ -56,10 +56,10 @@ setPlayerRotation <- function(angle, id=NULL)
 #' @export
 #'
 
-setPlayerPitch <- function(angle, id=NULL)
+setPlayerPitch <- function(angle, player_id=NULL)
 {
 
-    mc_send(merge_data("player.setPitch", angle, id))
+    mc_send(merge_data("player.setPitch", angle, player_id))
 
 }
 
@@ -73,7 +73,7 @@ setPlayerPitch <- function(angle, id=NULL)
 #' @param x east/west direction
 #' @param y up/down direction
 #' @param z north/south direction
-#' @param id Player or entity ID
+#' @param player_id Player or entity ID
 #'
 #' @details (`x`, `y`, `z`) define a unit vector to which the player will now point.
 #'
@@ -84,7 +84,7 @@ setPlayerPitch <- function(angle, id=NULL)
 #' \dontrun{
 #' mc_connect()
 #' getPlayerIds()
-#' setPlayerDirection(45, 355)
+#' setPlayerDirection(1, 0, 1)
 #' }
 #'
 #' @seealso [getPlayerDirection()], [setPlayerRotation()], [setPlayerPitch()],
@@ -93,9 +93,9 @@ setPlayerPitch <- function(angle, id=NULL)
 #' @export
 #'
 
-setPlayerDirection <- function(x, y, z, id=NULL)
+setPlayerDirection <- function(x, y, z, player_id=NULL)
 {
 
-    mc_send(merge_data("player.setDirection", x, y, z, id))
+    mc_send(merge_data("player.setDirection", x, y, z, player_id))
 
 }

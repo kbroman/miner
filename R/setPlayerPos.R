@@ -15,7 +15,7 @@
 #' \dontrun{
 #' mc_connect()
 #' p <- getPlayerPos()
-#' setPlayerPos(mc, 0, p + 5, 0)
+#' setPlayerPos(0, p + 5, 0)
 #'
 #' example_entity <- getPlayerIds()[1]
 #' getPlayerPos(example_entity)

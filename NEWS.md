@@ -1,4 +1,10 @@
-## miner version 0.2.6 (2026-05-13)
+## miner version 0.3.0 (2026-05-13)
+
+### Major changes
+
+- In `setPlayerDirection()`, `setPlayerPitch()`, `setPlayerPos()`,
+  `setPlayerRotation()`, change the `id` argument to `player_id` for
+  consistency across functions.
 
 ### Bug fixes
 

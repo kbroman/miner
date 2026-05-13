@@ -111,12 +111,14 @@ getPlayerPitch <- function(player_id = NULL) {
 getPlayerDirection <- function(player_id = NULL) {
 
     z <- NA
-  if(is.null(player_id)){
-    while(is.na(z) || is.null(z)) z <- mc_sendreceive("player.getDirection()")
-  } else {
-    while(is.na(z) || is.null(z)) z <- mc_sendreceive(merge_data("entity.getDirection", player_id))
-  }
+    if(is.null(player_id)){
+      while(is.na(z) || is.null(z) || z=="")
+          z <- mc_sendreceive("player.getDirection()")
+    } else {
+        while(is.na(z) || is.null(z) || z=="")
+            z <- mc_sendreceive(merge_data("entity.getDirection", player_id))
+    }
 
-  as.numeric(strsplit(z, ",")[[1]])
+    as.numeric(strsplit(z, ",")[[1]])
 
 }
