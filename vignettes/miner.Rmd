@@ -1,8 +1,8 @@
 ---
-title: "Learning to program in R with miner"
+title: "Program in Minecraft with R and miner"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Learn to program in Minecraft with miner}
+  %\VignetteIndexEntry{Program in Minecraft with R and miner}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
