@@ -11,6 +11,14 @@ vignette: >
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+<style type="text/css">
+body {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
 ## Introduction <a href="https://github.com/kbroman/miner"><img src="https://kbroman.org/miner/miner_logo.png" align="right" height="138" alt="miner logo"/></a>
 
 The miner package provides a simple interface to the Minecraft world. Use R functions
@@ -19,7 +27,7 @@ to connect with a Minecraft server and control the world within.
 The purpose of this package is to teach new programmers about R. See the effect of
 your R programs directly in Minecraft!
 
-### Installation
+## Installation
 
 To install this package:
 
@@ -44,7 +52,7 @@ Full installation instructions are provided in the online book, [R
 programming with Minecraft](https://kbroman.org/miner_book/).
 
 
-### About Minecraft
+## About Minecraft
 
 Minecraft is a virtual world, arranged as a 3-D grid of blocks of various materials
 (air, wood, stone, etc) and populated by players, animals and monsters. The state of
