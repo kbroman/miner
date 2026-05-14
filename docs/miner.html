@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Program in Minecraft with R and miner</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Program in Minecraft with R and miner</h1>
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction
+<a href="https://github.com/kbroman/miner"><img role="img" aria-label="miner logo" src="https://kbroman.org/miner/miner_logo.png" align="right" height="138" alt="miner logo" /></a></h2>
+<p>The miner package provides a simple interface to the Minecraft world.
+Use R functions to connect with a Minecraft server and control the world
+within.</p>
+<p>The purpose of this package is to teach new programmers about R. See
+the effect of your R programs directly in Minecraft!</p>
+<div id="installation" class="section level3">
+<h3>Installation</h3>
+<p>To install this package:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&#39;kbroman/miner&#39;</span>)</span></code></pre></div>
+<p>To use the package you will need to:</p>
+<ul>
+<li>Install a Minecraft server</li>
+<li>Install a Minecraft client (the Minecraft game)</li>
+<li>Connect to the Minecraft server from R</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(miner)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">mc_connect</span>(<span class="st">&#39;52.1.2.3&#39;</span>) <span class="do">## use your server IP address here, or 127.0.0.1 if installed locally</span></span></code></pre></div>
+<p>Full installation instructions are provided in the online book, <a href="https://kbroman.org/miner_book/">R programming with
+Minecraft</a>.</p>
+</div>
+<div id="about-minecraft" class="section level3">
+<h3>About Minecraft</h3>
+<p>Minecraft is a virtual world, arranged as a 3-D grid of blocks of
+various materials (air, wood, stone, etc) and populated by players,
+animals and monsters. The state of the world is maintained by a shared
+Minecraft server, and players explore and interact with the shared world
+using a local Minecraft client.</p>
+<p>For the server, we installed <a href="https://www.spigotmc.org/">Spigot</a>, an open-source Minecraft
+server, on a virtual machine. (See the section “Details on setting up a
+Minecraft Server”, below.) The R functions in this package connect with
+the server and modify the game world.</p>
+<p>For the client, you will need to purchase and install <a href="https://minecraft.net">Minecraft</a> on your local PC or Mac
+machine. Note: this package will not work with Pocket Minecraft on
+mobile devices/tablets, or with the Windows 10 version of Minecraft
+found in the Windows Store.</p>
+</div>
+</div>
+<div id="your-first-miner-adventure" class="section level2">
+<h2>Your first miner adventure</h2>
+<p>Once you have a Minecraft server set up, here are some commands you
+can try. Use your Minecraft client to observe the changes these commands
+make to the world.</p>
+<p>First, connect to the world. For this you will need to know the IP
+address of your server.</p>
+<pre><code>mc_connect(&quot;52.168.1.2&quot;) # use the IP of your server here</code></pre>
+<p>To check you have successfully connected to the world, you can try
+chatting. You should see this message appear in the feed in the
+Minecraft client.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">chatPost</span>(<span class="st">&quot;Hello, Minecraft!&quot;</span>)</span></code></pre></div>
+<p>Each player in the world gets a “player ID”“, and you’ll need to know
+the player ID to manipulate players. If you’re the only player in the
+world, the player ID is easy to find. But if there are multiple players,
+the easiest way to find your ID is to sign out of the server and then
+sign in again. Your player ID will then be the last one on the list
+returned by <code>getPlayerIds</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>myid <span class="ot">&lt;-</span> <span class="fu">tail</span>(<span class="fu">getPlayerIds</span>(),<span class="dv">1</span>)</span></code></pre></div>
+<p>An alternative way of getting the player ID without the need to log
+out, using the chat window and an R script, see the <a href="https://github.com/kbroman/craft/blob/master/R/mc_whoami.R"><code>mc_whoami</code>
+function</a> in the related <a href="https://github.com/kbroman/craft">craft package</a>.</p>
+<p>Once you have a Player ID, you can move the player around. Note that
+in Minecraft, “x” is the East/West axis, “z” is the North/South axis,
+and “y” is the vertical axis.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>myloc <span class="ot">&lt;-</span> <span class="fu">getPlayerPos</span>(myid)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">setPlayerPos</span>(myloc[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1</span>,myloc[<span class="dv">2</span>],myloc[<span class="dv">3</span>],<span class="at">player_id=</span>myid)  <span class="co"># move player 1 tile East</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">setPlayerPos</span>(myloc[<span class="dv">1</span>],myloc[<span class="dv">2</span>]<span class="sc">+</span><span class="dv">50</span>,myloc[<span class="dv">3</span>],<span class="at">player_id=</span>myid) <span class="co"># raise player 50 tiles in the air</span></span></code></pre></div>
+<p>You can also modify the game world. For example, this adds a diamond
+block near the player.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>myloc <span class="ot">&lt;-</span> <span class="fu">getPlayerPos</span>(myid)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">setBlock</span>(myloc[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1</span>, myloc[<span class="dv">2</span>], myloc[<span class="dv">3</span>], <span class="dv">57</span>, <span class="dv">1</span>)</span></code></pre></div>
+</div>
+<div id="overview-of-miner-commands" class="section level2">
+<h2>Overview of miner commands</h2>
+<p>General functions for connecting to the game world:</p>
+<ul>
+<li><code>mc_connect</code>: Connect to a Minecraft server</li>
+<li><code>chatPost</code>: Make a chat message appear to players in
+their clients</li>
+<li><code>getChatPosts</code>: Retrieve the most recent chat
+message</li>
+<li><code>mc_close</code>: Close the connection to the Minecraft
+server</li>
+</ul>
+<p>Functions for interacting with player location and direction (the
+angle of their gaze). Note that in Minecraft, <code>x</code> is East,
+<code>y</code> is Up and <code>z</code> is South, and the unit is one
+block. (A block is a 1-unit cube.) The player figure is about 2 units
+tall.</p>
+<ul>
+<li><code>getPlayerIds</code>: Get a list of players in the world</li>
+<li><code>getPlayerPos</code>: Find the position of a specified
+player</li>
+<li><code>getPlayerDirection</code>: Get a unit vector representing
+player direction</li>
+<li><code>getPlayerRotation</code>: Return the angle of the player’s
+direction in the x-z plane</li>
+<li><code>getPlayerPitch</code>: Return the up/down angle of the
+player’s direction</li>
+<li><code>setPlayerPos</code>: Teleport a player to a specified
+location</li>
+</ul>
+<p>Functions for interacting with the Minecraft world.</p>
+<ul>
+<li><code>getHeight</code>: Find the height of the world (the y value of
+the highest non-air point) at a given x-z location</li>
+<li><code>getBlock</code>: Return the type of block (air, wood etc) in a
+given location, as a code. See the provided data frame
+<code>mc_items</code> for a list of blocks and item codes.</li>
+<li><code>setBlock</code>: change the block type at a given location.
+Use this to place items in the world.</li>
+<li><code>getBlocks</code>: Return the block types in a rectangular
+region, as a 3-dimensional array.</li>
+<li><code>setBlocks</code>: Fill a rectangular region with a specific
+block type</li>
+<li><code>getBlockHits</code>: Return the locations of blocks recently
+struck by a player’s iron sword</li>
+</ul>
+<p>Additional commands were added in later versions of the API:</p>
+<ul>
+<li><code>getPlayerName</code>: get the name of the particular player
+with a particular ID</li>
+<li><code>getPlayerId</code>: get the numeric ID for a player, given
+their name.</li>
+<li><code>getEntityTypes</code>: get a data frame of the available
+entity types (with columns <code>id</code> and <code>name</code>).</li>
+<li><code>spawnEntity</code>: spawn a particular entity at a specific
+position.</li>
+<li><code>setPlayerRotation</code>, <code>setPlayerPitch</code>,
+<code>setPlayerDirection</code>: like the corresponding <code>get</code>
+functions, but for setting a player’s orientation.</li>
+</ul>
+</div>
+<div id="suggestions-for-writing-your-own-programs-with-miner" class="section level2">
+<h2>Suggestions for writing your own programs with miner</h2>
+<p>Using the commands above, you can write programs in R to create
+structures in the game world, manipulate players, or even have the game
+world react to actions players take. Here are some things you can try
+(in some cases, with links to examples showing how).</p>
+<ul>
+<li>Take an image (like a <a href="https://kbroman.org/miner_book/rendering-an-image-in-minecraft.html">photo</a>
+or <a href="https://kbroman.org/miner_book/rendering-the-r-logo-in-minecraft.html">logo</a>),
+and create a wall (<a href="https://kbroman.org/miner_book/figure/karthik_minecraft.png">like
+this</a>) in Minecraft that looks like the image.</li>
+<li>Build a <a href="https://kbroman.org/miner_book/generate-a-maze-in-minecraft.html">random
+maze</a> (<a href="https://kbroman.org/miner_book/figure/maze-minecraft.png">like
+this</a>) to explore in Minecraft.</li>
+<li>Create a <a href="https://kbroman.org/miner_book/a-stairway-to-heaven.html">staircase</a>
+or <a href="https://kbroman.org/miner_book/building-a-tower-and-jumping-on-top.html">tower</a>
+programatically.</li>
+<li>Make it possible to run over water, by <a href="https://gist.github.com/kbroman/711247a3d6791ebc2bda387b87ada6d2">having
+ice appear wherever water touches the player’s feet</a> (like in <a href="https://youtu.be/6gcRyuj0smg">this video</a>.)</li>
+<li>Track the player’s actions to have them <a href="https://kbroman.org/miner_book/planting-a-garden.html">plant
+flowers</a> or <a href="https://kbroman.org/miner_book/planting-a-garden.html#build-ice-towers">build
+an ice tower</a>.</li>
+<li>Write a bot to <a href="https://kbroman.org/miner_book/number-guess-chat-bot-in-minecraft.html">play
+a game with players over chat</a> or <a href="https://github.com/kbroman/craft/blob/master/R/mc_Reval.R">evaluate
+R commands</a>.</li>
+</ul>
+<p>Many of these features have been integrated into the companion
+package, <a href="https://github.com/kbroman/craft">craft</a>. We are
+also preparing an ebook, <a href="https://kbroman.org/miner_book/">R
+programming with Minecraft</a>, which discusses these activities, and a
+few others, in more detail.</p>
+</div>
+<div id="details-on-setting-up-a-minecraft-server" class="section level2">
+<h2>Details on Setting up a Minecraft server</h2>
+<p>We have tested this package using <a href="https://www.spigotmc.org">Spigot</a> installed on an Ubuntu 16.04
+virtual machine, and created a <a href="https://github.com/kbroman/miner/blob/master/inst/Dockerfile">Docker
+image</a> after all that you can easily deploy in your environment.</p>
+<p>Note, that you may need to open ports on the Minecraft server and
+firewall to allow R and game clients to connect with it.</p>
+<p>You probably want to configure the server to run in Creative mode, so
+edit the <code>server.properties</code> file as below:</p>
+<pre><code>force-gamemode=true
+gamemode=1
+difficulty=0
+motd=My very own minecraft server</code></pre>
+<p>Further installation details are provided in the ebook, <a href="https://kbroman.org/miner_book/">R programming with
+Minecraft</a>.</p>
+</div>
+<div id="acknowledgments-and-references" class="section level2">
+<h2>Acknowledgments and References</h2>
+<p>Many of the ideas and techniques in this package were adapted from <a href="https://nostarch.com/programwithminecraft">“Learn to program with
+Minecraft” by Craid Richardson (No Starch Press, 2016)</a>.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
