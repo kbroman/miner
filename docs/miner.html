@@ -362,25 +362,21 @@ the effect of your R programs directly in Minecraft!</p>
 <h2>Installation</h2>
 <p>Install the <a href="https://github.com/kbroman/miner">miner</a> and
 <a href="https://github.com/kbroman/craft">craft</a> packages from <a href="https://r-universe.dev">R universe</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;miner&quot;</span>, <span class="st">&quot;craft&quot;</span>), <span class="at">repos=</span><span class="fu">c</span>(<span class="st">&quot;https://kbroman.r-universe.dev&quot;</span>, <span class="st">&quot;https://cloud.r-project.org&quot;</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>Alternatively, use the</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>[remotes](https<span class="sc">:</span><span class="er">//</span>remotes.r<span class="sc">-</span>lib.org) package to install them from</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>GitHub.</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="st">```</span><span class="at">r</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at"># install.packages(&quot;remotes&quot;)</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">library(remotes)</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">install_github(&#39;kbroman/miner&#39;)</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">install_github(&#39;kbroman/craft&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;miner&quot;</span>, <span class="st">&quot;craft&quot;</span>), <span class="at">repos=</span><span class="fu">c</span>(<span class="st">&quot;https://kbroman.r-universe.dev&quot;</span>, <span class="st">&quot;https://cloud.r-project.org&quot;</span>))</span></code></pre></div>
+<p>Alternatively, use the <a href="https://remotes.r-lib.org">remotes</a> package to install them
+from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&#39;kbroman/miner&#39;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&#39;kbroman/craft&#39;</span>)</span></code></pre></div>
 <p>To use the package you will need to:</p>
 <ul>
 <li>Install a Minecraft server</li>
 <li>Install a Minecraft client (the Minecraft game)</li>
 <li>Connect to the Minecraft server from R</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(miner)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">mc_connect</span>(<span class="st">&#39;52.1.2.3&#39;</span>) <span class="do">## use your server IP address here, or 127.0.0.1 if installed locally</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(miner)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">mc_connect</span>(<span class="st">&#39;52.1.2.3&#39;</span>) <span class="do">## use your server IP address here, or 127.0.0.1 if installed locally</span></span></code></pre></div>
 <p>Full installation instructions are provided in the online book, <a href="https://kbroman.org/miner_book/">R programming with
 Minecraft</a>.</p>
 </div>
@@ -411,27 +407,27 @@ address of your server.</p>
 <p>To check you have successfully connected to the world, you can try
 chatting. You should see this message appear in the feed in the
 Minecraft client.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">chatPost</span>(<span class="st">&quot;Hello, Minecraft!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">chatPost</span>(<span class="st">&quot;Hello, Minecraft!&quot;</span>)</span></code></pre></div>
 <p>Each player in the world gets a “player ID”“, and you’ll need to know
 the player ID to manipulate players. If you’re the only player in the
 world, the player ID is easy to find. But if there are multiple players,
 the easiest way to find your ID is to sign out of the server and then
 sign in again. Your player ID will then be the last one on the list
 returned by <code>getPlayerIds</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>myid <span class="ot">&lt;-</span> <span class="fu">tail</span>(<span class="fu">getPlayerIds</span>(),<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>myid <span class="ot">&lt;-</span> <span class="fu">tail</span>(<span class="fu">getPlayerIds</span>(),<span class="dv">1</span>)</span></code></pre></div>
 <p>An alternative way of getting the player ID without the need to log
 out, using the chat window and an R script, see the <a href="https://github.com/kbroman/craft/blob/master/R/mc_whoami.R"><code>mc_whoami</code>
 function</a> in the related <a href="https://github.com/kbroman/craft">craft package</a>.</p>
 <p>Once you have a Player ID, you can move the player around. Note that
 in Minecraft, “x” is the East/West axis, “z” is the North/South axis,
 and “y” is the vertical axis.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>myloc <span class="ot">&lt;-</span> <span class="fu">getPlayerPos</span>(myid)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">setPlayerPos</span>(myloc[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1</span>,myloc[<span class="dv">2</span>],myloc[<span class="dv">3</span>],<span class="at">player_id=</span>myid)  <span class="co"># move player 1 tile East</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">setPlayerPos</span>(myloc[<span class="dv">1</span>],myloc[<span class="dv">2</span>]<span class="sc">+</span><span class="dv">50</span>,myloc[<span class="dv">3</span>],<span class="at">player_id=</span>myid) <span class="co"># raise player 50 tiles in the air</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>myloc <span class="ot">&lt;-</span> <span class="fu">getPlayerPos</span>(myid)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">setPlayerPos</span>(myloc[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1</span>,myloc[<span class="dv">2</span>],myloc[<span class="dv">3</span>],<span class="at">player_id=</span>myid)  <span class="co"># move player 1 tile East</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">setPlayerPos</span>(myloc[<span class="dv">1</span>],myloc[<span class="dv">2</span>]<span class="sc">+</span><span class="dv">50</span>,myloc[<span class="dv">3</span>],<span class="at">player_id=</span>myid) <span class="co"># raise player 50 tiles in the air</span></span></code></pre></div>
 <p>You can also modify the game world. For example, this adds a diamond
 block near the player.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>myloc <span class="ot">&lt;-</span> <span class="fu">getPlayerPos</span>(myid)</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">setBlock</span>(myloc[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1</span>, myloc[<span class="dv">2</span>], myloc[<span class="dv">3</span>], <span class="dv">57</span>, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>myloc <span class="ot">&lt;-</span> <span class="fu">getPlayerPos</span>(myid)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">setBlock</span>(myloc[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1</span>, myloc[<span class="dv">2</span>], myloc[<span class="dv">3</span>], <span class="dv">57</span>, <span class="dv">1</span>)</span></code></pre></div>
 </div>
 <div id="overview-of-miner-commands" class="section level2">
 <h2>Overview of miner commands</h2>

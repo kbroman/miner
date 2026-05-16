@@ -83,20 +83,21 @@ install.packages(c("miner", "craft"), repos=c("https://kbroman.r-universe.dev", 
 
 Alternatively, use the
 [remotes](https://remotes.r-lib.org) package to install them from
-GitHub. First install [remotes](https://remotes.r-lib.org):
+GitHub:
 
 ```r
-install.packages("remotes")
-```
-
-Then use `remotes:install_github()` to install [miner](https://github.com/kbroman/miner) and
-[craft](https://github.com/kbroman/craft):
-
-```r
+# install.packages("remotes")
 library(remotes)
 install_github("kbroman/miner")
 install_github("kbroman/craft")
 ```
+
+_Note_: this should automatically install a number of dependent
+packages, including [Rmaze](https://github.com/Vessy/Rmaze),
+[igraph](https://r.igraph.org), and
+[imager](https://asgr.github.io/imager/). To install imager you may
+need to install [Xquartz](https://www.xquartz.org/) on Mac or
+`libx11-dev` or similar on Linux.
 
 You'll need a Minecraft server that is running the RaspberryJuice
 plugin. See the [Installation and configuration](https://kbroman.org/miner_book/installation-and-configuration.html)
