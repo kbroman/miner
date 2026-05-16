@@ -4,7 +4,6 @@
 [![r-universe badge](https://kbroman.r-universe.dev/miner/badges/version)](https://kbroman.r-universe.dev/miner)
 [![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20070581.svg)](https://doi.org/10.5281/zenodo.20070581)
 
-
 Following the python module
 [py3minepi](https://github.com/py3minepi/py3minepi), this is an R package that allows
 connection to the

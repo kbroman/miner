@@ -7,6 +7,10 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+[![R-CMD-check](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml)
+[![r-universe badge](https://kbroman.r-universe.dev/miner/badges/version)](https://kbroman.r-universe.dev/miner)
+[![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20070581.svg)](https://doi.org/10.5281/zenodo.20070581)
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
