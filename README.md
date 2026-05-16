@@ -74,7 +74,7 @@ The [craft](https://github.com/kbroman/craft) package includes additional functi
 
 Install the [miner](https://github.com/kbroman/miner) and
 [craft](https://github.com/kbroman/craft) packages from [R
-universe](https://r-universe.dev)
+universe](https://r-universe.dev):
 
 ```r
 install.packages(c("miner", "craft"), repos=c("https://kbroman.r-universe.dev", "https://cloud.r-project.org"))
