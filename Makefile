@@ -3,6 +3,9 @@ all: doc data/mc_items.RData docs/miner.html
 doc:
 	R -e 'devtools::document()'
 
+test:
+	R -e 'devtools::test()'
+
 data/mc_items.RData: inst/scripts/grab_item_info.R
 	cd $(<D);R --no-save -e "source('$(<F)')"
 
