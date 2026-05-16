@@ -1,3 +1,11 @@
+## miner version 0.3.1 (2026-05-16)
+
+### Bug fixes
+
+- Fixed a bug in `setBlocks()` where the cuboid gets reordered and as
+  a results the labels of the output aren't as they should be.
+
+
 ## miner version 0.3.0 (2026-05-13)
 
 ### Major changes

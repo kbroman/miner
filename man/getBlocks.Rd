@@ -26,7 +26,7 @@ the opposite corner of the cuboid.}
 the opposite corner of the cuboid.}
 }
 \value{
-An 3-D array of integers where each integer gives the ID of the
+A 3-D array of integers where each integer gives the ID of the
 type of a block in the cuboid.
 }
 \description{
