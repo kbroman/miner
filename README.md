@@ -1,7 +1,9 @@
 ## miner <a href="https://github.com/kbroman/miner"><img src="figure/miner_logo.png" align="right" height="138" alt="miner logo"/></a>
 
 [![R-CMD-check](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml)
+[![r-universe badge](https://kbroman.r-universe.dev/miner/badges/version)](https://kbroman.r-universe.dev/miner)
 [![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20070581.svg)](https://doi.org/10.5281/zenodo.20070581)
+
 
 Following the python module
 [py3minepi](https://github.com/py3minepi/py3minepi), this is an R package that allows
@@ -72,10 +74,16 @@ The [craft](https://github.com/kbroman/craft) package includes additional functi
 ### Installation
 
 Install the [miner](https://github.com/kbroman/miner) and
-[craft](https://github.com/kbroman/craft) packages using the
-[remotes](https://remotes.r-lib.org) package.
+[craft](https://github.com/kbroman/craft) packages from [R
+universe](https://r-universe.dev)
 
-First install [remotes](https://remotes.r-lib.org):
+```r
+install.packages(c("miner", "craft"), repos=c("https://kbroman.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+Alternatively, use the
+[remotes](https://remotes.r-lib.org) package to install them from
+GitHub. First install [remotes](https://remotes.r-lib.org):
 
 ```r
 install.packages("remotes")
