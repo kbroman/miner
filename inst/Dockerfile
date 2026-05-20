@@ -28,8 +28,8 @@ RUN ln -s /minecraft/spigot-${SPIGOT_VER}.jar /minecraft/spigot.jar
 RUN echo "eula=true" > /minecraft/eula.txt
 
 ## Replace lines in server.properties
-RUN sed -i "s/gamemode=survival/gamemode=${GAMEMODE}/" server.properties
-RUN sed -i "s/force-gamemode=false/force-gamemode=${FORCE_GAMEMODE}/" server.properties
+RUN sed -i "s/gamemode=survival/gamemode=${GAMEMODE}/" /minecraft/server.properties
+RUN sed -i "s/force-gamemode=false/force-gamemode=${FORCE_GAMEMODE}/" /minecraft/server.properties
 
 ## Download and install the RaspberryJuice plugin for API access
 RUN mkdir -p /minecraft/plugins \
