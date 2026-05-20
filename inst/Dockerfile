@@ -5,6 +5,8 @@ ARG GAMEMODE="creative"
 ARG FORCE_GAMEMODE="true"
 ARG RASPBERRY_JUICE_VER="1.12.1"
 ARG SPIGOT_VER="26.1.2"
+ARG MS="512M"
+ARG MX="1G"
 
 ## Prepare folder for the Minecraft stuff
 RUN mkdir -p /minecraft
@@ -22,7 +24,7 @@ RUN cd /minecraft && java -jar BuildTools.jar --rev ${SPIGOT_VER}
 RUN ln -s /minecraft/spigot-${SPIGOT_VER}.jar /minecraft/spigot.jar
 
 ## Run once
-RUN cd /minecraft && java -jar -Xms512M -Xmx1G spigot.jar nogui
+RUN cd /minecraft && java -jar -Xms${MS} -Xmx${MX} spigot.jar nogui
 
 ## Accept EULA
 RUN echo "eula=true" > /minecraft/eula.txt
@@ -42,4 +44,4 @@ EXPOSE 4711
 EXPOSE 25565
 
 ## Start the server
-CMD cd /minecraft && java -Xms512M -Xmx1G -jar spigot.jar nogui
+CMD cd /minecraft && java -Xms${MS} -Xmx${MX} -jar spigot.jar nogui
