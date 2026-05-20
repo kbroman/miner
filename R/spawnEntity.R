@@ -6,7 +6,7 @@
 #' @param y up/down position (up is positive)
 #' @param z north/south position (south is positive)
 #' @param typeid Integer giving the type of entity. See the
-#'     output of `[etEntityTypes()] or use `find_entity()` to search.
+#'     output of [getEntityTypes()] or use [find_entity()] to search.
 #'
 #' @return A number giving the spawned entity's ID.
 #'
