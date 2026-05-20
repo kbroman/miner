@@ -18,13 +18,13 @@ RUN apt update && apt install -y wget git
 RUN wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar -P /minecraft/
 
 ## Build the Spigot server
-RUN cd /minecraft && java -jar BuildTools.jar --rev ${SPIGOT_VER}
+RUN cd /minecraft && java -jar BuildTools.jar --rev $SPIGOT_VER
 
 ## Symlink for the built Spigot server
 RUN ln -s /minecraft/spigot-${SPIGOT_VER}.jar /minecraft/spigot.jar
 
 ## Run once
-RUN cd /minecraft && java -jar -Xms${MS} -Xmx${MX} spigot.jar nogui
+RUN cd /minecraft && java -jar -Xms$MS -Xmx$MX spigot.jar nogui
 
 ## Accept EULA
 RUN echo "eula=true" > /minecraft/eula.txt
@@ -43,5 +43,9 @@ EXPOSE 4711
 ## Open up Game port
 EXPOSE 25565
 
+# environment variables
+ENV MS=$MS
+ENV MX=$MX
+
 ## Start the server
-CMD cd /minecraft && java -Xms${MS} -Xmx${MX} -jar spigot.jar nogui
+CMD cd /minecraft && java -jar -Xms$MS -Xmx$MX spigot.jar nogui
