@@ -1,3 +1,13 @@
+## miner version 0.3.2 (2026-05-20)
+
+### New features
+
+- Revised `Dockerfile` so that it will change the server mode to
+  creative. It can also accept build arguments
+  `GAMEMODE`, `FORCE_GAMEMODE`, `RASPBERRY_JUICE_VER`,
+  `SPIGOT_VER`, `MS` (starting memory) and `MX` (maximum memory).
+
+
 ## miner version 0.3.1 (2026-05-16)
 
 ### Bug fixes
