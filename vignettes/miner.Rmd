@@ -167,7 +167,8 @@ Additional commands were added in later versions of the API:
   particular ID
 * `getPlayerId`: get the numeric ID for a player, given their name.
 * `getEntityTypes`: get a data frame of the available entity types
-  (with columns `id` and `name`).
+  (with columns `id` and `name`). See also `find_entity` for searching
+  for an entity by name.
 * `spawnEntity`: spawn a particular entity at a specific position.
 * `setPlayerRotation`, `setPlayerPitch`, `setPlayerDirection`: like
   the corresponding `get` functions, but for setting a player's
