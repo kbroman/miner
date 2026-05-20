@@ -22,7 +22,7 @@ RUN cd /minecraft && java -jar BuildTools.jar --rev ${SPIGOT_VER}
 RUN ln -s /minecraft/spigot-${SPIGOT_VER}.jar /minecraft/spigot.jar
 
 ## Run once
-#RUN java -jar -Xms512M -Xmx1G spigot.jar nogui
+RUN cd /minecraft && java -jar -Xms512M -Xmx1G spigot.jar nogui
 
 ## Accept EULA
 RUN echo "eula=true" > /minecraft/eula.txt
@@ -42,4 +42,4 @@ EXPOSE 4711
 EXPOSE 25565
 
 ## Start the server
-CMD cd /minecraft; java -Xms512M -Xmx1G -jar spigot.jar nogui
+CMD cd /minecraft && java -Xms512M -Xmx1G -jar spigot.jar nogui
