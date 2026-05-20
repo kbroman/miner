@@ -18,9 +18,6 @@ RUN wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/art
 ## Build the Spigot server
 RUN cd /minecraft && java -jar BuildTools.jar --rev ${SPIGOT_VER}
 
-## basic server.properties
-RUN echo "gamemode=${GAMEMODE}\nforce-gamemode=${FORCE_GAMEMODE}" > server.properties
-
 ## Symlink for the built Spigot server
 RUN ln -s /minecraft/spigot-${SPIGOT_VER}.jar /minecraft/spigot.jar
 
@@ -30,17 +27,14 @@ RUN ln -s /minecraft/spigot-${SPIGOT_VER}.jar /minecraft/spigot.jar
 ## Accept EULA
 RUN echo "eula=true" > /minecraft/eula.txt
 
+## Replace lines in server.properties
+RUN sed -i "s/gamemode=survival/gamemode=${GAMEMODE}/" server.properties
+RUN sed -i "s/force-gamemode=false/force-gamemode=${FORCE_GAMEMODE}/" server.properties
+
 ## Download and install the RaspberryJuice plugin for API access
 RUN mkdir -p /minecraft/plugins \
     && wget https://github.com/zhuowei/RaspberryJuice/raw/master/jars/raspberryjuice-${RASPBERRY_JUICE_VER}.jar \
     && mv raspberryjuice-${RASPBERRY_JUICE_VER}.jar /minecraft/plugins/
-
-## Run once
-#RUN java -jar -Xms512M -Xmx1G spigot.jar nogui
-
-## Replace lines in server.properties
-RUN sed -i "s/gamemode=survival/gamemode=${GAMEMODE}/" server.properties
-RUN sed -i "s/force-gamemode=false/force-gamemode=${FORCE_GAMEMODE}/" server.properties
 
 ## Open up API port
 EXPOSE 4711
