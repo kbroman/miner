@@ -1,9 +1,10 @@
+FROM mcr.microsoft.com/openjdk/jdk:25-ubuntu
+LABEL org.opencontainers.image.authors="daroczig@rapporter.net"
+
 ARG GAMEMODE="creative"
 ARG FORCE_GAMEMODE="true"
 ARG RASPBERRY_JUICE_VER="1.12.1"
-
-FROM mcr.microsoft.com/openjdk/jdk:25-ubuntu
-LABEL org.opencontainers.image.authors="daroczig@rapporter.net"
+ARG SPIGOT_VER="26.1.2"
 
 ## Prepare folder for the Minecraft stuff
 RUN mkdir -p /minecraft
@@ -15,17 +16,16 @@ RUN apt update && apt install -y wget git
 RUN wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar -P /minecraft/
 
 ## Build the Spigot server
-RUN cd /minecraft && java -jar BuildTools.jar
+RUN cd /minecraft && java -jar BuildTools.jar --rev ${SPIGOT_VER}
+
+## basic server.properties
+RUN echo "gamemode=${GAMEMODE}\nforce-gamemode=${FORCE_GAMEMODE}" > server.properties
 
 ## Symlink for the built Spigot server
-RUN ln -s /minecraft/spigot*.jar /minecraft/spigot.jar
+RUN ln -s /minecraft/spigot-${SPIGOT_VER}.jar /minecraft/spigot.jar
 
-## Run once to create server.conf
-RUN java -Xms512M -Xmx1G -jar spigot.jar
-
-## Replace lines in server.conf
-RUN sed -i "/gamemode=survival/gamemode=${GAMEMODE}/" server.conf
-RUN sed -i "/force-gamemode=false/force-gamemode=${FORCE_GAMEMODE}/" server.conf
+## Run once
+#RUN java -jar -Xms512M -Xmx1G spigot.jar nogui
 
 ## Accept EULA
 RUN echo "eula=true" > /minecraft/eula.txt
@@ -35,10 +35,17 @@ RUN mkdir -p /minecraft/plugins \
     && wget https://github.com/zhuowei/RaspberryJuice/raw/master/jars/raspberryjuice-${RASPBERRY_JUICE_VER}.jar \
     && mv raspberryjuice-${RASPBERRY_JUICE_VER}.jar /minecraft/plugins/
 
+## Run once
+#RUN java -jar -Xms512M -Xmx1G spigot.jar nogui
+
+## Replace lines in server.properties
+RUN sed -i "s/gamemode=survival/gamemode=${GAMEMODE}/" server.properties
+RUN sed -i "s/force-gamemode=false/force-gamemode=${FORCE_GAMEMODE}/" server.properties
+
 ## Open up API port
 EXPOSE 4711
 ## Open up Game port
 EXPOSE 25565
 
 ## Start the server
-CMD cd /minecraft; java -Xms512M -Xmx1G -jar spigot.jar
+CMD cd /minecraft; java -Xms512M -Xmx1G -jar spigot.jar nogui
