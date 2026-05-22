@@ -87,8 +87,8 @@ GitHub:
 ```r
 # install.packages("remotes")
 library(remotes)
-install_github("kbroman/miner")
-install_github("kbroman/craft")
+install_github("kbroman/miner", build_vignettes=TRUE)
+install_github("kbroman/craft", build_vignettes=TRUE)
 ```
 
 _Note_: this should automatically install a number of dependent
