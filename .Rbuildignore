@@ -2,6 +2,6 @@
 ^\.Rproj\.user$
 ^Makefile$
 ^README.md$
-figure/
+^figure/
 ^\.github$
 docs/
