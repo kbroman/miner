@@ -7,22 +7,15 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-[![R-CMD-check](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml)
-[![r-universe badge](https://kbroman.r-universe.dev/miner/badges/version)](https://kbroman.r-universe.dev/miner)
-[![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20070581.svg)](https://doi.org/10.5281/zenodo.20070581)
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<style type="text/css">
-body {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img { border: 0; }
-</style>
+<link rel=stylesheet type="text/css" href="https://kbroman.org/stylesheets/kbroman_vignette.css"></script>
+
+[![R-CMD-check](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/miner/actions/workflows/R-CMD-check.yaml)
+[![r-universe badge](https://kbroman.r-universe.dev/miner/badges/version)](https://kbroman.r-universe.dev/miner)
+[![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20070581.svg)](https://doi.org/10.5281/zenodo.20070581)
 
 ## Introduction <a href="https://github.com/kbroman/miner"><img src="https://kbroman.org/miner/miner_logo.png" align="right" height="138" alt="miner logo"/></a>
 
